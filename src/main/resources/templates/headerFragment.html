@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <link th:href="@{/css/common.css}" href="/static/css/common.css" rel="stylesheet"/>
+    <link th:href="@{/css/header.css}" href="/static/css/header.css" rel="stylesheet"/>
+</head>
+<div class="header" th:fragment="header">
+    <div class="logo">
+        <a th:href="@{/}" href="/">
+            <div id="logo-image">
+                <img th:src="@{/images/logo.svg}" src="/static/images/logo.svg"/>
+            </div>
+        </a>
+
+        <div id="com-name">THE SUN QUILL</div>
+        <div id="com-since">since 2005</div>
+    </div>
+    <div class="search-box">
+        <form id="search-form" action="/search" method="get">
+            <button type="submit">
+                <img id="search-icon" th:src="@{/images/search-icon.svg}" src="/static/images/search-icon.svg">
+            </button>
+            <input type="text" id="search-text" name="search-text">
+        </form>
+    </div>
+    <div class="nav">
+        <div>
+            <a th:href="@{/featrues}" href="/about">
+                FEATURES
+            </a>
+        </div>
+        <div>
+            <a th:href="@{/sun-society}" href="/about">
+                SNU SOCIETY
+            </a>
+        </div>
+        <div>
+            <a th:href="@{/arts_culture}" href="/about">
+                ARTS & CULTURE
+            </a></div>
+        <div>
+            <a th:href="@{/short_articles}" href="/about">
+                SHORT ARTICLES
+            </a></div>
+        <div>
+            <a th:href="@{/archives}" href="/about">
+                ARCHIVES
+            </a></div>
+        <div>
+            <a th:href="@{/about}" href="/about">
+                ABOUT
+            </a></div>
+    </div>
+</div>
+</html>
