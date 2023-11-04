@@ -1,4 +1,6 @@
-CREATE TABLE member
+drop table if exists member;
+
+CREATE TABLE if not exists member
 (
     member_id           BIGINT PRIMARY KEY AUTO_INCREMENT,
     name                VARCHAR(255),
