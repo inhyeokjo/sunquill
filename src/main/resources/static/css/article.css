@@ -1,3 +1,5 @@
+@import "common.css";
+
 .article-body {
     display: flex;
     flex-direction: column;
@@ -12,7 +14,7 @@
 
 .article-category {
     margin-top: 24px;
-    color: #FB4E26;
+    color: var(--Main-Color);
     text-align: center;
     font-size: 14px;
     font-style: normal;
@@ -23,13 +25,16 @@
 
 .headline {
     flex-direction: column;
-    color: rgba(0, 0, 0, 0.60);
+    color: var(--Text-Color);
     text-align: center;
     font-size: 32px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    letter-spacing: 0.32px;
+    letter-spacing: 0;
+    margin: 0;
+    padding: 0;
+    min-height: 32px;
 }
 
 .headline > p {
@@ -47,7 +52,7 @@
 .article-content {
     margin: 50px 200px;
     flex-direction: column;
-    color: rgba(0, 0, 0, 0.60);
+    color: var(--Text-Color);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -59,7 +64,7 @@ div#color-line {
     display: block;
     width: 41px;
     min-height: 3px;
-    background: #FB4E26;
+    background: var(--Main-Color);
 }
 
 div.article-footer#article-footer {
@@ -85,7 +90,7 @@ div.author-box {
 
 .author-box > div.author-role {
     flex-shrink: 0;
-    color: rgba(0, 0, 0, 0.60);
+    color: var(--Text-Color);
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -95,7 +100,7 @@ div.author-box {
 
 .author-box > div.author-name {
     flex-shrink: 0;
-    color: rgba(0, 0, 0, 0.60);
+    color: var(--Text-Color);
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -105,7 +110,7 @@ div.author-box {
 
 .author-box > div.author-email {
     flex-shrink: 0;
-    color: rgba(0, 0, 0, 0.60);
+    color: var(--Text-Color);
     font-size: 16px;
     font-style: normal;
     font-weight: 400;

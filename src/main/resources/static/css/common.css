@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap');
 
+:root {
+    --Main-Color: #FB4E26;
+    --Sub-Color: #ffede9;
+    --Line-Color  : #D9D9D9;
+    --Text-Color  : #666666;
+}
+
 * {
     font-family: 'Jost', sans-serif;
 }
 
-div {
-    display: flex;
-}
 
-body {
-    margin: 0;
-    padding: 0;
-}
+
+
+
+
