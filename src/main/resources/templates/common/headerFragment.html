@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="kr">
 <head>
-    <link th:href="@{/css/common.css}" href="/static/css/common.css" rel="stylesheet"/>
-    <link th:href="@{/css/header.css}" href="/static/css/header.css" rel="stylesheet"/>
+    <link th:href="@{/css/common.css}" href="/css/common.css" rel="stylesheet"/>
+    <link th:href="@{/css/header.css}" href="/css/header.css" rel="stylesheet"/>
 </head>
 <div class="header" th:fragment="header">
     <div class="logo">
-        <a th:href="@{/}" href="/">
+        <a th:href="@{/temp/home}">
             <div id="logo-image">
-                <img th:src="@{/images/logo.svg}" src="/static/images/logo.svg"/>
+                <img th:src="@{/images/logo.svg}" src="/images/logo.svg"/>
             </div>
         </a>
 
@@ -18,7 +18,7 @@
     <div class="search-box">
         <form id="search-form" action="/search" method="get">
             <button type="submit">
-                <img id="search-icon" th:src="@{/images/search-icon.svg}" src="/static/images/search-icon.svg">
+                <img id="search-icon" th:src="@{/images/search-icon.svg}" src="/images/search-icon.svg">
             </button>
             <input type="text" id="search-text" name="search-text">
         </form>
