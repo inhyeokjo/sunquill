@@ -7,19 +7,20 @@
     <link th:href="@{/css/footer.css}" href="/static/css/footer.css" rel="stylesheet"/>
     <meta charset="UTF-8">
     <title>Article</title>
-</head>
 
+</head>
+<header th:replace="~{common/headerFragment :: header}"></header>
 <body>
-<header th:replace="~{headerFragment :: header}"></header>
 <div class="article-body">
     <div class="main-image">
-        <img th:src="${articleDto.pictureUrl}" src="/static/images/sample-image-1080x494.jpg"/>
+        <img th:src="${articleDto.pictureUrl}" src="/static/images/sample-image-1080x494.jpg" alt=""/>
     </div>
     <div class="article-category" th:text="${articleDto.category().name()}">
         category
     </div>
     <div class="headline">
-        <p th:each="titleLine : ${articleDto.title()}" th:text="${titleLine}"></p>
+            <p th:each="titleLine : ${articleDto.title()}" th:text="${titleLine}">
+            </p>
     </div>
     <div class="article-content">
         <p th:each="contentsLine : ${articleDto.contents()}" th:text="${contentsLine}"></p>
@@ -29,7 +30,7 @@
         <div id="color-line"></div>
         <div class="article-footer" id="article-footer">
             <div class="image-box">
-                <img th:src="${articleDto.author().getPictureUrl()}" src="/static/images/sample-image-100x100.jpg"/>
+                <img th:src="${articleDto.author().getPictureUrl()}" src="/static/images/sample-image-100x100.jpg" alt=""/>
             </div>
             <div class="author-box">
                 <div class="author-role" th:text="${articleDto.author().getRole()}"></div>
@@ -43,7 +44,6 @@
 
     </div>
 </div>
-<footer th:replace="~{footerFragment :: footer}"></footer>
-</div>
 </body>
+<footer th:replace="~{common/footerFragment :: footer}"></footer>
 </html>
