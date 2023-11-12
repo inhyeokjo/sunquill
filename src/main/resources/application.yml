@@ -6,4 +6,10 @@ spring:
     check-template-location: true
     prefix: classpath:/templates/   # .html 파일을 불러오기 위한 경로 설정(src/main/resources/templates)
     suffix: .html   # 파일 확장자
-    cache: false
+    cache: true
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+

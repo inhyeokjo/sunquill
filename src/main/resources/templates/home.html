@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <link th:href="@{/css/common.css}" href="/static/css/common.css" rel="stylesheet"/>
+    <link th:href="@{/css/header.css}" href="/static/css/header.css" rel="stylesheet"/>
+    <link th:href="@{/css/home.css}" href="/css/home.css" rel="stylesheet"/>
+    <link th:href="@{/css/footer.css}" href="/static/css/footer.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<header th:replace="~{common/headerFragment :: header}"></header>
+<body>
+<div class="main-body">
+    뭘보노
+    <div class="main-banner">
+        <img src="main-banner-img-with-article-link" alt="">
+        <link >
+    </div>
+    <list class="main-article-list-right">
+        <div>
+            최신article3개
+        </div>
+    </list>
+    <div class="editors-picks">
+        <div>FEATURES</div>
+        <div>SNU SOCIETY</div>
+        <div>ARTS & CULTURE</div>
+    </div>
+    <div class="main-body-footer">
+        <div>slide</div>
+    </div>
+</div>
+</body>
+<footer th:replace="~{common/footerFragment :: footer}"></footer>
+</html>
