@@ -2,6 +2,9 @@ package com.snuquill.paperdx.video.application;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.snuquill.paperdx.video.domain.VideoInfo;
@@ -17,11 +20,10 @@ public class VideoInfoService {
 
 	private final VideoInfoRepository videoInfoRepository;
 
-	public List<VideoInfoDto> getPickedVideo() {
-		List<VideoInfo> pickedVideoInfo = videoInfoRepository.findAllByPicked(true);
-		if (pickedVideoInfo.size() != 3) {
-			log.warn("선택된 비디오가 3개가 아닙니다. 관리자는 비디오를 3개로 유지해주세요");
-		}
-		return pickedVideoInfo.stream().map(VideoInfoDto::of).toList();
+	public List<VideoInfoDto> getRecentUploadVideoInfo(int retrieveCount) {
+		PageRequest countRequest = PageRequest.of(0, retrieveCount, Sort.by("upload_date").descending());
+		Page<VideoInfo> findVideoInfo = videoInfoRepository.findAll(countRequest);
+		return findVideoInfo.stream().map(VideoInfoDto::of).toList();
 	}
+
 }

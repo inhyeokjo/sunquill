@@ -1,5 +1,7 @@
 package com.snuquill.paperdx.video.application;
 
+import java.time.LocalDateTime;
+
 import com.snuquill.paperdx.video.domain.VideoInfo;
 
 import lombok.AllArgsConstructor;
@@ -11,8 +13,9 @@ public class VideoInfoDto {
 
 	private String iframeSrc;
 	private String title;
+	private LocalDateTime uploadDate;
 
 	public static VideoInfoDto of(VideoInfo videoInfo) {
-		return new VideoInfoDto(videoInfo.getIframeSrc(), videoInfo.getTitle());
+		return new VideoInfoDto(videoInfo.getIframeSrc(), videoInfo.getTitle(), videoInfo.getUploadDate());
 	}
 }

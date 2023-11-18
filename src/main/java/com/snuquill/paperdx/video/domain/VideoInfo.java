@@ -1,5 +1,7 @@
 package com.snuquill.paperdx.video.domain;
 
+import java.time.LocalDateTime;
+
 import com.snuquill.paperdx.article.domain.BaseEntity;
 
 import jakarta.persistence.Column;
@@ -26,5 +28,5 @@ public class VideoInfo extends BaseEntity {
 	private Long id;
 	private String iframeSrc;
 	private String title;
-	private boolean picked;
+	private LocalDateTime uploadDate;
 }
