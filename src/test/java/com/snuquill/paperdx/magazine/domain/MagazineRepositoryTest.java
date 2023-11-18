@@ -57,7 +57,6 @@ class MagazineRepositoryTest {
 		magazineRepository.save(magazine4);
 		magazineRepository.save(magazine5);
 
-
 		PageRequest countRequest = PageRequest.of(0, 3, Sort.by("publishDate").descending());
 		Page<Magazine> all = magazineRepository.findAll(countRequest);
 		List<Magazine> magazineList = all.stream().toList();
@@ -66,5 +65,32 @@ class MagazineRepositoryTest {
 		Assertions.assertThat(magazineList.get(0).getVolumeNumber()).isEqualTo(magazine5.getVolumeNumber());
 		Assertions.assertThat(magazineList.get(1).getVolumeNumber()).isEqualTo(magazine4.getVolumeNumber());
 		Assertions.assertThat(magazineList.get(2).getVolumeNumber()).isEqualTo(magazine3.getVolumeNumber());
+	}
+
+	@Test
+	void findLatestVolumeNumber() {
+		Magazine magazine1 = Magazine.builder()
+			.volumeNumber(2)
+			.build();
+		Magazine magazine2 = Magazine.builder()
+			.volumeNumber(2)
+			.build();
+		Magazine magazine3 = Magazine.builder()
+			.volumeNumber(2)
+			.build();
+		Magazine magazine4 = Magazine.builder()
+			.volumeNumber(5)
+			.build();
+		Magazine magazine5 = Magazine.builder()
+			.volumeNumber(5)
+			.build();
+		magazineRepository.save(magazine1);
+		magazineRepository.save(magazine2);
+		magazineRepository.save(magazine3);
+		magazineRepository.save(magazine4);
+		magazineRepository.save(magazine5);
+
+		Integer latestVolumeNumber = magazineRepository.findLatestVolumeNumber().get();
+		Assertions.assertThat(latestVolumeNumber).isEqualTo(5);
 	}
 }
