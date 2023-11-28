@@ -9,6 +9,7 @@
 }
 
 .article-body > div {
+    display: flex;
     justify-content: center;
 }
 
