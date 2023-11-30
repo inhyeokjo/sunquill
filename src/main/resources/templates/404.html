@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <link th:href="@{/css/common.css}" href="/static/css/common.css" rel="stylesheet"/>
+    <link th:href="@{/css/header.css}" href="/static/css/header.css" rel="stylesheet"/>
+    <link th:href="@{/css/404.css}" href="/css/404.css" rel="stylesheet"/>
+    <link th:href="@{/css/footer.css}" href="/static/css/footer.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>404 Page</title>
+</head>
+<header th:replace="~{common/headerFragment :: header}"></header>
+
+<body>
+
+<div class="error-body">
+    <div class="error-title">
+        <h1>404</h1>
+        <h3>Oops, page not found!</h3>
+    </div>
+    <div class="error-message">
+        <body>
+        Sorry, but we can’t find the page you’re looking for.
+        If you think something is broken, let us know.
+        </body>
+    </div>
+    <div class="link-button">
+        <div class="home-page-button" th:onclick="|location.href='@{home}'|">
+            <p>
+            HOME PAGE
+            </p>
+        </div >
+        <div class="contact-us-button">
+            <p>
+                CONTACT-US
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+<footer th:replace="~{common/footerFragment :: footer}"></footer>
+
+</html>

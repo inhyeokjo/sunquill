@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <link th:href="@{/css/common.css}" href="/static/css/common.css" rel="stylesheet"/>
+    <link th:href="@{/css/header.css}" href="/static/css/header.css" rel="stylesheet"/>
+    <link th:href="@{/css/home/home.css}" href="/css/home/home.css" rel="stylesheet"/>
+    <link th:href="@{/css/home/slide-banner.css}" href="/static/css/home/slide-banner.css" rel="stylesheet"/>
+    <link th:href="@{/css/footer.css}" href="/static/css/footer.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<header th:replace="~{common/headerFragment :: header}"></header>
+<body>
+<div class="home-container">
+    <div class="top-article-container">
+        <div class='top-article'>
+            <div class="top-article-title">
+                <p>
+                    To Leave or Not to Leave:
+                    The Dilemma of the Russian Commercial Exodus
+                </p>
+            </div>
+            <div class="top-article-summary">
+                <p>
+                    Short Summary of the Article: Article Preview Article Preview Article Preview
+                </p>
+            </div>
+        </div>
+        <div class="recent-article-list">
+            <div class="recent-article" th:each="recentArticle : ${#numbers.sequence(1,3)}">
+                <h4>Article Title</h4>
+                <h5>
+                    Article Preview Article Preview Article Preview
+                    Article Preview Article Preview Article Preview
+                </h5>
+            </div>
+        </div>
+    </div>
+    <div class="editors-picks-body">
+        <div class="editors-picks-container">
+            <div class="editors-picks-title-container">
+                <div class="editors-picks-title">
+                    Editor's Picks
+                </div>
+                <div class="editors-picks-title-line">
+                    <hr>
+                </div>
+            </div>
+            <div class="editors-picks-list">
+                <div class="editors-pick">
+                    <h5>FEATURES</h5>
+                    <h4>
+                        R U Actually Woke Tho
+                    </h4>
+                </div>
+                <div class="editors-pick">
+                    <h5>SNU SOCIETY</h5>
+                    <h4>
+                        SNU’s Establishment of the “Advanced Convergence Department”
+                    </h4>
+                </div>
+                <div class="editors-pick">
+                    <h5>ARTS & CULTURES</h5>
+                    <h4>
+                        Crush Culture: The Downfall of Instant Love
+                    </h4>
+                </div>
+                <div class="editors-pick">
+                    <h5>OPINION</h5>
+                    <h4>
+                        Title
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="magazine-archive-container">
+        <div class="magazine-archive-slider">
+            <div class="magazine-archive-slide">
+                <img src="image1.jpg" alt="이미지 1">
+            </div>
+            <div class="magazine-archive-slide">
+                <img src="image2.jpg" alt="이미지 2">
+            </div>
+            <div class="magazine-archive-slide">
+                <img src="image3.jpg" alt="이미지 3">
+            </div>
+        </div>
+    </div>
+    <div class="quill-videos-body">
+        <div class="quill-videos-container">
+            <div class="quill-videos-title-container">
+                <div class="quill-videos-title">
+                    Quill Videos
+                </div>
+                <div class="quill-videos-title-line">
+                    <hr>
+                </div>
+            </div>
+            <div class="quill-videos-list">
+                <div class="quill-video" th:each="editorsPick : ${#numbers.sequence(1,3)}">
+                    <h5>video title </h5>
+                    <h4>
+                        quill-video Preview
+                        quill-video Preview
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="photojournals-container">
+        <div class="photojournals-title-container">
+            <div class="photojournals-title">
+                Photojournals
+            </div>
+            <div class="photojournals-title-line">
+                <hr>
+            </div>
+        </div>
+        <div class="photojournals-slider">
+            <div class="photojournals-slide">
+                <img th:src="@{/images/photojournalsExample.jpg}" alt="이미지 1">
+            </div>
+            <div class="photojournals-slide">
+                <img th:src="@{/images/photojournalsExample1.jpg}" alt="Image 1">
+            </div>
+            <div class="photojournals-slide">
+                <img th:src="@{/images/photojournalsExample2.jpg}" alt="Image 3">
+            </div>
+        </div>
+        <div class="photojournals-content">
+            A mirror to bridge the old and the new…
+        </div>
+    </div>
+</div>
+
+</body>
+<footer th:replace="~{common/footerFragment :: footer}"></footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+    $('.temp-magazine-archive-slider').slick({
+        autoplay: true,
+        autoplaySpeed: 2000,
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear',
+        adaptiveHeight: true
+    });
+    $('.photojournals-slider').slick({
+        autoplay: true,
+        autoplaySpeed: 2000,
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear',
+        adaptiveHeight: true
+    });
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCount = slides.length;
+
+    function showSlide(n) {
+        slides.forEach(slide => slide.style.display = 'none');
+        slides[n].style.display = 'block';
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slideCount;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+        showSlide(currentSlide);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        showSlide(currentSlide);
+        setInterval(nextSlide, 3000); // 3초마다 자동 슬라이드
+    });
+</script>
+</html>
