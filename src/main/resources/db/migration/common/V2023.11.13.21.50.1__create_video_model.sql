@@ -1,5 +1,3 @@
-drop table if exists video_info;
-
 create table if not exists video_info
 (
     video_info_id BIGINT PRIMARY KEY AUTO_INCREMENT comment '자동 채번된 ID',

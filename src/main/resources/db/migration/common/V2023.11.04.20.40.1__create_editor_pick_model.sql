@@ -1,5 +1,3 @@
-drop table if exists editor_pick;
-
 create table if not exists editor_pick
 (
     editor_pick_id BIGINT PRIMARY KEY AUTO_INCREMENT comment '자동 채번된 ID',

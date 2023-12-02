@@ -1,5 +1,3 @@
-drop table if exists photo_journal;
-
 create table if not exists photo_journal
 (
     photo_journal_id BIGINT PRIMARY KEY AUTO_INCREMENT comment '자동 채번된 ID',

@@ -1,5 +1,3 @@
-drop table if exists top_article;
-
 create table if not exists top_article
 (
     top_article_id BIGINT PRIMARY KEY AUTO_INCREMENT comment '자동 채번된 ID',

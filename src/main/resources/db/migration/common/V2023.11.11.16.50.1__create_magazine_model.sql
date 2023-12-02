@@ -1,5 +1,3 @@
-drop table if exists magazine;
-
 create table if not exists magazine
 (
     magazine_id       BIGINT PRIMARY KEY AUTO_INCREMENT comment '자동 채번된 ID',
