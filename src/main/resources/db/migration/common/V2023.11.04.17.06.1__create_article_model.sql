@@ -1,5 +1,3 @@
-drop table if exists article;
-
 CREATE TABLE if not exists article
 (
     article_id    BIGINT PRIMARY KEY AUTO_INCREMENT,
