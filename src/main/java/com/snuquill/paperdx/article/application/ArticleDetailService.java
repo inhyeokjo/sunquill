@@ -16,11 +16,11 @@ public class ArticleDetailService {
 	private final ArticleRepository articleRepository;
 	private final AuthorService authorService;
 
-	public ArticleDto getArticleDetail(Long articleId) {
+	public ArticleDetailDto getArticleDetail(Long articleId) {
 		Article article = articleRepository.findById(articleId).orElseThrow();
 		Long authorId = article.getAuthorId();
 		Author author = authorService.getAuthor(authorId);
-		return new ArticleDto(
+		return new ArticleDetailDto(
 			article.getMainPicture().getUrl(),
 			article.getCategory(),
 			article.getTitleList(),
