@@ -1,5 +1,6 @@
 package com.snuquill.paperdx.article.domain;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class Article extends BaseEntity {
 	private Picture mainPicture;
 	private boolean invisible;
 	private Long authorId;
+	private LocalDateTime publishDate;
 
 	public Article(String title, String contents, Category category, Picture mainPicture, Long authorId) {
 		this.title = title;
