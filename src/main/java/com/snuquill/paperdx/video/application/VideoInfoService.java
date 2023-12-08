@@ -19,7 +19,7 @@ public class VideoInfoService {
 	private final VideoInfoRepository videoInfoRepository;
 
 	public List<VideoInfoDto> getRecentUploadVideoInfo(int retrieveCount) {
-		PageRequest countRequest = PageRequest.of(0, retrieveCount, Sort.by("upload_date").descending());
+		PageRequest countRequest = PageRequest.of(0, retrieveCount, Sort.by("uploadDate").descending());
 		return videoInfoRepository.findAll(countRequest).stream()
 			.map(VideoInfoDto::of)
 			.toList();
