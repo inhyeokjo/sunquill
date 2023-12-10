@@ -10,8 +10,10 @@ import lombok.Data;
 public class ArticleLineDto {
 	private String articleTitle;
 	private String articleSummary;
+	private String articlePictureUrl;
+	private String authorName;
 
-	public static ArticleLineDto of(Article article) {
-		return new ArticleLineDto(article.getTitle(), article.getContents());
+	public static ArticleLineDto of(Article article, String authorName) {
+		return new ArticleLineDto(article.getTitle(), article.getContents(), article.getMainPicture().getUrl(), authorName);
 	}
 }

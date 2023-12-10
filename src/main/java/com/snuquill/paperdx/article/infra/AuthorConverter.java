@@ -10,6 +10,7 @@ public class AuthorConverter {
 
 	public Author createAuthor(Member member) {
 		return new Author(
+			member.getId(),
 			member.getName(),
 			member.getEmail(),
 			member.getRole(),

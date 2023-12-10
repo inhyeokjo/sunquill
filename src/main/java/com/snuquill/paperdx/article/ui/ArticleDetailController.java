@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/article")
 @RequiredArgsConstructor
 @Validated
-public class ArticleController {
+public class ArticleDetailController {
 
 	private final ArticleDetailService articleDetailService;
 
