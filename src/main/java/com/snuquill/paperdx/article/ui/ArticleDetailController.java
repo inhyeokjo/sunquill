@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.snuquill.paperdx.article.application.ArticleDetailService;
-import com.snuquill.paperdx.article.application.ArticleDto;
+import com.snuquill.paperdx.article.application.ArticleDetailDto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
@@ -17,13 +17,13 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/article")
 @RequiredArgsConstructor
 @Validated
-public class ArticleController {
+public class ArticleDetailController {
 
 	private final ArticleDetailService articleDetailService;
 
 	@GetMapping("/{articleId}")
 	public String getArticleDetail(@NotNull @PathVariable Long articleId, Model model) {
-		ArticleDto articleDetail = articleDetailService.getArticleDetail(articleId);
+		ArticleDetailDto articleDetail = articleDetailService.getArticleDetail(articleId);
 		model.addAttribute(articleDetail);
 		return "article";
 	}

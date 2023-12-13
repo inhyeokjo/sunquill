@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.snuquill.paperdx.article.domain.Article;
 import com.snuquill.paperdx.article.domain.ArticleRepository;
 import com.snuquill.paperdx.article.domain.Author;
-import com.snuquill.paperdx.article.domain.AuthorService;
+import com.snuquill.paperdx.article.domain.AuthorRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,13 +14,13 @@ import lombok.RequiredArgsConstructor;
 public class ArticleDetailService {
 
 	private final ArticleRepository articleRepository;
-	private final AuthorService authorService;
+	private final AuthorRepository authorRepository;
 
-	public ArticleDto getArticleDetail(Long articleId) {
+	public ArticleDetailDto getArticleDetail(Long articleId) {
 		Article article = articleRepository.findById(articleId).orElseThrow();
 		Long authorId = article.getAuthorId();
-		Author author = authorService.getAuthor(authorId);
-		return new ArticleDto(
+		Author author = authorRepository.getAuthor(authorId);
+		return new ArticleDetailDto(
 			article.getMainPicture().getUrl(),
 			article.getCategory(),
 			article.getTitleList(),

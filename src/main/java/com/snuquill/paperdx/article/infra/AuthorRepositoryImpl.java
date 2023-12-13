@@ -1,16 +1,18 @@
 package com.snuquill.paperdx.article.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.snuquill.paperdx.article.domain.Author;
-import com.snuquill.paperdx.article.domain.AuthorService;
+import com.snuquill.paperdx.article.domain.AuthorRepository;
 import com.snuquill.paperdx.member.domain.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class AuthorServiceImpl implements AuthorService {
+public class AuthorRepositoryImpl implements AuthorRepository {
 
 	private final MemberRepository memberRepository;
 	private final AuthorConverter authorConverter;
@@ -20,6 +22,14 @@ public class AuthorServiceImpl implements AuthorService {
 		return memberRepository.findById(id)
 			.map(authorConverter::createAuthor)
 			.orElseGet(Author::getAnonimousAuthor);
+	}
+
+	@Override
+	public List<Author> getAllAuthor(List<Long> idList) {
+		return memberRepository.findAllById(idList)
+			.stream()
+			.map(authorConverter::createAuthor)
+			.toList();
 	}
 
 }
