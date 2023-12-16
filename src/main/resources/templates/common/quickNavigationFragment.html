@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="/css/common/quickNavigation.css" rel="stylesheet" th:href="@{/css/common/quickNavigation.css}"/>
+    <link href="/css/common/common.css" rel="stylesheet" th:href="@{/css/common/common.css}"/>
+    <title>quickNavigation</title>
+</head>
+<body th:fragment="quickNavBar"> <!-- 퀵 메뉴 바 -->
+<nav id="quick-navigation-container">
+    <ul class="quick-navigation-list">
+        <li class="quick-navigation-title">Recent Articles</li>
+        <li><a href="#">How to Become A Sports Expert in SNU...</a></li>
+        <li><a href="#">In AI we trust… or should we?</a></li>
+        <li><a href="#">Artificial Intelligence to Aesthetic Innovation</a></li>
+        <li><a href="#">Going down the Pro-Ed Pipeline</a></li>
+        <li><a href="#">CMP and SMP Welcomes You Unconditionally</a></li>
+    </ul>
+    <ul class="quick-navigation-list">
+        <li class="quick-navigation-title">Most Read</li>
+        <li><a href="#">An Introduction to SNU Buddy</a></li>
+        <li><a href="#">Introducing the DTM program</a></li>
+        <li><a href="#">‘Dahl’lying in Revisionism: Butchering...</a></li>
+        <li><a href="#">Slamming Korea with a Dunk</a></li>
+        <li><a href="#">Kicks Rule Everything Around Me</a></li>
+    </ul>
+</nav>
+</body>
+
+</html>
