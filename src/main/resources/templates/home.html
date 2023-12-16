@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="kr">
 <head>
-    <link th:href="@{/css/common.css}" href="/static/css/common.css" rel="stylesheet"/>
-    <link th:href="@{/css/header.css}" href="/static/css/header.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/common.css}" href="/css/common/common.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/header.css}" href="/css/common/header.css" rel="stylesheet"/>
     <link th:href="@{/css/home/home.css}" href="/css/home/home.css" rel="stylesheet"/>
     <link th:href="@{/css/home/slide-banner.css}" href="/static/css/home/slide-banner.css" rel="stylesheet"/>
-    <link th:href="@{/css/footer.css}" href="/static/css/footer.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/footer.css}" href="/css/common/footer.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <meta charset="UTF-8">
@@ -17,21 +17,26 @@
     <div class="top-article-container">
         <div class='top-article'>
             <div class="top-article-title">
+<!--                <p th:text="${topArticle.title}">-->
                 <p>
                     To Leave or Not to Leave:
                     The Dilemma of the Russian Commercial Exodus
                 </p>
             </div>
             <div class="top-article-summary">
+<!--                <p th:text="${topArticle.summary}">-->
                 <p>
                     Short Summary of the Article: Article Preview Article Preview Article Preview
                 </p>
             </div>
         </div>
         <div class="recent-article-list">
-            <div class="recent-article" th:each="recentArticle : ${#numbers.sequence(1,3)}">
+<!--            <div class="recent-article" th:each="recentArticle : ${recentArticleList}">-->
+            <div>
+<!--                <h4 th:text="${recentArticle.title}">Article Title</h4>-->
                 <h4>Article Title</h4>
-                <h5>
+<!--                <h5 th:text="${recentArticle.summary}">-->
+                    <h5 >
                     Article Preview Article Preview Article Preview
                     Article Preview Article Preview Article Preview
                 </h5>
@@ -50,25 +55,33 @@
             </div>
             <div class="editors-picks-list">
                 <div class="editors-pick">
+<!--                    <h5 th:text="${editorPick.featuresEditorPickList[0].category}">FEATURES</h5>-->
                     <h5>FEATURES</h5>
+<!--                    <h4 th:text="${editorPick.featuresEditorPickList[0].title}">-->
                     <h4>
                         R U Actually Woke Tho
                     </h4>
                 </div>
                 <div class="editors-pick">
-                    <h5>SNU SOCIETY</h5>
-                    <h4>
+<!--                    <h5 th:text="${editorPick.snuSocietyEditorPickList[0].category}">SNU SOCIETY</h5>-->
+                    <h5 >SNU SOCIETY</h5>
+<!--                    <h4 th:text="${editorPick.snuSocietyEditorPickList[0].title}">-->
+                    <h4 >
                         SNU’s Establishment of the “Advanced Convergence Department”
                     </h4>
                 </div>
                 <div class="editors-pick">
-                    <h5>ARTS & CULTURES</h5>
-                    <h4>
+<!--                    <h5 th:text="${editorPick.artsAndCultureEditorPickList[0].category}">ARTS & CULTURES</h5>-->
+                    <h5 >ARTS & CULTURES</h5>
+<!--                    <h4 th:text="${editorPick.artsAndCultureEditorPickList[0].title}">-->
+                    <h4 >
                         Crush Culture: The Downfall of Instant Love
                     </h4>
                 </div>
                 <div class="editors-pick">
+<!--                    <h5 th:text="${editorPick.opinionEditorPickList[0].category}">OPINION</h5>-->
                     <h5>OPINION</h5>
+<!--                    <h4 th:text="${editorPick.opinionEditorPickList[0].title}">-->
                     <h4>
                         Title
                     </h4>
@@ -79,12 +92,15 @@
     <div class="magazine-archive-container">
         <div class="magazine-archive-slider">
             <div class="magazine-archive-slide">
+<!--                <img th:src="${magazineDtoList[0].volumeCoverLink}" src="image1.jpg" alt="이미지 1">-->
                 <img src="image1.jpg" alt="이미지 1">
             </div>
             <div class="magazine-archive-slide">
+<!--                <img th:src="${magazineDtoList[1].volumeCoverLink}" src="image2.jpg" alt="이미지 2">-->
                 <img src="image2.jpg" alt="이미지 2">
             </div>
             <div class="magazine-archive-slide">
+<!--                <img th:src="${magazineDtoList[2].volumeCoverLink}" src="image3.jpg" alt="이미지 3">-->
                 <img src="image3.jpg" alt="이미지 3">
             </div>
         </div>
@@ -100,6 +116,7 @@
                 </div>
             </div>
             <div class="quill-videos-list">
+<!--                <div class="quill-video" th:each="editorsPick : ${#numbers.sequence(1,3)}">-->
                 <div class="quill-video" th:each="editorsPick : ${#numbers.sequence(1,3)}">
                     <h5>video title </h5>
                     <h4>
@@ -122,13 +139,16 @@
         </div>
         <div class="photojournals-slider">
             <div class="photojournals-slide">
-                <img th:src="@{/images/photojournalsExample.jpg}" alt="이미지 1">
+<!--                <img th:src="@{/images/photojournalsExample.jpg}" alt="이미지 1">-->
+                <img src="/images/photojournalsExample.jpg" alt="이미지 1">
             </div>
             <div class="photojournals-slide">
-                <img th:src="@{/images/photojournalsExample1.jpg}" alt="Image 1">
+<!--                <img th:src="@{/images/photojournalsExample1.jpg}" alt="Image 1">-->
+                <img src="/images/photojournalsExample1.jpg"  alt="Image 1">
             </div>
             <div class="photojournals-slide">
-                <img th:src="@{/images/photojournalsExample2.jpg}" alt="Image 3">
+<!--                <img th:src="@{/images/photojournalsExample2.jpg}" alt="Image 3">-->
+                <img src="/images/photojournalsExample2.jpg"  alt="Image 3">
             </div>
         </div>
         <div class="photojournals-content">
