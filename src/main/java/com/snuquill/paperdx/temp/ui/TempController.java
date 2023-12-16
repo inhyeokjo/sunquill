@@ -22,4 +22,7 @@ public class TempController {
 	public String get404() {
 		return "404";
 	}
+
+	@GetMapping("/features")
+	public String getArticles() { return "features";}
 }

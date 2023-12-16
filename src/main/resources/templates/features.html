@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <link th:href="@{/css/common/common.css}" href="/css/common/common.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/header.css}" href="/css/common/header.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/footer.css}" href="/css/common/footer.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/quickNavigation.css}" href="/css/common/quickNavigation.css" rel="stylesheet"/>
+    <link th:href="@{/css/article/features.css}" href="/css/article/features.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>features</title>
+</head>
+<header th:replace="~{common/headerFragment :: header}"></header>
+
+<body>
+<div class="features-container">
+    <div class="features-intro-container">
+        <div class="features-intro-title">
+            <h3>Features</h3>
+        </div>
+        <div class="features-intro-content">
+            <h2>
+                Deals with general affairs, from domestic to international news.
+            </h2>
+            <hr>
+            <div th:replace="~{common/quickNavigationFragment :: quickNavBar}" id="quickNav"></div>
+        </div>
+    </div>
+    <div class="articles-container">
+        <div class="articles-list">
+            <div th:each="num : ${#numbers.sequence(1,7)}">
+                <div class="article">
+                    <div class="article-thumbnail">
+                        <img th:src="@{/images/article-image-example01.jpg}" alt="article image example">
+                    </div>
+                    <div class="article-preview-container">
+                        <div class="article-preview-title">
+                            To Leave or Not To Leave
+                        </div>
+                        <div class="article-preview-author">
+                            Ji-Woo Lee
+                        </div>
+                        <div class="article-preview-content">
+                            Early morning, on 24 Feb. 2022, I woke up in my dorm room in the main building of Moscow State University to unbelievable news: Russia had invaded Ukraine, and my host-country was now at war. [...]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-flipper-container">
+        <div class="page-flipper">
+            paper-flipper
+        </div>
+    </div>
+
+</div>
+</body>
+<footer th:replace="~{common/footerFragment :: footer}"></footer>
+
+</html>
