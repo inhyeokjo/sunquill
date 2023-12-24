@@ -12,8 +12,9 @@
 }
 
 body {
+    margin:0;
      flex-wrap: wrap;
-     min-width: 1280px;
+     min-width: 1140px;
      display: flex;
      flex-direction: column;
      align-content: center;

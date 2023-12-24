@@ -1,6 +1,10 @@
-@import "../common.css";
+@import "../common/common.css";
 
 .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1140px;
     margin: 20px 50px;
 }
 .top-article-container {
