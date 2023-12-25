@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active:
+      - local
+  thymeleaf:
+    check-template-location: true
+    prefix: classpath:/templates/   # .html 파일을 불러오기 위한 경로 설정(src/main/resources/templates)
+    suffix: .html   # 파일 확장자
+    cache: true
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/sunquill?useUnicode=true&characterEncoding=UTF-8"
+    username: root
+    password: 98dlsgur
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true

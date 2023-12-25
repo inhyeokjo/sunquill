@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+</head>
+<header th:replace="~{common/headerFragment :: header}"></header>
+<body>
+<div class="title" id="contact-title">CONTACT US</div>
+<hr>
+<div class="intro">Thank you for your interest in The SNU Quill. <br>If you have any inquiries, please feel free to contact our Editor-in-Chief or fill out the form below.</div>
+<div class="contact-info"><p class="representative-email">snuquill@gmail.com</p><br>
+    <p class="reader-name">Seung-ku Lee</p>(<p class="reader-role">Editor in Chief</p>), <p class="reader-number">+82 10-3176-9514</p></div>
+<div class="contact-type-info">Feedback & Complaints ・ Advertise With Us ・ Letter to the Editor</div>
+<div class="contact-form">
+    <form action="https://formspree.io/f/xnqoqzqk" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Name" id="name" required>
+        <label for="_replyto">Email</label>
+        <input type="email" name="_replyto" placeholder="Email" id="_replyto" required>
+        <label for="phone">Phone Number</label>
+        <input type="text" name="phone" id="phone" placeholder="Phone Number">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" placeholder="Title" required>
+        <label for="content">Content</label>
+        <textarea name="content" id="content" placeholder="content" required></textarea>
+        <input type="submit" value="Send">
+    </form>
+</div>
+</body>
+<footer th:replace="~{common/footerFragment :: footer}"></footer>
+</html>
+<a href='https://ifh.cc/v-Gtw2WS' target='_blank'><img src='https://ifh.cc/g/Gtw2WS.png' border='0'></a>
