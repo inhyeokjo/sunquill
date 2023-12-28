@@ -22,6 +22,7 @@ public class HomeController {
 		model.addAttribute("recentArticleList", homePageDto.getArticleLineDtoList());
 		model.addAttribute("recentMagazineList", homePageDto.getMagazineDtoList());
 		model.addAttribute("recentVideoList", homePageDto.getVideoInfoDtoList());
+		model.addAttribute("photoJournalList", homePageDto.getPhotoJournalDtoList());
 		return "home";
 	}
 }

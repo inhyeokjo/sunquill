@@ -3,6 +3,7 @@ package com.snuquill.paperdx.biz.photojournal.application;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.snuquill.paperdx.biz.photojournal.domain.PhotoJournalRepository;
 import com.snuquill.paperdx.biz.photojournal.domain.VolumeService;
@@ -16,6 +17,7 @@ public class PhotoJournalService {
 	private final PhotoJournalRepository photoJournalRepository;
 	private final VolumeService volumeService;
 
+	@Transactional(readOnly = true)
 	public List<PhotoJournalDto> getLatestVolumePhotoJournal() {
 		Integer volumeNumber = volumeService.getLatestMagazineVolumeNumber();
 		List<PhotoJournal> photoJournalList = photoJournalRepository.findAllByVolumeNumber(volumeNumber);

@@ -33,7 +33,7 @@ public class HomePageService {
 		List<ArticleLineDto> recentArticleList = articleLineService.getRecentArticleList(3);
 		TopArticleDto topArticle = topArticleService.getTopArticle();
 		EditorPickDto editorPickList = editorPickService.getEditorPickList();
-		List<MagazineDto> recentMagazine = magazineService.getRecentMagazine(6);
+		List<MagazineDto> recentMagazine = magazineService.getRecentMagazine(3);
 		List<VideoInfoDto> recentUploadVideoInfo = videoInfoService.getRecentUploadVideoInfo(3);
 		List<PhotoJournalDto> latestVolumePhotoJournal = photoJournalService.getLatestVolumePhotoJournal();
 		return HomePageDto.builder()
