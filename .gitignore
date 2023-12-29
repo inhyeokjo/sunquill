@@ -37,3 +37,4 @@ out/
 .vscode/
 
 src/**/application-local.yml
+src/**/application-prod.yml
