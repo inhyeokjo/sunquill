@@ -29,10 +29,12 @@ jobs:
           ${{ runner.os }}-gradle-
           
     ## create application-prod.yml
-    - name: make application.yml
+    - name: make application-prod.yml
       if: contains(github.ref, 'main')
       run: |
         cd ./src/main/resources
+        touch ./application-prod.yml
+        echo "${{ secrets.APPLICATION_PROD }}" > ./application-prod.yml
         echo "application.yml file:"
         cat application.yml
       shell: bash
