@@ -47,6 +47,8 @@ jobs:
     - name: Docker build & push
       if: contains(github.ref, 'main')
       run: |
+          ls -al
+          pwd
           echo ${{ secrets.DOCKER_HUB_PW }} | sudo docker login -u ${{ secrets.DOCKER_HUB_ID }} --password-stdin
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }} -f Dockerfile .
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }}
