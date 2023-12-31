@@ -32,7 +32,7 @@ jobs:
     - name: make application-prod.yml
       if: contains(github.ref, 'main')
       run: |
-        # cd ./src/main/resources
+        cd ./src/main/resources
         # touch ./application-prod.yml
         # echo "${{ secrets.APPLICATION_PROD }}" > ./application-prod.yml
         echo "application.yml file:"
