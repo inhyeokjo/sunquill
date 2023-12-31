@@ -35,7 +35,7 @@ jobs:
         cd ./src/main/resources
         touch ./application-prod.yml
         echo "${{ secrets.APPLICATION_PROD }}" > ./application-prod.yml
-        ls
+        cat application-prod.yml
       shell: bash
       
     ## gradle build
