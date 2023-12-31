@@ -33,9 +33,17 @@ jobs:
       if: contains(github.ref, 'main')
       run: |
         cd ./src/main/resources
+        touch ./application-prod.yml
+        echo "${{ secrets.APPLICATION_PROD }}" > ./application-prod.yml
+      shell: bash
+
+    ## check application.yml is ok
+    - name: check application.yml
+      if: contains(github.ref, 'main')
+      run: |
+        cd ./src/main/resources
         echo "application.yml file:"
         cat application.yml
-      shell: bash
       
     ## gradle build
     - name: Build with Gradle
