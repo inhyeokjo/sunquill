@@ -1,21 +1,31 @@
-footer {
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
     display: flex;
-    height: 300px;
+    box-sizing: border-box;
     flex-direction: column;
-    align-content: center;
+    align-items: stretch;
     flex-wrap: wrap;
+    margin: 0;
+    padding: 0 20px 50px;
+    width: 100vw;
+    /*transform: translateX(calc(570px - 50vw));*/
     background: #FB4E26;
 }
 
-footer div {
+.footer div {
     display: flex;
 }
 
 .footer-container {
+    display: flex;
     width: 100%;
 
     margin-top: 34px;
-    margin-bottom: 0px;
+    margin-bottom: 34px;
     flex-grow: 0;
     justify-content: space-around;
 }

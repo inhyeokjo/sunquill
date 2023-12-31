@@ -1,11 +1,11 @@
 .header {
-    margin: 20px 50px;
+    display: flex;
+    width: 1140px;
     flex-direction: column;
 }
 
 .logo {
-    color: #FB4E26;
-    text-align: center;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -19,23 +19,27 @@
     margin: 0;
     font-size: 20px;
     letter-spacing: 2.8px;
+    text-align: center;
+    color: #FB4E26;
 }
 
 .logo #com-since {
     margin: 0;
     font-size: 14px;
     letter-spacing: 0.28px;
+    text-align: center;
+    color: #FB4E26;
 }
-
-#search-form {
-    display: inline;
-    border-bottom: #FB4E26 solid;
-}
-
 
 .search-box {
     display: flex;
     justify-content: flex-end;
+}
+
+
+#search-form {
+    display: inline;
+    border-bottom: #FB4E26 solid;
 }
 
 .search-box button {

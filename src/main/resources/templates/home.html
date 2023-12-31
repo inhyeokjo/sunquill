@@ -1,211 +1,148 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="kr">
 <head>
-    <link th:href="@{/css/common/common.css}" href="/css/common/common.css" rel="stylesheet"/>
-    <link th:href="@{/css/common/header.css}" href="/css/common/header.css" rel="stylesheet"/>
-    <link th:href="@{/css/home/home.css}" href="/css/home/home.css" rel="stylesheet"/>
-    <link th:href="@{/css/home/slide-banner.css}" href="/static/css/home/slide-banner.css" rel="stylesheet"/>
-    <link th:href="@{/css/common/footer.css}" href="/css/common/footer.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link th:href="@{/css/common/common.css}" href="../static/css/common/common.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/header.css}" href="../static/css/common/header.css" rel="stylesheet"/>
+    <link th:href="@{/css/home/home.css}" href="../static/css/home/home.css" rel="stylesheet"/>
+    <link th:href="@{/css/home/slide-banner.css}" href="../static/css/home/slide-banner.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/footer.css}" href="../static/css/common/footer.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <meta charset="UTF-8">
     <title>Main Page</title>
 </head>
-<header th:replace="~{common/headerFragment :: header}"></header>
 <body>
-<div class="home-container">
-    <div class="top-article-container">
-        <div class='top-article'>
-            <div class="top-article-title">
-<!--                <p th:text="${topArticle.title}">-->
-                <p>
-                    To Leave or Not to Leave:
-                    The Dilemma of the Russian Commercial Exodus
-                </p>
-            </div>
-            <div class="top-article-summary">
-<!--                <p th:text="${topArticle.summary}">-->
-                <p>
-                    Short Summary of the Article: Article Preview Article Preview Article Preview
-                </p>
-            </div>
-        </div>
-        <div class="recent-article-list">
-<!--            <div class="recent-article" th:each="recentArticle : ${recentArticleList}">-->
-            <div>
-<!--                <h4 th:text="${recentArticle.title}">Article Title</h4>-->
-                <h4>Article Title</h4>
-<!--                <h5 th:text="${recentArticle.summary}">-->
-                    <h5 >
-                    Article Preview Article Preview Article Preview
-                    Article Preview Article Preview Article Preview
-                </h5>
-            </div>
-        </div>
-    </div>
-    <div class="editors-picks-body">
-        <div class="editors-picks-container">
-            <div class="editors-picks-title-container">
-                <div class="editors-picks-title">
-                    Editor's Picks
+<header th:replace="~{common/headerFragment :: header}"></header>
+<div class="page">
+    <div class="home-container">
+        <div class="top-article-container">
+            <div class='top-article' style="background: white" th:style="'background-image: url(' + ${topArticle.fileApi} + '); background-size: cover;'">
+                <div class="top-article-title">
+                    <p th:text="${topArticle.title}">
+                        To Leave or Not to Leave:
+                        The Dilemma of the Russian Commercial Exodus
+                    </p>
                 </div>
-                <div class="editors-picks-title-line">
+                <div class="top-article-summary">
+                    <p th:text="${topArticle.summary}">
+                        Short Summary of the Article: Article Preview Article Preview Article Preview
+                    </p>
+                </div>
+            </div>
+            <div class="recent-article-list">
+                <div class="recent-article" th:each="recentArticle : ${recentArticleList}" th:object="${recentArticle}">
+                    <h4 th:text="${recentArticle.articleTitle}">Article Title</h4>
+                    <h5 th:text="${recentArticle.articleSummary}">
+                        Article Preview Article Preview Article Preview
+                    </h5>
                     <hr>
                 </div>
             </div>
-            <div class="editors-picks-list">
-                <div class="editors-pick">
-<!--                    <h5 th:text="${editorPick.featuresEditorPickList[0].category}">FEATURES</h5>-->
-                    <h5>FEATURES</h5>
-<!--                    <h4 th:text="${editorPick.featuresEditorPickList[0].title}">-->
-                    <h4>
-                        R U Actually Woke Tho
-                    </h4>
+        </div>
+        <div class="editors-picks-body">
+            <div class="editors-picks-container">
+                <div class="home-title-container">
+                    <div class="home-title-text">
+                        Editor's Picks
+                    </div>
+                    <div class="home-title-line-container">
+                        <hr class="home-title-line">
+                    </div>
                 </div>
-                <div class="editors-pick">
-<!--                    <h5 th:text="${editorPick.snuSocietyEditorPickList[0].category}">SNU SOCIETY</h5>-->
-                    <h5 >SNU SOCIETY</h5>
-<!--                    <h4 th:text="${editorPick.snuSocietyEditorPickList[0].title}">-->
-                    <h4 >
-                        SNU’s Establishment of the “Advanced Convergence Department”
-                    </h4>
-                </div>
-                <div class="editors-pick">
-<!--                    <h5 th:text="${editorPick.artsAndCultureEditorPickList[0].category}">ARTS & CULTURES</h5>-->
-                    <h5 >ARTS & CULTURES</h5>
-<!--                    <h4 th:text="${editorPick.artsAndCultureEditorPickList[0].title}">-->
-                    <h4 >
-                        Crush Culture: The Downfall of Instant Love
-                    </h4>
-                </div>
-                <div class="editors-pick">
-<!--                    <h5 th:text="${editorPick.opinionEditorPickList[0].category}">OPINION</h5>-->
-                    <h5>OPINION</h5>
-<!--                    <h4 th:text="${editorPick.opinionEditorPickList[0].title}">-->
-                    <h4>
-                        Title
-                    </h4>
+                <div class="editors-picks-list">
+                    <div class="editors-pick">
+                        <h5>FEATURES</h5>
+                        <h4 th:each="editorPickFeature : ${editorPick.featuresEditorPickList}" th:text="${editorPickFeature.title}">
+                            R U Actually Woke Tho
+                        </h4>
+                    </div>
+                    <div class="editors-pick">
+                        <h5>SNU SOCIETY</h5>
+                        <h4 th:each="snuSocietyEditorPick : ${editorPick.snuSocietyEditorPickList}" th:text="${snuSocietyEditorPick.title}">
+                            SNU’s Establishment of the “Advanced Convergence Department”
+                        </h4>
+                    </div>
+                    <div class="editors-pick">
+                        <h5>ARTS & CULTURES</h5>
+                        <h4 th:each="artsAndCultureEditorPick : ${editorPick.artsAndCultureEditorPickList}" th:text="${artsAndCultureEditorPick.title}">
+                            Crush Culture: The Downfall of Instant Love
+                        </h4>
+                    </div>
+                    <div class="editors-pick">
+                        <h5>OPINION</h5>
+                        <h4 th:each="opinionEditorPick : ${editorPick.opinionEditorPickList}" th:text="${opinionEditorPick.title}">
+                            Title
+                        </h4>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="magazine-archive-container">
-        <div class="magazine-archive-slider">
-            <div class="magazine-archive-slide">
-<!--                <img th:src="${magazineDtoList[0].volumeCoverLink}" src="image1.jpg" alt="이미지 1">-->
-                <img src="image1.jpg" alt="이미지 1">
-            </div>
-            <div class="magazine-archive-slide">
-<!--                <img th:src="${magazineDtoList[1].volumeCoverLink}" src="image2.jpg" alt="이미지 2">-->
-                <img src="image2.jpg" alt="이미지 2">
-            </div>
-            <div class="magazine-archive-slide">
-<!--                <img th:src="${magazineDtoList[2].volumeCoverLink}" src="image3.jpg" alt="이미지 3">-->
-                <img src="image3.jpg" alt="이미지 3">
+        <div class="magazine-archive-container">
+            <div class="magazine-archive-slider">
+                <!--Magazine은 3개만 받아온다.-->
+                <div class="magazine-archive-slide" th:each="recentMagazine : ${recentMagazineList}" th:object="${recentMagazine}">
+                    <img th:src="${recentMagazine.volumeCoverLink}">
+                </div>
+                <div class="more-archive-slide">
+                    <div class="more-archive-slide">
+                        click for<br>previous<br>volumes...
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="quill-videos-body">
-        <div class="quill-videos-container">
-            <div class="quill-videos-title-container">
-                <div class="quill-videos-title">
+        <div class="quill-videos-body">
+            <div class="home-title-container">
+                <div class="home-title-text">
                     Quill Videos
                 </div>
-                <div class="quill-videos-title-line">
-                    <hr>
+                <div class="home-title-line-container">
+                    <hr class="home-title-line">
                 </div>
             </div>
             <div class="quill-videos-list">
-<!--                <div class="quill-video" th:each="editorsPick : ${#numbers.sequence(1,3)}">-->
-                <div class="quill-video" th:each="editorsPick : ${#numbers.sequence(1,3)}">
-                    <h5>video title </h5>
-                    <h4>
-                        quill-video Preview
-                        quill-video Preview
-                    </h4>
+                <!--Video는 3개만 받아온다.-->
+                <div class="quill-video" th:each="recentVideo : ${recentVideoList}" th:object="${recentVideo}">
+                    <iframe th:src="${recentVideo.iframeSrc}" title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="photojournals-container">
+            <div class="home-title-container">
+                <div class="home-title-text">
+                    Photojournals
+                </div>
+                <div class="home-title-line-container">
+                    <hr class="home-title-line">
+                </div>
+            </div>
+            <div class="photojournals-slider">
+                <div class="photojournals-slide" th:each="photoJournal : ${photoJournalList}" th:object="${photoJournal}">
+                    <img class="photo" th:src="${photoJournal.photoLink}" src="../static/images/photojournalsExample1.jpg">
+                    <div class="photojournals-content" th:text="${photoJournal.description}">Test Description1</div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="photojournals-container">
-        <div class="photojournals-title-container">
-            <div class="photojournals-title">
-                Photojournals
-            </div>
-            <div class="photojournals-title-line">
-                <hr>
-            </div>
-        </div>
-        <div class="photojournals-slider">
-            <div class="photojournals-slide">
-<!--                <img th:src="@{/images/photojournalsExample.jpg}" alt="이미지 1">-->
-                <img src="/images/photojournalsExample.jpg" alt="이미지 1">
-            </div>
-            <div class="photojournals-slide">
-<!--                <img th:src="@{/images/photojournalsExample1.jpg}" alt="Image 1">-->
-                <img src="/images/photojournalsExample1.jpg"  alt="Image 1">
-            </div>
-            <div class="photojournals-slide">
-<!--                <img th:src="@{/images/photojournalsExample2.jpg}" alt="Image 3">-->
-                <img src="/images/photojournalsExample2.jpg"  alt="Image 3">
-            </div>
-        </div>
-        <div class="photojournals-content">
-            A mirror to bridge the old and the new…
-        </div>
-    </div>
 </div>
-
-</body>
 <footer th:replace="~{common/footerFragment :: footer}"></footer>
+</body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
-    $('.temp-magazine-archive-slider').slick({
-        autoplay: true,
-        autoplaySpeed: 2000,
-        dots: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear',
-        adaptiveHeight: true
-    });
     $('.photojournals-slider').slick({
-        autoplay: true,
-        autoplaySpeed: 2000,
         dots: true,
         infinite: true,
         speed: 500,
         fade: true,
         cssEase: 'linear',
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        // variableWidth: true,
         adaptiveHeight: true
-    });
-
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const slideCount = slides.length;
-
-    function showSlide(n) {
-        slides.forEach(slide => slide.style.display = 'none');
-        slides[n].style.display = 'block';
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slideCount;
-        showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-        showSlide(currentSlide);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        showSlide(currentSlide);
-        setInterval(nextSlide, 3000); // 3초마다 자동 슬라이드
     });
 </script>
 </html>
