@@ -47,11 +47,9 @@ jobs:
     - name: Docker build & push
       if: contains(github.ref, 'main')
       run: |
-          ls -al
-          pwd
           echo ${{ secrets.DOCKER_HUB_PW }} | sudo docker login -u ${{ secrets.DOCKER_HUB_ID }} --password-stdin
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }} -f Dockerfile .
-          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }}
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }}
           
     ## deploy to server
     - name: Deploy to server
@@ -63,6 +61,6 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
          sudo docker rm -f $(sudo docker ps -qa)
-         sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }}
-         sudo docker run  -d -p 80:8080 --name snuquill-server ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }}
+         sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }}
+         sudo docker run  -d -p 80:8080 --name snuquill-server ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }}
          sudo docker image prune -f
