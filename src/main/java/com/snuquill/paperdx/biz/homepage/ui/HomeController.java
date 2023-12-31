@@ -3,6 +3,7 @@ package com.snuquill.paperdx.biz.homepage.ui;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.snuquill.paperdx.biz.homepage.application.HomePageService;
 import com.snuquill.paperdx.biz.homepage.application.dto.HomePageDto;
@@ -13,6 +14,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class HomeController {
 	private final HomePageService homePageService;
+
+	@GetMapping("/")
+	public RedirectView redirectRootPage() {
+		return new RedirectView("/home");
+	}
 
 	@GetMapping("/home")
 	public String getHomePage(Model model) {
