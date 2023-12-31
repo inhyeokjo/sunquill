@@ -34,7 +34,7 @@ jobs:
       run: |
         cd ./src/main/resources
         touch ./application-prod.yml
-        echo "${{ secrets.APPLICATION_PROD }}" > ./application-prod.yml
+        echo "${{ secrets.APPLICATION_PROD }}" | base64 --decode > ./application-prod.yml
         cat ./application-prod.yml
 
     ## check application.yml is ok
