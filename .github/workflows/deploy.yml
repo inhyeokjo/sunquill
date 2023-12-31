@@ -1,0 +1,66 @@
+name: deploy
+
+on:
+  push:
+    branches: [ "main" ]
+      
+jobs:
+  CI-CD:
+    runs-on: ubuntu-latest
+    steps:
+
+    ## jdk setting
+    - uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin' # https://github.com/actions/setup-java
+    
+    ## gradle caching
+    - name: Gradle Caching
+      uses: actions/cache@v3
+      with:
+        path: |  
+          ~/.gradle/caches 
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+          
+    ## create application.yml
+    - name: make application.yml
+      if: contains(github.ref, 'main')
+      run: |
+        cd ./src/main/resources
+        touch ./application-prod.yml
+        echo "${{ secrets.APPLICATION_PROD }}" > ./application-prod.yml
+      shell: bash
+      
+    ## gradle build
+    - name: Build with Gradle
+      run: |
+        chmod +x ./gradlew
+        ./gradlew clean build --exclude-task test
+    
+    ## docker build & push
+    - name: Docker build & push
+      if: contains(github.ref, 'main')
+      run: |
+          echo ${{ secrets.DOCKER_HUB_PW }} | sudo docker login -u ${{ secrets.DOCKER_HUB_ID }} --password-stdin
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_REPO }} -f Dockerfile .
+          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}
+          
+    ## deploy to server
+    - name: Deploy to server
+      uses: appleboy/ssh-action@master
+      id: deploy
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+         sudo docker rm -f $(sudo docker ps -qa)
+         sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}
+         sudo docker run  -d -p 80:8080 --name snuquill-server ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}
+         sudo docker image prune -f
