@@ -26,12 +26,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'com.mysql:mysql-connector-j'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	//flyway
 	implementation 'org.flywaydb:flyway-mysql'
+	implementation 'org.flywaydb:flyway-core:9.2.3'
 
 	//spring validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
