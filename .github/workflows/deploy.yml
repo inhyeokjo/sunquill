@@ -35,15 +35,6 @@ jobs:
         cd ./src/main/resources
         touch ./application-prod.yml
         echo "${{ secrets.APPLICATION_PROD }}" | base64 --decode > ./application-prod.yml
-        cat ./application-prod.yml
-
-    ## check application.yml is ok
-    - name: check application.yml
-      if: contains(github.ref, 'main')
-      run: |
-        cd ./src/main/resources
-        echo "application.yml file:"
-        cat application.yml
       
     ## gradle build
     - name: Build with Gradle
