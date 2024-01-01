@@ -30,7 +30,7 @@ public class ArticleLineController {
 	@GetMapping("/{feature}/{page}")
 	public String getFeatureArticleList(@PathVariable("feature") String categoryName, @PathVariable("page") int page, Model model) {
 
-		if (Arrays.stream(Category.values()).map(Enum::name).toList().contains(categoryName.toUpperCase())) {
+		if (!Category.isCategory(categoryName)) {
 			log.warn("user tried to access non-existing page: /article/"+ categoryName +"/"+ page);
 			throw new PageNotFoundException("존재하지 않는 페이지입니다.");
 		}
