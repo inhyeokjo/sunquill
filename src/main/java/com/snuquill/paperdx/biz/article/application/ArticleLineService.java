@@ -33,10 +33,8 @@ public class ArticleLineService {
 			.toList();
 	}
 
-	public List<ArticleLineDto> getCategoryArticlePage(String categoryName, int page) {
+	public List<ArticleLineDto> getCategoryArticlePage(Category category, int page) {
 		int pageSize = 10;
-		Category category = Category.valueOf(categoryName.toUpperCase());
-
 		PageRequest countRequest = PageRequest.of(page, pageSize, Sort.by("publishDate").descending());
 		List<Article> articleList = articleRepository.findByCategoryVisible(category, countRequest);
 		Map<Long, Author> authorMap = getAuthorMap(articleList);
