@@ -15,7 +15,7 @@
 <div class="features-container">
     <div class="features-intro-container">
         <div class="features-intro-title">
-            <h3>Features</h3>
+            <h3 th:text="${categoryName}">Features</h3>
         </div>
         <div class="features-intro-content">
             <h2>
@@ -27,19 +27,19 @@
     </div>
     <div class="articles-container">
         <div class="articles-list">
-            <div th:each="num : ${#numbers.sequence(1,7)}">
+            <div th:each="articleLine : ${articleLineList}" th:object="${articleLine}">
                 <div class="article">
                     <div class="article-thumbnail">
-                        <img th:src="@{/images/article-image-example01.jpg}" alt="article image example">
+                        <img th:src="${articleLine.articlePictureUrl}">
                     </div>
                     <div class="article-preview-container">
-                        <div class="article-preview-title">
+                        <div class="article-preview-title" th:text="${articleLine.articleTitle}">
                             To Leave or Not To Leave
                         </div>
-                        <div class="article-preview-author">
+                        <div class="article-preview-author" th:text="${articleLine.authorName}">
                             Ji-Woo Lee
                         </div>
-                        <div class="article-preview-content">
+                        <div class="article-preview-content" th:text="${articleLine.articleSummary}">
                             Early morning, on 24 Feb. 2022, I woke up in my dorm room in the main building of Moscow State University to unbelievable news: Russia had invaded Ukraine, and my host-country was now at war. [...]
                         </div>
                     </div>
