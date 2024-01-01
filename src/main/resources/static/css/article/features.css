@@ -82,12 +82,19 @@ articles
 
     display: flex;
 }
-.article-preview-container{
+
+.article-thumbnail > img {
+    width: 220px;
+    height: 145px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.article-preview-container {
     margin-left: 20px;
 }
 .article-preview-title{
     height: 31px;
-    flex-shrink: 0;
 
     color: var(--Text-Color);
 
@@ -122,6 +129,17 @@ articles
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+
+    min-width: 0;
+    min-height: 0;
+    white-space: normal;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 /*
