@@ -38,13 +38,19 @@ public class ArticleLineService {
 
 	public List<ArticleLineDto> getCategoryArticlePage(String categoryName, int page) {
 		int pageSize = 10;
+		if (page <= 0) {
+			log.warn("user tried to access non-existing page: /article/" + categoryName + "/" + page);
+			log.warn("article line page must be greater than 0");
+			throw new PageNotFoundException("존재하지 않는 페이지입니다.");
+		}
+
 		if (!Category.isCategory(categoryName)) {
 			log.warn("user tried to access non-existing page: /article/" + categoryName + "/" + page);
 			throw new PageNotFoundException("존재하지 않는 페이지입니다.");
 		}
 		Category category = Category.valueOf(categoryName.toUpperCase());
 
-		PageRequest countRequest = PageRequest.of(page, pageSize, Sort.by("publishDate").descending());
+		PageRequest countRequest = PageRequest.of(page-1, pageSize, Sort.by("publishDate").descending());
 		List<Article> articleList = articleRepository.findByCategoryVisible(category, countRequest);
 		Map<Long, Author> authorMap = getAuthorMap(articleList);
 
