@@ -80,7 +80,7 @@ class MagazineRepositoryTest extends BaseDataJpaTest {
 			.volumeNumber(5)
 			.build();
 		Magazine magazine5 = Magazine.builder()
-			.volumeNumber(5)
+			.volumeNumber(9999999)
 			.build();
 		magazineRepository.save(magazine1);
 		magazineRepository.save(magazine2);
@@ -89,6 +89,6 @@ class MagazineRepositoryTest extends BaseDataJpaTest {
 		magazineRepository.save(magazine5);
 
 		Integer latestVolumeNumber = magazineRepository.findLatestVolumeNumber().get();
-		Assertions.assertThat(latestVolumeNumber).isEqualTo(5);
+		Assertions.assertThat(latestVolumeNumber).isEqualTo(9999999);
 	}
 }
