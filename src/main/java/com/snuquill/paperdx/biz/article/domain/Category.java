@@ -1,5 +1,7 @@
 package com.snuquill.paperdx.biz.article.domain;
 
+import org.thymeleaf.util.StringUtils;
+
 public enum Category {
 	FEATURES, SNU_SOCIETY, ARTS_CULTURE, SHORT_ARTICLES, OPINION;
 
@@ -10,5 +12,9 @@ public enum Category {
 			}
 		}
 		return false;
+	}
+
+	public String getCategoryName() {
+		return StringUtils.capitalize(name()).replace("_", " ");
 	}
 }

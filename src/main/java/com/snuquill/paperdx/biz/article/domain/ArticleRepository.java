@@ -6,4 +6,5 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import com.snuquill.paperdx.biz.article.infra.querydsl.ArticleQueryDsl;
 
 public interface ArticleRepository extends JpaRepository<Article, Long>, ArticleQueryDsl, QuerydslPredicateExecutor<Article> {
+	long countAllByCategory(Category category);
 }

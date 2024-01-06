@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -36,7 +38,7 @@ public class ArticleLineService {
 			.toList();
 	}
 
-	public List<ArticleLineDto> getCategoryArticlePage(String categoryName, int page) {
+	public Page<ArticleLineDto> getCategoryArticlePage(String categoryName, int page) {
 		int pageSize = 10;
 		if (page <= 0) {
 			log.warn("user tried to access non-existing page: /article/" + categoryName + "/" + page);
@@ -52,11 +54,13 @@ public class ArticleLineService {
 
 		PageRequest countRequest = PageRequest.of(page-1, pageSize, Sort.by("publishDate").descending());
 		List<Article> articleList = articleRepository.findByCategoryVisible(category, countRequest);
+		long categoryArticleCount = articleRepository.countAllByCategory(category);
 		Map<Long, Author> authorMap = getAuthorMap(articleList);
 
-		return articleList.stream()
+		List<ArticleLineDto> articleLineDtoList = articleList.stream()
 			.map(article -> ArticleLineDto.of(article, authorMap))
 			.toList();
+		return new PageImpl<>(articleLineDtoList, countRequest, categoryArticleCount);
 	}
 
 	private Map<Long, Author> getAuthorMap(List<Article> articleList) {

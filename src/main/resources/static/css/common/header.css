@@ -1,6 +1,7 @@
 .header {
     display: flex;
     width: 1140px;
+    margin-top: 30px;
     flex-direction: column;
 }
 
@@ -74,7 +75,7 @@
     flex-grow: 1;
 }
 
-a:link {
+.nav-element {
     text-decoration: none;
     color: white;
 }
