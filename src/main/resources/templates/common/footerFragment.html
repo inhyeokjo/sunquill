@@ -2,13 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="kr">
 <head>
     <link th:href="@{/css/common/footer.css}" href="../../static/css/common/footer.css" rel="stylesheet"/>
-    <link th:href="@{/css/common/footer.css}" href="../../static/css/common/footer.css" rel="stylesheet"/>
 </head>
 <div class="footer" th:fragment="footer">
     <div class="footer-container">
         <div class="about">
             <div class="title">
-                About SUN QUILL
+                About SNU QUILL
             </div>
             <div class="content">
                 Who We Are<br/>
@@ -33,10 +32,10 @@
             mail to snuquill@gmail.com<br/>
         </div>
     </div>
-    <div class="footer-logo">
+    <a class="footer-logo" th:href="@{/home}">
         <div class="logo-block">
-            THE SUN QUILL
+            THE SNU QUILL
         </div>
-    </div>
+    </a>
 </div>
 </html>

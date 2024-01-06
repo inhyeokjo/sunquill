@@ -18,7 +18,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
 
-    width: 100vw;
+    width: 100%;
     margin: 0;
     padding: 0;
 }
@@ -34,7 +34,11 @@ body {
     width: 1140px;
 }
 
-
+a:link, a:visited, a:hover, a:active, a:focus {
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상을 상속받음 */
+    outline: none; /* 포커스 시의 테두리 제거 */
+}
 
 
 

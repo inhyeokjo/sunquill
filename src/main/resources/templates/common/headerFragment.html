@@ -6,13 +6,13 @@
 </head>
 <div class="header" th:fragment="header">
     <div class="logo">
-        <a th:href="@{/temp/home}">
+        <a th:href="@{/home}">
             <div id="logo-image">
                 <img th:src="@{/images/logo.svg}" src="/images/logo.svg"/>
             </div>
         </a>
 
-        <div id="com-name">THE SUN QUILL</div>
+        <div id="com-name">THE SNU QUILL</div>
         <div id="com-since">since 2005</div>
     </div>
     <div class="search-box">
@@ -25,29 +25,29 @@
     </div>
     <div class="nav">
         <div>
-            <a th:href="@{/temp/features}" href="/about">
+            <a class="nav-element" th:href="@{/article/features/1}" href="/article/features/1">
                 FEATURES
             </a>
         </div>
         <div>
-            <a th:href="@{/sun-society}" href="/about">
+            <a class="nav-element" th:href="@{/article/snu_society/1}" href="/article/snu_society/1">
                 SNU SOCIETY
             </a>
         </div>
         <div>
-            <a th:href="@{/arts_culture}" href="/about">
+            <a class="nav-element" th:href="@{/article/arts_culture/1}" href="/article/arts_culture/1">
                 ARTS & CULTURE
             </a></div>
         <div>
-            <a th:href="@{/short_articles}" href="/about">
+            <a class="nav-element" th:href="@{/article/short_articles/1}" href="/article/short_articles/1">
                 SHORT ARTICLES
             </a></div>
         <div>
-            <a th:href="@{/archives}" href="/about">
+            <a class="nav-element" th:href="@{/archives}" href="/archives">
                 ARCHIVES
             </a></div>
         <div>
-            <a th:href="@{/about}" href="/about">
+            <a class="nav-element" th:href="@{/about}" href="/about">
                 ABOUT
             </a></div>
     </div>

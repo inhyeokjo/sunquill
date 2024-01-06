@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -13,11 +15,14 @@ import com.snuquill.paperdx.biz.article.domain.ArticleRepository;
 import com.snuquill.paperdx.biz.article.domain.Author;
 import com.snuquill.paperdx.biz.article.domain.AuthorRepository;
 import com.snuquill.paperdx.biz.article.domain.Category;
+import com.snuquill.paperdx.common.execption.PageNotFoundException;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ArticleLineService {
 
 	private final ArticleRepository articleRepository;
@@ -33,17 +38,29 @@ public class ArticleLineService {
 			.toList();
 	}
 
-	public List<ArticleLineDto> getCategoryArticlePage(String categoryName, int page) {
+	public Page<ArticleLineDto> getCategoryArticlePage(String categoryName, int page) {
 		int pageSize = 10;
+		if (page <= 0) {
+			log.warn("user tried to access non-existing page: /article/" + categoryName + "/" + page);
+			log.warn("article line page must be greater than 0");
+			throw new PageNotFoundException("존재하지 않는 페이지입니다.");
+		}
+
+		if (!Category.isCategory(categoryName)) {
+			log.warn("user tried to access non-existing page: /article/" + categoryName + "/" + page);
+			throw new PageNotFoundException("존재하지 않는 페이지입니다.");
+		}
 		Category category = Category.valueOf(categoryName.toUpperCase());
 
-		PageRequest countRequest = PageRequest.of(page, pageSize, Sort.by("publishDate").descending());
+		PageRequest countRequest = PageRequest.of(page-1, pageSize, Sort.by("publishDate").descending());
 		List<Article> articleList = articleRepository.findByCategoryVisible(category, countRequest);
+		long categoryArticleCount = articleRepository.countAllByCategory(category);
 		Map<Long, Author> authorMap = getAuthorMap(articleList);
 
-		return articleList.stream()
+		List<ArticleLineDto> articleLineDtoList = articleList.stream()
 			.map(article -> ArticleLineDto.of(article, authorMap))
 			.toList();
+		return new PageImpl<>(articleLineDtoList, countRequest, categoryArticleCount);
 	}
 
 	private Map<Long, Author> getAuthorMap(List<Article> articleList) {

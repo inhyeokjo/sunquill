@@ -15,7 +15,7 @@
 <div class="features-container">
     <div class="features-intro-container">
         <div class="features-intro-title">
-            <h3>Features</h3>
+            <h3 th:text="${category.getCategoryName()}">Features</h3>
         </div>
         <div class="features-intro-content">
             <h2>
@@ -27,32 +27,38 @@
     </div>
     <div class="articles-container">
         <div class="articles-list">
-            <div th:each="num : ${#numbers.sequence(1,7)}">
-                <div class="article">
-                    <div class="article-thumbnail">
-                        <img th:src="@{/images/article-image-example01.jpg}" alt="article image example">
+            <div class="article" th:each="articleLine : ${articleLinePage}" th:object="${articleLine}">
+                <div class="article-thumbnail">
+                    <img th:src="${articleLine.articlePictureUrl}">
+                </div>
+                <div class="article-preview-container">
+                    <div class="article-preview-title" th:text="${articleLine.articleTitle}">
+                        To Leave or Not To Leave
                     </div>
-                    <div class="article-preview-container">
-                        <div class="article-preview-title">
-                            To Leave or Not To Leave
-                        </div>
-                        <div class="article-preview-author">
-                            Ji-Woo Lee
-                        </div>
-                        <div class="article-preview-content">
-                            Early morning, on 24 Feb. 2022, I woke up in my dorm room in the main building of Moscow State University to unbelievable news: Russia had invaded Ukraine, and my host-country was now at war. [...]
-                        </div>
+                    <div class="article-preview-author" th:text="${articleLine.authorName}">
+                        Ji-Woo Lee
+                    </div>
+                    <div class="article-preview-content" th:text="${articleLine.articleSummary}">
+                        Early morning, on 24 Feb. 2022, I woke up in my dorm room in the main building of Moscow State University to unbelievable news: Russia had invaded Ukraine, and my host-country
+                        was now at war. [...]
                     </div>
                 </div>
             </div>
+            <div class="page-flipper-container">
+                <a class='page-element'
+                   th:each="pageElemet : ${#numbers.sequence(pageMetaData.pageStart - 1 , pageMetaData.pageEnd + 1)}"
+                   th:classappend="${pageElemet eq pageMetaData.targetPage ? 'current-element':''} +
+                        ${pageElemet eq pageMetaData.pageStart - 1 ? 'prev':''} +
+                        ${pageElemet eq pageMetaData.pageEnd + 1 ? 'next':''}"
+                   th:styleappend="${pageMetaData.firstPageList and (pageElemet eq (pageMetaData.pageStart - 1)) ? 'display:none;' : ''} +
+                        ${pageMetaData.endPageList and (pageElemet eq (pageMetaData.pageEnd + 1)) ? 'display:none;' : ''}"
+                th:text="${pageElemet}"
+                th:href="@{/article/{feature}/{page}(feature=${category.name()}, page=${pageElemet})}">
+                1
+                </a>
+            </div>
         </div>
     </div>
-    <div class="page-flipper-container">
-        <div class="page-flipper">
-            paper-flipper
-        </div>
-    </div>
-
 </div>
 </body>
 <footer th:replace="~{common/footerFragment :: footer}"></footer>
