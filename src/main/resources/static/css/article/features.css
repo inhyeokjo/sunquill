@@ -33,6 +33,7 @@
 .features-intro-content {
     width: 280px;
     flex-shrink: 0;
+    height: 100rem;
 }
 .features-intro-content > h2 {
     width: 210px;
