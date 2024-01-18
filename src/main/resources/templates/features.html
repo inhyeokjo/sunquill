@@ -18,10 +18,9 @@
             <h3 th:text="${category.getCategoryName()}">Features</h3>
         </div>
         <div class="features-intro-content">
-            <h2>
-                Deals with general affairs, from domestic to international news.
+            <h2 th:text="${category.getCategoryDescription()}">
+                Category Description
             </h2>
-            <hr>
             <div th:replace="~{common/quickNavigationFragment :: quickNavBar}" id="quickNav"></div>
         </div>
     </div>

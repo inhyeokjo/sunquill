@@ -40,7 +40,7 @@
 
     color: var(--Main-Color);
     text-align: right;
-    margin:0 0 0 70px;
+    margin:0 0 6.25rem 70px;
     /* Serif Body 2 */
     font-family: Centaur, serif;
     font-size: 32px;
@@ -54,13 +54,7 @@
     display: flex;
     align-items: flex-end;
 }
-.features-intro-content > hr {
-    margin-top: 100px;
-    margin-left: 70px;
 
-    width: 210px;
-    border-color: var(--Main-Color);
-}
 
 /*
 articles
