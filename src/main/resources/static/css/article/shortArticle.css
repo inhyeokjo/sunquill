@@ -1,0 +1,108 @@
+@import "../common/common.css";
+
+.short-article-container {
+    width: 71.25rem;
+    margin: 1.25rem 3.125rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.short-article-category{
+    width: 13.4375rem;
+    height: 1.9375rem;
+    flex-shrink: 0;
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+
+    color: var(--Main-Color);
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.015px;
+}
+
+.short-article-title-container {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+.short-article-title-container > div > h2 {
+    color: rgba(0, 0, 0, 0.60);
+    margin-top: 2.5rem;
+    font-size: 2rem;
+}
+.short-article-title-container > .short-article-author-container {
+    display: flex;
+}
+.short-article-title-container > .short-article-author-container > h4 {
+    margin: 0;
+    font-weight: 400;
+}
+.short-article-body-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2.25rem;
+}
+
+.short-article-body {
+    width : 46.875rem;
+}
+
+.short-article-body > .main-image > img {
+    width : 46.875rem;
+    height: 25rem;
+}
+
+div.article-footer#article-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin: 50px 0px;
+    align-items: center;
+}
+
+.image-box > img {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    background: #D9D9D9;
+}
+
+div.author-box {
+    flex-direction: column;
+    justify-content: left;
+    margin-left: 20px;
+    align-items: start;
+}
+
+.author-box > div.author-role {
+    flex-shrink: 0;
+    color: var(--Text-Color);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.16px;
+}
+
+.author-box > div.author-name {
+    flex-shrink: 0;
+    color: var(--Text-Color);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.2px;
+}
+
+.author-box > div.author-email {
+    flex-shrink: 0;
+    color: var(--Text-Color);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.16px;
+}
