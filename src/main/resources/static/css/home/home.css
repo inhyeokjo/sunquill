@@ -354,12 +354,23 @@
     letter-spacing: 1px;
 }
 
-.slick-dots {
-    bottom: 10px;
+.slick-dots li button {
+    width: 1rem!important;
+    height: 0.625rem!important;
+    border: none;
+    background: var(--Line-Color)!important;
+    cursor: pointer;
+    display: block;
+    padding: 0;
 }
 
-.slick-dots li button:before {
-    font-size: 10px;
-    line-height: 10px;
-    color: #fff;
+.slick-dots li.slick-active button {
+    width: 1rem;
+    height: 0.625rem;
+    background-color: var(--Main-Color)!important;
+}
+.slick-dots li button:before{
+    content: ''!important;
+    height:100%!important;
+    width: 100%!important;
 }
