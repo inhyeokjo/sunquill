@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="/css/common/common.css" rel="stylesheet" th:href="@{/css/common/common.css}"/>
+    <link href="/css/common/header.css" rel="stylesheet" th:href="@{/css/common/header.css}"/>
+    <link href="/css/common/footer.css" rel="stylesheet" th:href="@{/css/common/footer.css}"/>
+    <link href="/css/article/photojournal.css" rel="stylesheet" th:href="@{/css/article/photojournal.css}"/>
+
+
+    <link href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" type="text/css"/>
+    <link href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet" type="text/css"/>
+    <meta charset="UTF-8">
+    <title>photojournals</title>
+</head>
+<header th:replace="~{common/headerFragment :: header}"></header>
+<body>
+<div class="photojournals-container">
+    <div class="photojournals-header">
+        <h3>Photojournals</h3>
+    </div>
+    <div class="photojournals-main-content-container">
+        <img th:src="${photoJournalWithMemberDtoList.get(0).photoLink}">
+        <div class="photojournals-main-content-description">
+            <h2 th:text="${photoJournalWithMemberDtoList.get(0).getDescription()}">
+
+            </h2>
+            <h4 th:text="${photoJournalWithMemberDtoList.get(0).getPhotographerName()} + '  |  ' + ${photoJournalWithMemberDtoList.get(0).getVolumeNumber()}"></h4>
+        </div>
+    </div>
+    <div class="photojournals-body-container">
+        <div class="photojournals-body" th:each="photoJornalWithMemeber : ${photoJournalWithMemberDtoList}">
+            <img th:src="${photoJornalWithMemeber.photoLink}">
+            <div class="photojournals-content-description">
+                <h2 th:text="${photoJornalWithMemeber.getDescription()}">
+
+                </h2>
+                <h4 th:text="${photoJornalWithMemeber.getPhotographerName()} + '  |  ' + ${photoJournalWithMemberDtoList.get(0).getVolumeNumber()}"></h4>
+            </div>
+        </div>
+
+        <!--        <div class="photojournals-body-sub-container">-->
+        <!--            <div class="photojournals-body">-->
+        <!--                <img th:src="${photoJournalWithMemberDtoList.get(1).photoLink}">-->
+        <!--                <div class="photojournals-content-description">-->
+        <!--                    <h2 th:text="${photoJournalWithMemberDtoList.get(1).getDescription()}">-->
+
+        <!--                    </h2>-->
+        <!--                    <h4 th:text="${photoJournalWithMemberDtoList.get(1).getPhotographerName()} + '  |  ' + ${photoJournalWithMemberDtoList.get(0).getVolumeNumber()}"></h4>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="photojournals-body">-->
+        <!--                <img th:src="${photoJournalWithMemberDtoList.get(2).photoLink}">-->
+        <!--                <div class="photojournals-content-description">-->
+        <!--                    <h2 th:text="${photoJournalWithMemberDtoList.get(2).getDescription()}">-->
+
+        <!--                    </h2>-->
+        <!--                    <h4 th:text="${photoJournalWithMemberDtoList.get(2).getPhotographerName()} + '  |  ' + ${photoJournalWithMemberDtoList.get(0).getVolumeNumber()}"></h4>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        <div class="photojournals-body-sub-container">-->
+        <!--            <div class="photojournals-body">-->
+        <!--                <img th:src="${photoJournalWithMemberDtoList.get(1).photoLink}">-->
+        <!--                <div class="photojournals-content-description">-->
+        <!--                    <h2 th:text="${photoJournalWithMemberDtoList.get(1).getDescription()}">-->
+
+        <!--                    </h2>-->
+        <!--                    <h4 th:text="${photoJournalWithMemberDtoList.get(1).getPhotographerName()} + '  |  ' + ${photoJournalWithMemberDtoList.get(0).getVolumeNumber()}"></h4>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="photojournals-body">-->
+        <!--                <img th:src="${photoJournalWithMemberDtoList.get(2).photoLink}">-->
+        <!--                <div class="photojournals-content-description">-->
+        <!--                    <h2 th:text="${photoJournalWithMemberDtoList.get(2).getDescription()}">-->
+
+        <!--                    </h2>-->
+        <!--                    <h4 th:text="${photoJournalWithMemberDtoList.get(2).getPhotographerName()} + '  |  ' + ${photoJournalWithMemberDtoList.get(0).getVolumeNumber()}"></h4>-->
+        <!--                </div>-->
+        <!--            </div>-->
+    </div>
+</div>
+<footer th:replace="~{common/footerFragment :: footer}"></footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" type="text/javascript"></script>
+<script>
+    $('.photojournals-body-container').slick({
+        slidesToShow: 4,  // 보여질 슬라이드 개수
+        slidesToScroll: 4,  // 스크롤할 슬라이드 개수
+        rows: 2,
+        dots: true,  // 페이지네이션(점) 표시 여부
+        infinite: false, // 무한 스크롤 여부
+        adaptiveHeight: true,
+        variableWidth: true,
+
+    });
+</script>
+</html>
