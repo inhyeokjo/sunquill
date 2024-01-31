@@ -5,31 +5,33 @@
 </head>
 <div class="footer" th:fragment="footer">
     <div class="footer-container">
-        <div class="about">
+        <div class="content-box">
             <div class="title">
                 About SNU QUILL
             </div>
             <div class="content">
-                Who We Are<br/>
-                Our Mission<br/>
-                Meet the Staff<br/>
+                <span><a th:href="@{/members}">Who We Are</a></span>
+                <span>Our Mission</span>
+                <span>Meet the Staff</span>
             </div>
         </div>
-        <div class="contact">
+        <div class="content-box">
             <div class="title">
                 Contact Us
             </div>
             <div class="content">
-                Feedback & Complaints<br/>
-                Advertise with Us<br/>
-                Letter to the Editor<br/>
+                <span>Feedback & Complaints</span>
+                <span>Advertise with Us</span>
+                <span>Letter to the Editor</span>
             </div>
         </div>
-        <div class="metadata">
-            1 Gwanak-ro, Gwanak-gu, Seoul<br/>
-            Copyright 2023 The SNU QUILL. <br/>
-            All rights reserved. <br/>
-            mail to snuquill@gmail.com<br/>
+        <div class="content-box">
+            <div class="content">
+                <span>1 Gwanak-ro, Gwanak-gu, Seoul</span>
+                <span>Copyright 2023 The SNU QUILL. </span>
+                <span>All rights reserved. </span>
+                <span>mail to snuquill@gmail.com</span>
+            </div>
         </div>
     </div>
     <a class="footer-logo" th:href="@{/home}">
