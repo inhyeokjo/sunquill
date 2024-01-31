@@ -1,4 +1,4 @@
-html, body{
+html, body {
     margin: 0;
     padding: 0;
 }
@@ -15,29 +15,19 @@ html, body{
     background: #FB4E26;
 }
 
-.footer div {
-    display: flex;
-}
-
 .footer-container {
     display: flex;
+    flex-direction: row;
     width: 100%;
+    align-items: center;
 
     margin-top: 34px;
     margin-bottom: 34px;
-    flex-grow: 0;
     justify-content: space-around;
 }
 
-.footer-container > div {
-    width: 35%;
-    justify-content: center;
-    flex-grow: 1;
-}
-
 .footer-container .title {
-    flex-grow: 3;
-    width: 160px;
+    width: 180px;
     flex-shrink: 0;
     color: white;
     font-size: 18px;
@@ -47,7 +37,7 @@ html, body{
 }
 
 .footer-container .content {
-    width: 160px;
+    width: 180px;
     color: white;
     font-size: 18px;
     font-style: normal;
@@ -87,4 +77,20 @@ html, body{
     font-weight: 500;
     letter-spacing: 2.8px;
     flex-shrink: 0;
+}
+
+.content-box {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-box:nth-of-type(3) > .content {
+    width: 360px;
 }
