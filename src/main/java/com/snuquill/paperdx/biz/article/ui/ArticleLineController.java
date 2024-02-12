@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.snuquill.paperdx.biz.article.application.ArticleLineDto;
 import com.snuquill.paperdx.biz.article.application.ArticleLineService;
 import com.snuquill.paperdx.biz.article.domain.Category;
+import com.snuquill.paperdx.biz.common.dataobject.PageMetaData;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,16 +29,8 @@ public class ArticleLineController {
 	public String getFeatureArticleList(@PathVariable("feature") String categoryName, @PathVariable("page") int page, Model model) {
 		Page<ArticleLineDto> categoryArticlePage = articleLineService.getCategoryArticlePage(categoryName, page);
 		model.addAttribute("articleLinePage", categoryArticlePage);
-		model.addAttribute("pageMetaData", getPageMetaData(categoryArticlePage));
+		model.addAttribute("pageMetaData", PageMetaData.of(categoryArticlePage));
 		model.addAttribute("category", Category.valueOf(categoryName.toUpperCase()));
 		return "features";
-	}
-
-	private PageMetaData getPageMetaData(Page<ArticleLineDto> categoryArticlePage) {
-		int targetPage = categoryArticlePage.getNumber() + 1;
-		int startPage = categoryArticlePage.getNumber() / 10 * 10 + 1;
-		boolean isEndPageList = startPage <= categoryArticlePage.getTotalPages() / 10 + 1;
-		int endPage = !isEndPageList ? startPage + 10 : categoryArticlePage.getTotalPages();
-		return new PageMetaData(startPage, endPage, targetPage, startPage == 1, isEndPageList);
 	}
 }

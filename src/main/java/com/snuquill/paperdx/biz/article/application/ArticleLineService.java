@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.snuquill.paperdx.biz.article.domain.Article;
 import com.snuquill.paperdx.biz.article.domain.ArticleRepository;
@@ -28,6 +29,7 @@ public class ArticleLineService {
 	private final ArticleRepository articleRepository;
 	private final AuthorRepository authorRepository;
 
+	@Transactional(readOnly = true)
 	public List<ArticleLineDto> getRecentArticleList(int count) {
 		PageRequest countRequest = PageRequest.of(0, count, Sort.by("publishDate").descending());
 		List<Article> articleList = articleRepository.findAll(countRequest).toList();
@@ -38,6 +40,7 @@ public class ArticleLineService {
 			.toList();
 	}
 
+	@Transactional(readOnly = true)
 	public Page<ArticleLineDto> getCategoryArticlePage(String categoryName, int page) {
 		int pageSize = 10;
 		if (page <= 0) {
