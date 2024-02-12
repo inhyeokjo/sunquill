@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <property name="LOG_DIR" value="/logs/snuquill-was"/>
+    <property name="LOG_FILE_PATH_AND_NAME" value="${LOG_DIR}/snuquill-was-logs"/>
+    <property name="LOG_FILE" value="${LOG_FILE_PATH_AND_NAME}.log"/>
+    <property name="ERROR_FILE_PATH_AND_NAME" value="${LOG_DIR}/snuquill-was-logs-error"/>
+    <property name="ERROR_FILE" value="${ERROR_FILE_PATH_AND_NAME}.log"/>
+
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE_PATH_AND_NAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>[%d{HH:mm:ss.SSS}] [%-5level] [%X{requestId}] [%-21thread]
+                %logger{36}.%method:%line - %msg%n
+            </Pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="FILE-ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <fileNamePattern>${ERROR_FILE}</fileNamePattern>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${ERROR_FILE_PATH_AND_NAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>[%d{HH:mm:ss.SSS}] [%-5level] [%X{requestId}] [%-21thread]
+                %logger{36}.%method:%line - %msg%n
+            </Pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+</included>

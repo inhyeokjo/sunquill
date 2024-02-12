@@ -1,0 +1,10 @@
+<included>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>[%d{HH:mm:ss.sss}] [%-5level] [%X{requestId}] [%-21thread]
+                %logger{36}.%method:%line - %msg%n
+            </Pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+</included>
