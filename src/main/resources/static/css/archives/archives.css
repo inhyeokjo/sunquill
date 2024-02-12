@@ -1,0 +1,79 @@
+.archives-page-container {
+    width: 1140px;
+    margin: 20px 50px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.archives-name {
+    height: 31px;
+    flex-shrink: 0;
+}
+.archives-name > h3 {
+    color: var(--Main-Color);
+    margin:0;
+    /* Heading 3 */
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.archives-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 10px 20px;
+}
+
+.magazine-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 240px;
+    min-width: 240px;
+    margin: 30px 15px;
+    flex: 1;
+}
+
+.magazine-cover-img-container>img{
+    width: 240px;
+    height: 350px;
+}
+
+/*
+page-flipper
+*/
+.page-flipper-container {
+    width: 100%;
+    margin: 50px 0;
+
+    display: flex;
+    justify-content: center;
+}
+
+.page-element {
+    display: inline-block;
+    min-width: 28px;
+    margin: 0 1px;
+    padding: 6px 4px 7px;
+    font-size: 13px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    font-weight: normal;
+    text-align: center;
+
+    color: #444;
+    text-decoration: none;
+    vertical-align: top;
+}
+
+.page-element:hover, .current-element {
+    border: 1px solid #e0e0e0;
+    color: var(--Main-Color);
+    text-decoration: none;
+    font-weight: bold;
+}
+

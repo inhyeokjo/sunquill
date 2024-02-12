@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <link th:href="@{/css/common/common.css}" href="/css/common/common.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/header.css}" href="/css/common/header.css" rel="stylesheet"/>
+    <link th:href="@{/css/archives/archives.css}" href="/css/archives/archives.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/footer.css}" href="/css/common/footer.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="~{common/headerFragment :: header}"></header>
+<div class="archives-page-container">
+    <div class="archives-name">
+        <h3>Issue</h3>
+    </div>
+    <div class="archives-container">
+        <div th:data-filelink="${magazine.fileLink}" onclick="window.open(this.getAttribute('data-filelink'))" class="magazine-card" th:each="magazine : ${magazinePage}" th:object="${magazine}">
+            <div class="magazine-cover-img-container">
+                <img th:src="${magazine.volumeCoverLink}">
+            </div>
+            <div class="volume-number-container">
+                Volume [[${magazine.volumeNumber}]]
+            </div>
+        </div>
+
+    </div>
+    <div class="page-flipper-container">
+        <a class='page-element'
+           th:each="pageElemet : ${#numbers.sequence(pageMetaData.pageStart - 1 , pageMetaData.pageEnd + 1)}"
+           th:classappend="${pageElemet eq pageMetaData.targetPage ? 'current-element':''} +
+                        ${pageElemet eq pageMetaData.pageStart - 1 ? 'prev':''} +
+                        ${pageElemet eq pageMetaData.pageEnd + 1 ? 'next':''}"
+           th:styleappend="${pageMetaData.firstPageList and (pageElemet eq (pageMetaData.pageStart - 1)) ? 'display:none;' : ''} +
+                        ${pageMetaData.endPageList and (pageElemet eq (pageMetaData.pageEnd + 1)) ? 'display:none;' : ''}"
+           th:text="${pageElemet}"
+           th:href="@{/article/archives/{page}(page=${pageElemet})}">
+            1
+        </a>
+    </div>
+</div>
+<footer th:replace="~{common/footerFragment :: footer}"></footer>
+</body>
+</html>
