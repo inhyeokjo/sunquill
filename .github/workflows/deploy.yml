@@ -67,5 +67,5 @@ jobs:
         script: |
          sudo docker rm -f $(sudo docker ps -qa)
          sudo docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }}
-         sudo docker run  -d -v /logs/snuquill-was /logs/snuquill-was -p 80:8080 --name snuquill-server ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }}
+         sudo docker run  -d -v /logs/snuquill-was:/logs/snuquill-was -p 80:8080 --name snuquill-server ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }}
          sudo docker image prune -f
