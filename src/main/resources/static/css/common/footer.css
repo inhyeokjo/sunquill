@@ -10,7 +10,7 @@ html, body {
     align-items: stretch;
     flex-wrap: wrap;
     margin: 0;
-    width: 100%;
+    width: 100vw;
     /*transform: translateX(calc(570px - 50vw));*/
     background: #FB4E26;
 }
