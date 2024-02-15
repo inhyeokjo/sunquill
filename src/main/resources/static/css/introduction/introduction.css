@@ -1,0 +1,57 @@
+.who-we-are-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+    width: 1140px;
+}
+
+.who-we-are-title {
+    color: var(--Main-Color);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1px;
+}
+
+.title-under-bar {
+    width: 30px;
+    height: 2px;
+    background-color: var(--Main-Color);
+    border: none;
+    box-sizing: border-box;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.meet-the-staff-intro-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.contents-body-container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 125%;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #4B4B4B;
+
+}
+
+.all-member-img {
+    width: 1000px;
+    height: 674.16px;
+
+    margin: 50px 10px 0;
+
+}
