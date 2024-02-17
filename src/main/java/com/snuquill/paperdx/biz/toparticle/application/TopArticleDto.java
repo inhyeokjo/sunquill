@@ -14,6 +14,6 @@ public class TopArticleDto {
 	private String summary;
 
 	public static TopArticleDto of(TopArticle topArticle) {
-		return new TopArticleDto(topArticle.getFileApi(), topArticle.getTitle(), topArticle.getSummary());
+		return new TopArticleDto(topArticle.getPictureUrl(), topArticle.getTitle(), topArticle.getSummary());
 	}
 }
