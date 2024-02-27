@@ -77,4 +77,14 @@ public class ArticleLineService {
 	private Map<Long, Author> makeAuthorMap(List<Author> authorList) {
 		return authorList.stream().collect(Collectors.toMap(Author::getId, author -> author));
 	}
+
+	public List<ArticleLineDto> getMostReadArticles(int count) {
+		PageRequest countRequest = PageRequest.of(0, count, Sort.by("viewCount").descending());
+		List<Article> articleList = articleRepository.findAll(countRequest).toList();
+		Map<Long, Author> authorMap = getAuthorMap(articleList);
+
+		return articleList.stream()
+			.map(article -> ArticleLineDto.of(article, authorMap))
+			.toList();
+	}
 }

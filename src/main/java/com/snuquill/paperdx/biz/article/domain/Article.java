@@ -35,6 +35,7 @@ public class Article extends BaseEntity {
 	private boolean invisible;
 	private Long authorId;
 	private LocalDateTime publishDate;
+	private Long viewCount;
 
 	public Article(String title, String contents, Category category, Picture mainPicture, Long authorId) {
 		this.title = title;
@@ -46,8 +47,7 @@ public class Article extends BaseEntity {
 	}
 
 	public static Article testDummy(int number, Category category) {
-		Article article = new Article("title" + number, "contents" + number, category, new Picture("url"), 1L);
-		return article;
+		return new Article("title" + number, "contents" + number, category, new Picture("url"), 1L);
 	}
 
 	public void changeTitle(String title) {
@@ -80,5 +80,10 @@ public class Article extends BaseEntity {
 
 	public List<String> makeList(String text) {
 		return Arrays.asList(text.replace("\r\n", "\n").split("\n"));
+	}
+
+	public Long upViewCount() {
+		viewCount += 1;
+		return viewCount;
 	}
 }
