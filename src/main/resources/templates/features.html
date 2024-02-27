@@ -21,7 +21,7 @@
             <h2 th:text="${category.getCategoryDescription()}">
                 Category Description
             </h2>
-            <div th:replace="~{common/quickNavigationFragment :: quickNavBar}" id="quickNav"></div>
+            <div th:replace="~{common/quickNavigationFragment :: quickNavBar(${recentArticleList}, ${mostReadArticleList})}" id="quickNav"></div>
         </div>
     </div>
     <div class="articles-container">

@@ -1,5 +1,7 @@
 package com.snuquill.paperdx.biz.article.ui;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +33,12 @@ public class ArticleLineController {
 		model.addAttribute("articleLinePage", categoryArticlePage);
 		model.addAttribute("pageMetaData", PageMetaData.of(categoryArticlePage));
 		model.addAttribute("category", Category.valueOf(categoryName.toUpperCase()));
+
+		List<ArticleLineDto> recentArticleList = articleLineService.getRecentArticleList(5);
+		model.addAttribute("recentArticleList", recentArticleList);
+
+		List<ArticleLineDto> mostReadArticleList = articleLineService.getMostReadArticles(5);
+		model.addAttribute("mostReadArticleList", mostReadArticleList);
 		return "features";
 	}
 }
