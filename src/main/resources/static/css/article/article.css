@@ -69,9 +69,10 @@ div#color-line {
 }
 
 div.article-footer#article-footer {
+    display: flex;
     flex-direction: row;
     justify-content: left;
-    margin: 50px 0px;
+    margin: 50px 0;
     align-items: center;
 }
 
