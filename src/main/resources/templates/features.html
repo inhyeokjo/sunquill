@@ -26,7 +26,10 @@
     </div>
     <div class="articles-container">
         <div class="articles-list">
-            <div class="article" th:each="articleLine : ${articleLinePage}" th:object="${articleLine}">
+            <div class="article hover-pointer"
+                 th:each="articleLine : ${articleLinePage}"
+                 th:object="${articleLine}"
+                 th:onclick="'window.location.href=\'' + @{/article/{id}(id=${articleLine.id})} + '\''">
                 <div class="article-thumbnail">
                     <img th:src="${articleLine.articlePictureUrl}">
                 </div>

@@ -58,7 +58,16 @@
 .nav {
     display: flex;
     justify-content: space-around;
+    background: #FB4E26;
+    width: 1140px;
+}
+
+.nav-wrapper {
+    display:flex;
+    justify-content: center;
     margin-top: 20px;
+    width: 100vw;
+    transform: translateX(calc(570px - 50vw));
     background: #FB4E26;
 }
 

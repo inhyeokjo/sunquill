@@ -47,11 +47,12 @@ public class EditorPickDto {
 	@AllArgsConstructor
 	@Data
 	public static class ArticleTitleLinkDto {
+		private Long id;
 		private String title;
 		private Long articleId;
 
 		public static ArticleTitleLinkDto of(EditorPick editorPick) {
-			return new ArticleTitleLinkDto(editorPick.getTitle(), editorPick.getArticleId());
+			return new ArticleTitleLinkDto(editorPick.getId(), editorPick.getTitle(), editorPick.getArticleId());
 		}
 	}
 }

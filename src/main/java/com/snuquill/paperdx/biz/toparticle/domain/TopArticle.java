@@ -21,7 +21,7 @@ public class TopArticle extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "top_article_id")
 	private Long id;
-	private String fileApi;
+	private String pictureUrl;
 	private String title;
 	private String summary;
 	private Long articleId;

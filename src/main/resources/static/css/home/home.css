@@ -268,6 +268,11 @@
     background-color: white;
 }
 
+.magazine-archive-slide > img {
+    width: 270px;
+    height: 380px;
+}
+
 .more-archive-slide {
     display: flex;
     position: relative;

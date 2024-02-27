@@ -11,17 +11,18 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class ArticleLineDto {
+	private Long id;
 	private String articleTitle;
 	private String articleSummary;
 	private String articlePictureUrl;
 	private String authorName;
 
 	public static ArticleLineDto of(Article article, String authorName) {
-		return new ArticleLineDto(article.getTitle(), article.getContents(), article.getMainPicture().getUrl(), authorName);
+		return new ArticleLineDto(article.getId(), article.getTitle(), article.getContents(), article.getMainPicture().getUrl(), authorName);
 	}
 
 	public static ArticleLineDto of(Article article, Map<Long, Author> authorMap) {
 		String authorName = authorMap.get(article.getAuthorId()).getName();
-		return new ArticleLineDto(article.getTitle(), article.getContents(), article.getMainPicture().getUrl(), authorName);
+		return new ArticleLineDto(article.getId(), article.getTitle(), article.getContents(), article.getMainPicture().getUrl(), authorName);
 	}
 }
