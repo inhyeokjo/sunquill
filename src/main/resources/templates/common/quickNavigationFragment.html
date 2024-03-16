@@ -19,6 +19,7 @@
         <li th:each="mostReadArticle: ${mostReadArticleList}">
             <a th:href="@{/article/{id}(id=${mostReadArticle.id})}" th:text="${mostReadArticle.articleTitle}">How to Become A Sports Expert in SNU...</a>
         </li>
+    </ul>
 </nav>
 </body>
 </html>
