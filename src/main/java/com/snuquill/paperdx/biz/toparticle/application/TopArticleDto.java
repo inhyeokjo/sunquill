@@ -9,12 +9,12 @@ import lombok.Data;
 @AllArgsConstructor
 public class TopArticleDto {
 
-	private Long id;
+	private Long articleId;
 	private String pictureUrl;
 	private String title;
 	private String summary;
 
 	public static TopArticleDto of(TopArticle topArticle) {
-		return new TopArticleDto(topArticle.getId(), topArticle.getPictureUrl(), topArticle.getTitle(), topArticle.getSummary());
+		return new TopArticleDto(topArticle.getArticleId(), topArticle.getPictureUrl(), topArticle.getTitle(), topArticle.getSummary());
 	}
 }
