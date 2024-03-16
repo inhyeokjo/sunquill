@@ -32,7 +32,7 @@ public class ArticleLineService {
 	@Transactional(readOnly = true)
 	public List<ArticleLineDto> getRecentArticleList(int count) {
 		PageRequest countRequest = PageRequest.of(0, count, Sort.by("publishDate").descending());
-		List<Article> articleList = articleRepository.findAll(countRequest).toList();
+		List<Article> articleList = articleRepository.findArticlesByInvisible(false, countRequest).toList();
 		Map<Long, Author> authorMap = getAuthorMap(articleList);
 
 		return articleList.stream()
