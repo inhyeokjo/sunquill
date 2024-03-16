@@ -58,7 +58,7 @@ public class ArticleLineService {
 
 		PageRequest countRequest = PageRequest.of(page-1, pageSize, Sort.by("publishDate").descending());
 		List<Article> articleList = articleRepository.findByCategoryVisible(category, countRequest);
-		long categoryArticleCount = articleRepository.countAllByCategory(category);
+		long categoryArticleCount = articleRepository.countAllByCategoryAndInvisible(category, false);
 		Map<Long, Author> authorMap = getAuthorMap(articleList);
 
 		List<ArticleLineDto> articleLineDtoList = articleList.stream()
