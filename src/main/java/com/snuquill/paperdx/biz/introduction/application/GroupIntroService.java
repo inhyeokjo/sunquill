@@ -20,7 +20,7 @@ public class GroupIntroService {
 	public GroupIntroDto getIntroduction() {
 		List<GroupIntro> introList = groupIntroRepository.findAll();
 		if (introList.isEmpty()) {
-			log.error("Introduction 데이터가 존재하지 않습니다.. GroupIntro Table에는 정확히 1개의 데이터만 존재해야 합니다.");
+			log.error("Introduction 데이터가 존재하지 않습니다. GroupIntro Table에는 정확히 1개의 데이터만 존재해야 합니다.");
 			throw new DataNotFoundException("Introduction Data Not Found. Please Check DB");
 		} else if (introList.size() > 1) {
 			log.warn("총 {}개의 Introduction 데이터가 존재합니다. GroupIntro Table에는 정확히 1개의 데이터만 존재해야 합니다.", introList.size());

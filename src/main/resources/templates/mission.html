@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
+<head>
+    <link th:href="@{/css/common/common.css}" href="/css/common/common.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/header.css}" href="/css/common/header.css" rel="stylesheet"/>
+    <link th:href="@{/css/mission/mission.css}" href="/css/mission/mission.css" rel="stylesheet"/>
+    <link th:href="@{/css/common/footer.css}" href="/css/common/footer.css" rel="stylesheet"/>
+</head>
+<header th:replace="~{common/headerFragment :: header}"></header>
+<body>
+<div class="who-we-are-container">
+    <div class="who-we-are-title">
+        OUR MISSION
+    </div>
+    <hr class="title-under-bar">
+    <div class="contents-body-container" th:text="${mission.getMissionText()}">
+        As an independent press organization at Seoul National University, The SNU Quill's mission is to enhance SNU's campus experience by providing quality journalism from a fresh, yet critical, student perspective.
+    </div>
+</div>
+</body>
+<footer th:replace="~{common/footerFragment :: footer}"></footer>
+</html>
