@@ -18,7 +18,7 @@ public class MemberService {
 	private final MemberRepository memberRepository;
 
 	public MultiValueMap<String, MemberDto> getOrganizationChart() {
-		List<Member> memberList = memberRepository.findAll();
+		List<Member> memberList = memberRepository.findMembersByRetired(false);
 		MultiValueMap<String, MemberDto> organizationChart = new LinkedMultiValueMap<>();
 		for (Member member : memberList) {
 			MemberDto memberDto = MemberDto.of(member);
