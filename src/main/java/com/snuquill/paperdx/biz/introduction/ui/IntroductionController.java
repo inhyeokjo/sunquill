@@ -17,7 +17,7 @@ public class IntroductionController {
 	public String getIntroductionPage(Model model) {
 		GroupIntroDto introduction = groupIntroService.getIntroduction();
 		model.addAttribute("introduction", introduction);
-		return "/introduction";
+		return "introduction";
 	}
 }
 
