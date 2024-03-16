@@ -20,7 +20,7 @@
         <div class="top-article-container">
             <div class='top-article hover-pointer' style="background: white"
                  th:style="'background-image: url(' + ${topArticle.pictureUrl} + '); background-size: cover;'"
-                 th:onclick="'window.location.href=\'' + @{/article/{id}(id=${topArticle.id})} + '\''">
+                 th:onclick="'window.location.href=\'' + @{/article/{id}(id=${topArticle.articleId})} + '\''">
                 <div class="top-article-title">
                     <p th:text="${topArticle.title}">
                         To Leave or Not to Leave:
@@ -59,7 +59,7 @@
                         <h5>FEATURES</h5>
                         <h4 th:each="featureEditorPick : ${editorPick.featuresEditorPickList}"
                             th:text="${featureEditorPick.title}"
-                            th:onclick="'window.location.href=\'' + @{/article/{id}(id=${featureEditorPick.id})} + '\''"
+                            th:onclick="'window.location.href=\'' + @{/article/{id}(id=${featureEditorPick.articleId})} + '\''"
                             class="hover-pointer">
                             R U Actually Woke Tho
                         </h4>
@@ -67,7 +67,7 @@
                     <div class="editors-pick">
                         <h5>SNU SOCIETY</h5>
                         <h4 th:each="snuSocietyEditorPick : ${editorPick.snuSocietyEditorPickList}" th:text="${snuSocietyEditorPick.title}"
-                            th:onclick="'window.location.href=\'' + @{/article/{id}(id=${snuSocietyEditorPick.id})} + '\''"
+                            th:onclick="'window.location.href=\'' + @{/article/{id}(id=${snuSocietyEditorPick.articleId})} + '\''"
                             class="hover-pointer">
                             SNU’s Establishment of the “Advanced Convergence Department”
                         </h4>
@@ -75,7 +75,7 @@
                     <div class="editors-pick">
                         <h5>ARTS & CULTURES</h5>
                         <h4 th:each="artsAndCultureEditorPick : ${editorPick.artsAndCultureEditorPickList}" th:text="${artsAndCultureEditorPick.title}"
-                            th:onclick="'window.location.href=\'' + @{/article/{id}(id=${artsAndCultureEditorPick.id})} + '\''"
+                            th:onclick="'window.location.href=\'' + @{/article/{id}(id=${artsAndCultureEditorPick.articleId})} + '\''"
                             class="hover-pointer">
                             Crush Culture: The Downfall of Instant Love
                         </h4>
@@ -83,7 +83,7 @@
                     <div class="editors-pick">
                         <h5>OPINION</h5>
                         <h4 th:each="opinionEditorPick : ${editorPick.opinionEditorPickList}" th:text="${opinionEditorPick.title}"
-                            th:onclick="'window.location.href=\'' + @{/article/{id}(id=${opinionEditorPick.id})} + '\''"
+                            th:onclick="'window.location.href=\'' + @{/article/{id}(id=${opinionEditorPick.articleId})} + '\''"
                             class="hover-pointer">
                             Title
                         </h4>
