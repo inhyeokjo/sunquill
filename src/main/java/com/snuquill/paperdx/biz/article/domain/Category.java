@@ -23,7 +23,10 @@ public enum Category {
 
         return switch (name()) {
 			case "FEATURES" -> "Deals with general affairs, from domestic to international news.";
-			case "SHORT_ARTICLES" -> "Covers important issues swiftly and concisely.";
+			case "SNU_SOCIETY" -> "Deals with news on campus.";
+			case "ARTS_CULTURE" -> "Deals with the current creative trends.";
+			case "SHORT_ARTICLES" -> "For a concise yet deep insight into today's issues. ";
+			case "OPINION" -> "A closer look into the thoughts of today and tomorrow's leaders.";
 			default -> "None";
 		};
 	}

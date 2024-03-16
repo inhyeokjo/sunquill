@@ -17,7 +17,7 @@
     <div class="main-image">
         <img th:src="${articleDetailDto.pictureUrl}" src="/static/images/sample-image-1080x494.jpg" alt=""/>
     </div>
-    <div class="article-category" th:text="${articleDetailDto.category().name()}">
+    <div class="article-category" th:text="${articleDetailDto.category().getCategoryName()}">
         category
     </div>
     <div class="headline">
