@@ -23,6 +23,7 @@ public class TopArticle extends BaseEntity {
 	private Long id;
 	private String pictureUrl;
 	private String title;
+	@Column(columnDefinition = "text")
 	private String summary;
 	private Long articleId;
 
