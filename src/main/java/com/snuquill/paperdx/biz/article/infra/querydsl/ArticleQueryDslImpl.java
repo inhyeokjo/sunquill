@@ -3,9 +3,14 @@ package com.snuquill.paperdx.biz.article.infra.querydsl;
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 
+import com.querydsl.core.types.Order;
+import com.querydsl.core.types.OrderSpecifier;
+import com.querydsl.core.types.dsl.PathBuilder;
+import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.snuquill.paperdx.biz.article.domain.Article;
 import com.snuquill.paperdx.biz.article.domain.Category;
@@ -24,11 +29,17 @@ public class ArticleQueryDslImpl extends QuerydslRepositorySupport implements Ar
 
 	@Override
 	public List<Article> findByCategoryVisible(Category category, Pageable pageable) {
-		return queryFactory.selectFrom(article)
+		JPAQuery<Article> query = queryFactory.selectFrom(article)
 			.where(article.category.eq(category)
 				.and(article.invisible.isFalse()))
 			.limit(pageable.getPageSize())
-			.offset(pageable.getOffset())
-			.fetch();
+			.offset(pageable.getOffset());
+
+		for (Sort.Order order : pageable.getSort()) {
+			PathBuilder<?> entityPath = new PathBuilder<>(Article.class, article.getMetadata().getName());
+			query.orderBy(new OrderSpecifier(order.isAscending() ? Order.ASC : Order.DESC, entityPath.get(order.getProperty())));
+		}
+
+		return query.fetch();
 	}
 }
