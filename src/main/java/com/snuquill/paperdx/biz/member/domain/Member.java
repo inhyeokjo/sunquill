@@ -27,4 +27,5 @@ public class Member {
 	private String role;
 	private String phone;
 	private String team;
+	private boolean retired;
 }
