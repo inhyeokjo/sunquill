@@ -36,7 +36,7 @@
            th:styleappend="${pageMetaData.firstPageList and (pageElemet eq (pageMetaData.pageStart - 1)) ? 'display:none;' : ''} +
                         ${pageMetaData.endPageList and (pageElemet eq (pageMetaData.pageEnd + 1)) ? 'display:none;' : ''}"
            th:text="${pageElemet}"
-           th:href="@{/article/archives/{page}(page=${pageElemet})}">
+           th:href="@{/archives/{page}(page=${pageElemet})}">
             1
         </a>
     </div>
