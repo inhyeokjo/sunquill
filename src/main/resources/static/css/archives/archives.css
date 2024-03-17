@@ -77,3 +77,6 @@ page-flipper
     font-weight: bold;
 }
 
+.page-element:visited {
+    color: inherit;
+}
