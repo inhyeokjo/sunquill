@@ -82,7 +82,7 @@ div.article-footer#article-footer {
 }
 
 .image-box > img {
-    width: 100px;
+    width: 75px;
     height: 100px;
     flex-shrink: 0;
 }
