@@ -85,7 +85,7 @@ public class ApiAccessLog {
 
 	public static ApiAccessLog makeShortApiAccessLog(HttpServletRequest request, HttpServletResponse response, LocalDateTime requestTime) {
 		return ApiAccessLog.builder()
-			.clientIp(request.getRemoteAddr())
+			.clientIp(request.getHeader("x-forwarded-for"))
 			.requestId(MDC.get("requestId"))
 			.requestTime(requestTime)
 			.method(request.getMethod())
