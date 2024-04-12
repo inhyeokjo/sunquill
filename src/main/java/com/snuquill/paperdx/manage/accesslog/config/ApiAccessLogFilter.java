@@ -5,6 +5,7 @@ import static com.snuquill.paperdx.utils.HttpServletUtils.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
@@ -24,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @RequiredArgsConstructor
 @Slf4j
+@Order(0)
 public class ApiAccessLogFilter extends OncePerRequestFilter {
 
 	private final RequestMappingHandlerMapping requestMappingHandlerMapping;
