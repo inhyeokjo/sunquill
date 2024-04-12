@@ -42,6 +42,10 @@ public class ApiAccessLogStrategy {
 		return new ApiAccessLogStrategy(ApiAccessLogLevel.SHORT, ApiAccessLogLevel.DETAIL, isRest);
 	}
 
+	public static ApiAccessLogStrategy getNoneStrategy() {
+		return new ApiAccessLogStrategy(ApiAccessLogLevel.NONE, ApiAccessLogLevel.NONE, true);
+	}
+
 	public boolean needWrap() {
 		return successLogLevel == ApiAccessLogLevel.DETAIL || failLogLevel == ApiAccessLogLevel.DETAIL;
 	}
