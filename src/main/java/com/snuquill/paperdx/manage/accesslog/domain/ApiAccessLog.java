@@ -65,36 +65,34 @@ public class ApiAccessLog {
 
 	public static ApiAccessLog makeDetailApiAccessLog(HttpServletRequest request, HttpServletResponse response, LocalDateTime requestTime, boolean isRest) {
 		return ApiAccessLog.builder()
-			.clientIp(request.getRemoteAddr())
 			.requestId(MDC.get("requestId"))
 			.requestTime(requestTime)
+			.responseTime(LocalDateTime.now())
+			.executionTime(Duration.between(requestTime, LocalDateTime.now()).toMillis())
 			.method(request.getMethod())
 			.uri(request.getRequestURI())
+			.responseCode(String.valueOf(response.getStatus()))
 			.clientIp(request.getHeader("x-forwarded-for"))
 			.userAgent(request.getHeader("User-Agent"))
+			.stackTrace(LogContext.getStackTrace())
 			.requestHeader(extractHeader(request))
 			.requestBody(extractBody(request))
-			.responseTime(LocalDateTime.now())
-			.responseCode(String.valueOf(response.getStatus()))
 			.responseHeader(extractHeader(response))
 			.responseBody(isRest ? extractBody(response) : "")
-			.executionTime(Duration.between(requestTime, LocalDateTime.now()).toMillis())
-			.stackTrace(LogContext.getStackTrace())
 			.build();
 	}
 
 	public static ApiAccessLog makeShortApiAccessLog(HttpServletRequest request, HttpServletResponse response, LocalDateTime requestTime) {
 		return ApiAccessLog.builder()
-			.clientIp(request.getHeader("x-forwarded-for"))
 			.requestId(MDC.get("requestId"))
 			.requestTime(requestTime)
+			.responseTime(LocalDateTime.now())
+			.executionTime(Duration.between(requestTime, LocalDateTime.now()).toMillis())
 			.method(request.getMethod())
 			.uri(request.getRequestURI())
-			.clientIp(request.getRemoteAddr())
-			.userAgent(request.getHeader("User-Agent"))
-			.responseTime(LocalDateTime.now())
 			.responseCode(String.valueOf(response.getStatus()))
-			.executionTime(Duration.between(requestTime, LocalDateTime.now()).toMillis())
+			.clientIp(request.getHeader("x-forwarded-for"))
+			.userAgent(request.getHeader("User-Agent"))
 			.build();
 	}
 
