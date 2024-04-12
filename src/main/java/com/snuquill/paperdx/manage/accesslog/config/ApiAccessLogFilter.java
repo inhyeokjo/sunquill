@@ -42,7 +42,7 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
 
 		// ContentCachingResponseWrapper으로 감싸야 하는 경우 감싸는 로직
 		Object handler = findHandlerMethod(request);
-		ApiAccessLogStrategy apiAccessLogStrategy = ApiAccessLogStrategy.getDefaultStrategy(true);
+		ApiAccessLogStrategy apiAccessLogStrategy = ApiAccessLogStrategy.getNoneStrategy();
 		if (handler != null) {
 			apiAccessLogStrategy = ApiAccessLogStrategy.of(handler);
 			if (apiAccessLogStrategy.needWrap()) {
