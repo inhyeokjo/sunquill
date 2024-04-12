@@ -7,6 +7,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import com.snuquill.paperdx.biz.homepage.application.HomePageService;
 import com.snuquill.paperdx.biz.homepage.application.dto.HomePageDto;
+import com.snuquill.paperdx.manage.accesslog.domain.ApiAccessLogLevel;
+import com.snuquill.paperdx.manage.accesslog.domain.ApiAccessLogging;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 public class HomeController {
 	private final HomePageService homePageService;
 
+	@ApiAccessLogging(successLogLevel = ApiAccessLogLevel.NONE, failLogLevel = ApiAccessLogLevel.NONE)
 	@GetMapping("/")
 	public RedirectView redirectRootPage() {
 		return new RedirectView("/home");

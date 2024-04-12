@@ -10,6 +10,8 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.snuquill.paperdx.biz.common.dataobject.PageMetaData;
 import com.snuquill.paperdx.biz.magazine.application.MagazineDto;
 import com.snuquill.paperdx.biz.magazine.application.MagazineService;
+import com.snuquill.paperdx.manage.accesslog.domain.ApiAccessLogLevel;
+import com.snuquill.paperdx.manage.accesslog.domain.ApiAccessLogging;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,6 +29,7 @@ public class ArchiveController {
 		return "archives";
 	}
 
+	@ApiAccessLogging(successLogLevel = ApiAccessLogLevel.NONE, failLogLevel = ApiAccessLogLevel.NONE)
 	@GetMapping("/archives")
 	public RedirectView getArchiveList() {
 		return new RedirectView("/archives/1");
