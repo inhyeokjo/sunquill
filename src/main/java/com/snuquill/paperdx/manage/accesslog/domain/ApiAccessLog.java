@@ -70,7 +70,7 @@ public class ApiAccessLog {
 			.requestTime(requestTime)
 			.method(request.getMethod())
 			.uri(request.getRequestURI())
-			.clientIp(request.getRemoteAddr())
+			.clientIp(request.getHeader("x-forwarded-for"))
 			.userAgent(request.getHeader("User-Agent"))
 			.requestHeader(extractHeader(request))
 			.requestBody(extractBody(request))
