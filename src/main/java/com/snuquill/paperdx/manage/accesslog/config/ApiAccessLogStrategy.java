@@ -38,7 +38,7 @@ public class ApiAccessLogStrategy {
 		return ApiAccessLogStrategy.getDefaultStrategy(isRest);
 	}
 
-	private static ApiAccessLogStrategy getDefaultStrategy(boolean isRest) {
+	public static ApiAccessLogStrategy getDefaultStrategy(boolean isRest) {
 		return new ApiAccessLogStrategy(ApiAccessLogLevel.SHORT, ApiAccessLogLevel.DETAIL, isRest);
 	}
 

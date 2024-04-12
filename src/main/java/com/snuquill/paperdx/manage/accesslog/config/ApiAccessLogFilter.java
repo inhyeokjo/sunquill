@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-import com.snuquill.paperdx.common.execption.HandlerMethodNotFoundException;
 import com.snuquill.paperdx.manage.accesslog.application.ApiAccessLogService;
 import com.snuquill.paperdx.manage.accesslog.application.ApiAccessLogServiceFactory;
 import com.snuquill.paperdx.manage.accesslog.domain.LogContext;
@@ -43,10 +42,13 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
 
 		// ContentCachingResponseWrapper으로 감싸야 하는 경우 감싸는 로직
 		Object handler = findHandlerMethod(request);
-		ApiAccessLogStrategy apiAccessLogStrategy = ApiAccessLogStrategy.of(handler);
-		if (apiAccessLogStrategy.needWrap()) {
-			request = wrapRequest(request);
-			response = wrapResponse(response);
+		ApiAccessLogStrategy apiAccessLogStrategy = ApiAccessLogStrategy.getDefaultStrategy(true);
+		if (handler != null) {
+			apiAccessLogStrategy = ApiAccessLogStrategy.of(handler);
+			if (apiAccessLogStrategy.needWrap()) {
+				request = wrapRequest(request);
+				response = wrapResponse(response);
+			}
 		}
 
 		LocalDateTime requestTime = LocalDateTime.now();
@@ -65,8 +67,8 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
 		try {
 			handler = requestMappingHandlerMapping.getHandler(request).getHandler();
 		} catch (Exception e) {
-			log.error("Cannot Find Handler Method of request. request method : {}, request uri : {}", request.getMethod(), request.getRequestURI(), e);
-			throw new HandlerMethodNotFoundException(e);
+			log.warn("Cannot Find Handler Method of request. request method : {}, request uri : {}", request.getMethod(), request.getRequestURI(), e);
+			return null;
 		}
 		return handler;
 	}
