@@ -18,10 +18,12 @@
 <div class="features-container">
     <div class="features-intro-container">
         <div class="features-intro-title">
-            <h3 th:text="${category.getCategoryName()}">Features</h3>
+            <h3 th:if="${isSearch}">Search Result</h3>
+            <h3 th:unless="${isSearch}" th:text="${category.getCategoryName()}">Features</h3>
         </div>
         <div class="features-intro-content">
-            <h2 th:text="${category.getCategoryDescription()}">
+            <h2 th:unless="${isSearch}"
+                    th:text="${category.getCategoryDescription()}">
                 Category Description
             </h2>
             <div th:replace="~{common/quickNavigationFragment :: quickNavBar(${recentArticleList}, ${mostReadArticleList})}" id="quickNav"></div>
@@ -51,6 +53,19 @@
             </div>
             <div class="page-flipper-container">
                 <a class='page-element'
+                   th:if="${isSearch}"
+                   th:each="pageElemet : ${#numbers.sequence(pageMetaData.pageStart - 1 , pageMetaData.pageEnd + 1)}"
+                   th:classappend="${pageElemet eq pageMetaData.targetPage ? 'current-element':''} +
+                        ${pageElemet eq pageMetaData.pageStart - 1 ? 'prev':''} +
+                        ${pageElemet eq pageMetaData.pageEnd + 1 ? 'next':''}"
+                   th:styleappend="${pageMetaData.firstPageList and (pageElemet eq (pageMetaData.pageStart - 1)) ? 'display:none;' : ''} +
+                        ${pageMetaData.endPageList and (pageElemet eq (pageMetaData.pageEnd + 1)) ? 'display:none;' : ''}"
+                th:text="${pageElemet}"
+                th:href="@{/article/search(searchText=${searchText}, page=${pageElemet})}">
+                1
+                </a>
+                <a class='page-element'
+                   th:unless="${isSearch}"
                    th:each="pageElemet : ${#numbers.sequence(pageMetaData.pageStart - 1 , pageMetaData.pageEnd + 1)}"
                    th:classappend="${pageElemet eq pageMetaData.targetPage ? 'current-element':''} +
                         ${pageElemet eq pageMetaData.pageStart - 1 ? 'prev':''} +

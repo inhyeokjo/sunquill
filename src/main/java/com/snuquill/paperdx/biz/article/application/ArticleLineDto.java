@@ -25,4 +25,8 @@ public class ArticleLineDto {
 		String authorName = authorMap.get(article.getAuthorId()).getName();
 		return new ArticleLineDto(article.getId(), article.getTitle(), article.getContents(), article.getMainPicture().getUrl(), authorName);
 	}
+
+	public static ArticleLineDto of(Article article) {
+		return new ArticleLineDto(article.getId(), article.getTitle(), article.getContents(), article.getMainPicture().getUrl(), article.getAuthorName());
+	}
 }

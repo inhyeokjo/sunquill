@@ -34,20 +34,22 @@ public class Article extends BaseEntity {
 	private Picture mainPicture;
 	private boolean invisible;
 	private Long authorId;
+	private String authorName;
 	private LocalDateTime publishDate;
 	private Long viewCount;
 
-	public Article(String title, String contents, Category category, Picture mainPicture, Long authorId) {
+	public Article(String title, String contents, Category category, Picture mainPicture, Long authorId, String authorName) {
 		this.title = title;
 		this.contents = contents;
 		this.category = category;
 		this.mainPicture = mainPicture;
 		this.authorId = authorId;
 		this.publishDate = LocalDateTime.now();
+		this.authorName = authorName;
 	}
 
 	public static Article testDummy(int number, Category category) {
-		return new Article("title" + number, "contents" + number, category, new Picture("url"), 1L);
+		return new Article("title" + number, "contents" + number, category, new Picture("url"), 1L, "testMember");
 	}
 
 	public void changeTitle(String title) {
