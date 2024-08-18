@@ -23,6 +23,7 @@ public class AuthService {
 	private final AdminUserRepository adminUserRepository;
 	private final PasswordEncoder passwordEncoder;
 	private final JwtTokenGenerator jwtTokenGenerator;
+	private final AuditAuthTokenService auditAuthTokenService;
 
 	@Transactional
 	public AuthTokenPair login(LoginRequestDto loginRequestDto) {
@@ -41,6 +42,8 @@ public class AuthService {
 
 		String accessToken = jwtTokenGenerator.createAccessToken(adminUser.getId(), adminUser.getName());
 		String refreshToken = jwtTokenGenerator.createRefreshToken(adminUser.getId());
+
+		auditAuthTokenService.saveAuditAuthToken(adminUser.getId(), accessToken, refreshToken);
 
 		return AuthTokenPair.of(accessToken, refreshToken);
 	}
