@@ -60,7 +60,8 @@ public class JwtTokenProvider {
 		JwtUtils.validateToken(key, accessToken);
 
 		Claims claims = parseClaims(accessToken);
-		AuthTokenType type = claims.get("type", AuthTokenType.class);
+		String typeString = claims.get("type", String.class);
+		AuthTokenType type = AuthTokenType.valueOf(typeString);
 		if (type != authTokenType) {
 			throw new AuthorizationServiceException("Token Type is not " + authTokenType.name());
 		}
