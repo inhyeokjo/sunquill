@@ -55,10 +55,10 @@ public class JwtTokenProvider {
 		return createToken(claims, refreshTokenExpTime);
 	}
 
-	public Claims parseClaims(String accessToken) {
-		JwtUtils.validateToken(key, accessToken);
+	public Claims parseClaims(String token) {
+		JwtUtils.validateToken(key, token);
 
-		return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(accessToken).getBody();
+		return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
 	}
 
 	private String createToken(Map<String, ?> claims, long expireTime) {
