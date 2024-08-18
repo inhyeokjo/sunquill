@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.stereotype.Component;
 
 import com.snuquill.paperdx.security.domain.vo.AuthTokenType;
@@ -55,9 +56,18 @@ public class JwtTokenProvider {
 		return createToken(claims, refreshTokenExpTime);
 	}
 
-	public Claims parseClaims(String token) {
-		JwtUtils.validateToken(key, token);
+	public Long validateToken(String accessToken, AuthTokenType authTokenType) {
+		JwtUtils.validateToken(key, accessToken);
 
+		Claims claims = parseClaims(accessToken);
+		AuthTokenType type = claims.get("type", AuthTokenType.class);
+		if (type != authTokenType) {
+			throw new AuthorizationServiceException("Token Type is not " + authTokenType.name());
+		}
+		return claims.get("id", Long.class);
+	}
+
+	private Claims parseClaims(String token) {
 		return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
 	}
 
