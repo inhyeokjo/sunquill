@@ -21,7 +21,7 @@ public class DependencyUserRepository implements UserRepository {
 
 	@Override
 	public User getUser(Long userId) {
-		AdminUserDto adminUserDto = adminUserService.getAdminUser(userId);
+		AdminUserDto adminUserDto = adminUserService.getAdminUserDto(userId);
 
 		Set<RoleKind> roleKindSet = adminUserDto.getRoles()
 			.stream()

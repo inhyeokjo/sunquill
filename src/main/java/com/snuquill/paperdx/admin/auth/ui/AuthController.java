@@ -1,5 +1,6 @@
 package com.snuquill.paperdx.admin.auth.ui;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,12 +15,15 @@ import com.snuquill.paperdx.admin.auth.service.AuthService;
 import com.snuquill.paperdx.admin.auth.service.PasswordService;
 import com.snuquill.paperdx.admin.auth.ui.dto.LoginRequestDto;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/admin/auth")
+@Slf4j
 public class AuthController {
 
 	private final AuthService authService;
@@ -37,6 +41,22 @@ public class AuthController {
 	private static void setAuthTokenToHttpHeader(HttpServletResponse response, AuthTokenPair tokenPair) {
 		response.setHeader(AuthTokenHttpHeaders.AUTHORIZATION, "Bearer " + tokenPair.getAccessToken());
 		response.setHeader(AuthTokenHttpHeaders.REFRESH_TOKEN, tokenPair.getRefreshToken());
+	}
+
+	@PostMapping("/renew")
+	public void renew(
+		HttpServletRequest request,
+		HttpServletResponse response
+	) {
+		String refreshToken = request.getHeader(AuthTokenHttpHeaders.REFRESH_TOKEN);
+
+		if (StringUtils.isBlank(refreshToken)) {
+			log.warn("Refresh Token is blank.");
+			throw new IllegalArgumentException();
+		}
+
+		AuthTokenPair authTokenPair = authService.renewToken(refreshToken);
+		setAuthTokenToHttpHeader(response, authTokenPair);
 	}
 
 	@GetMapping("/encode-password")
