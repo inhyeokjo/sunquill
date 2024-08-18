@@ -1,0 +1,12 @@
+### 로그인
+POST {{host}}/api/admin/auth/login
+Content-Type: application/json
+
+{
+  "email": "alzpqm@naver.com",
+  "password": "98dlsgur"
+}
+
+### 암호화 된 비밀번호 확인
+GET  {{host}}/api/admin/auth/encode-password?pw=98dlsgur
+Content-Type: application/json
