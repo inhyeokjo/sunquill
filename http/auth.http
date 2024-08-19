@@ -1,0 +1,20 @@
+### 로그인
+POST {{host}}/api/admin/auth/login
+Content-Type: application/json
+
+{
+  "email": "alzpqm@naver.com",
+  "password": "98dlsgur"
+}
+
+
+### Token 재발급
+POST {{host}}/api/admin/auth/renew
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoi7KGw7J247ZiBIiwiaWQiOjEsInR5cGUiOiJBQ0NFU1MiLCJpYXQiOjE3MjM5OTM0MTcsImV4cCI6MTgxMDM5MzQxN30.as0IrUc6nuMY8MbAew5mP9jGFGMCJbVkEs51Y0gbEvA
+Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidHlwZSI6IlJFRlJFU0giLCJpYXQiOjE3MjM5OTM0MTcsImV4cCI6MjkzMzU5MzQxN30.Px91iDxEDboW1SxPIX2voAskTmemeXWQc6MO9Mu7dSg
+
+
+### 암호화 된 비밀번호 확인
+GET  {{host}}/api/admin/auth/encode-password?pw=98dlsgur
+Content-Type: application/json

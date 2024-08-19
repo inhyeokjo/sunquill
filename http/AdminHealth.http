@@ -1,0 +1,4 @@
+### ADMIN Health Check
+GET {{host}}/api/admin/health
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hbWUiOiLsobDsnbjtmIEiLCJpYXQiOjE3MjM5ODcxMzUsImV4cCI6MTgxMDM4NzEzNX0.soLIl8vA7GOEQo7qjvo5Qclbv1-21YVfGxYqyYKtdUQ
