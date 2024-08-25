@@ -1,5 +1,7 @@
 package com.snuquill.paperdx.admin.auth.domain.vo;
 
+import com.snuquill.paperdx.utils.MD5Utils;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,5 +14,13 @@ public class AuthTokenPair {
 
 	public static AuthTokenPair of(String accessToken, String refreshToken) {
 		return new AuthTokenPair(accessToken, refreshToken);
+	}
+
+	public String getAccessTokenHash() {
+		return MD5Utils.hash(accessToken);
+	}
+
+	public String getRefreshTokenHash() {
+		return MD5Utils.hash(refreshToken);
 	}
 }

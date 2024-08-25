@@ -1,9 +1,6 @@
 package com.snuquill.paperdx.admin.auth.service;
 
-import java.util.Optional;
-
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,12 +33,12 @@ public class AuthService {
 			throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");
 		}
 
-		String accessToken = jwtTokenGenerator.createAccessToken(adminUser.getId(), adminUser.getName());
-		String refreshToken = jwtTokenGenerator.createRefreshToken(adminUser.getId());
-
-		return auditAuthTokenService.saveAuditAuthToken(adminUser.getId(), accessToken, refreshToken);
+		AuthTokenPair authTokenPair = jwtTokenGenerator.createAuthTokenPair(adminUser);
+		auditAuthTokenService.saveAuditAuthToken(adminUser.getId(), authTokenPair);
+		return authTokenPair;
 	}
 
+	@Transactional
 	public AuthTokenPair renewToken(String refreshToken) {
 		// 유효한 토큰인지 확인(토큰 타입, 토큰 오류 여부 확인)
 		// 토큰 만료 여부 확인
@@ -55,10 +52,8 @@ public class AuthService {
 		}
 
 		AdminUser adminUser = adminUserService.getAdminUser(userId);
-
-		String newAccessToken = jwtTokenGenerator.createAccessToken(adminUser.getId(), adminUser.getName());
-		String newRefreshToken = jwtTokenGenerator.createRefreshToken(adminUser.getId());
-
-		return auditAuthTokenService.saveAuditAuthToken(adminUser.getId(), newAccessToken, newRefreshToken);
+		AuthTokenPair authTokenPair = jwtTokenGenerator.createAuthTokenPair(adminUser);
+		auditAuthTokenService.saveAuditAuthToken(adminUser.getId(), authTokenPair);
+		return authTokenPair;
 	}
 }

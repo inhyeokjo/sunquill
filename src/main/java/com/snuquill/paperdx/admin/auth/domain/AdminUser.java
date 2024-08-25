@@ -38,9 +38,15 @@ public class AdminUser {
 		return userRoles != null && !userRoles.isEmpty();
 	}
 
-	public Set<Role> getRoleList() {
+	public Set<Role> getRoleSet() {
 		return userRoles.stream()
 			.map(UserRole::getRole)
+			.collect(Collectors.toSet());
+	}
+
+	public Set<String> getRoleCdSet() {
+		return getRoleSet().stream()
+			.map(Role::getRoleCd)
 			.collect(Collectors.toSet());
 	}
 }

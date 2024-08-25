@@ -8,7 +8,6 @@ import com.snuquill.paperdx.admin.auth.domain.AuditAuthToken;
 import com.snuquill.paperdx.admin.auth.domain.AuditAuthTokenRepository;
 import com.snuquill.paperdx.admin.auth.domain.vo.AuthTokenPair;
 import com.snuquill.paperdx.common.execption.DataNotFoundException;
-import com.snuquill.paperdx.utils.MD5Utils;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,20 +17,21 @@ public class AuditAuthTokenService {
 
 	private final AuditAuthTokenRepository auditAuthTokenRepository;
 
-	public AuthTokenPair saveAuditAuthToken(Long userId, String accessToken, String refreshToken) {
+	public void saveAuditAuthToken(Long userId, AuthTokenPair authTokenPair) {
+		String accessTokenHash = authTokenPair.getAccessTokenHash();
+		String refreshTokenHash = authTokenPair.getRefreshTokenHash();
 
 		Optional<AuditAuthToken> optionalAuditAuthToken = auditAuthTokenRepository.findByAdminUserId(userId);
-		AuditAuthToken newAuditAuthToken = AuditAuthToken.of(userId, MD5Utils.hash(accessToken), MD5Utils.hash(refreshToken));
+		AuditAuthToken newAuditAuthToken = AuditAuthToken.of(userId, accessTokenHash, refreshTokenHash);
 
 		if (optionalAuditAuthToken.isEmpty()) {
 			auditAuthTokenRepository.save(newAuditAuthToken);
-			return AuthTokenPair.of(accessToken, refreshToken);
+			return;
 		}
 
 		AuditAuthToken auditAuthToken = optionalAuditAuthToken.get();
 		auditAuthToken.apply(newAuditAuthToken);
 		auditAuthTokenRepository.save(auditAuthToken);
-		return AuthTokenPair.of(accessToken, refreshToken);
 	}
 
 	public AuditAuthToken getAuditAuthTokenByUserId(Long userId) {

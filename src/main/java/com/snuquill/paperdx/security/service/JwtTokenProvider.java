@@ -5,6 +5,7 @@ import java.security.Key;
 import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.AuthorizationServiceException;
@@ -39,11 +40,12 @@ public class JwtTokenProvider {
 		this.refreshTokenExpTime = refreshTokenExpTime;
 	}
 
-	public String createAccessToken(Long id, String name) {
+	public String createAccessToken(Long id, String name, Set<String> roleCdSet) {
 		Map<String, ? extends Serializable> claims = Map.of(
 			"type", AuthTokenType.ACCESS,
 			"id", id,
-			"name", name
+			"name", name,
+			"role", roleCdSet.toArray()
 		);
 		return createToken(claims, accessTokenExpTime);
 	}
