@@ -1,9 +1,13 @@
 package com.snuquill.paperdx.admin.auth.domain;
 
-public interface JwtTokenGenerator {
-	String createRefreshToken(Long id);
+import com.snuquill.paperdx.admin.auth.domain.vo.AuthTokenPair;
 
-	String createAccessToken(Long id, String name);
+public interface JwtTokenGenerator {
+	String createRefreshToken(AdminUser adminUser);
+
+	String createAccessToken(AdminUser adminUser);
+
+	AuthTokenPair createAuthTokenPair(AdminUser adminUser);
 
 	Long validateRefreshToken(String refreshToken);
 }

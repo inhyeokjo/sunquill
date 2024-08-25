@@ -20,7 +20,7 @@ public class AdminUserDto {
 	private Set<RoleDto> roles;
 
 	public static AdminUserDto from(AdminUser adminUser) {
-		Set<RoleDto> roleDtoSet = adminUser.getRoleList().stream()
+		Set<RoleDto> roleDtoSet = adminUser.getRoleSet().stream()
 			.map(RoleDto::from)
 			.collect(Collectors.toSet());
 
