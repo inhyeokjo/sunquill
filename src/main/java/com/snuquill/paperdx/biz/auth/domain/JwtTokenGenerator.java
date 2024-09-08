@@ -1,6 +1,6 @@
-package com.snuquill.paperdx.admin.auth.domain;
+package com.snuquill.paperdx.biz.auth.domain;
 
-import com.snuquill.paperdx.admin.auth.domain.vo.AuthTokenPair;
+import com.snuquill.paperdx.biz.auth.domain.vo.AuthTokenPair;
 
 public interface JwtTokenGenerator {
 	String createRefreshToken(AdminUser adminUser);

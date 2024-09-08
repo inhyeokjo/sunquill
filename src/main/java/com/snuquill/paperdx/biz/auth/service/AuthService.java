@@ -1,15 +1,15 @@
-package com.snuquill.paperdx.admin.auth.service;
+package com.snuquill.paperdx.biz.auth.service;
 
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.snuquill.paperdx.admin.auth.domain.AdminUser;
-import com.snuquill.paperdx.admin.auth.domain.AuditAuthToken;
-import com.snuquill.paperdx.admin.auth.domain.JwtTokenGenerator;
-import com.snuquill.paperdx.admin.auth.domain.vo.AuthTokenPair;
-import com.snuquill.paperdx.admin.auth.ui.dto.LoginRequestDto;
+import com.snuquill.paperdx.biz.auth.domain.AdminUser;
+import com.snuquill.paperdx.biz.auth.domain.AuditAuthToken;
+import com.snuquill.paperdx.biz.auth.domain.JwtTokenGenerator;
+import com.snuquill.paperdx.biz.auth.domain.vo.AuthTokenPair;
+import com.snuquill.paperdx.biz.auth.ui.dto.LoginRequestDto;
 import com.snuquill.paperdx.utils.MD5Utils;
 
 import lombok.RequiredArgsConstructor;

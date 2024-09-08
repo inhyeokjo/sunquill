@@ -1,6 +1,6 @@
-package com.snuquill.paperdx.admin.auth.service.dto;
+package com.snuquill.paperdx.biz.auth.service.dto;
 
-import com.snuquill.paperdx.admin.auth.domain.Role;
+import com.snuquill.paperdx.biz.auth.domain.Role;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

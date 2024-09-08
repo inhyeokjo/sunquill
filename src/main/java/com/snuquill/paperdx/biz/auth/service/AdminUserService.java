@@ -1,4 +1,4 @@
-package com.snuquill.paperdx.admin.auth.service;
+package com.snuquill.paperdx.biz.auth.service;
 
 import java.util.Optional;
 
@@ -6,9 +6,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.snuquill.paperdx.admin.auth.domain.AdminUser;
-import com.snuquill.paperdx.admin.auth.domain.AdminUserRepository;
-import com.snuquill.paperdx.admin.auth.service.dto.AdminUserDto;
+import com.snuquill.paperdx.biz.auth.domain.AdminUser;
+import com.snuquill.paperdx.biz.auth.domain.AdminUserRepository;
+import com.snuquill.paperdx.biz.auth.service.dto.AdminUserDto;
 import com.snuquill.paperdx.common.execption.DataNotFoundException;
 
 import lombok.RequiredArgsConstructor;
