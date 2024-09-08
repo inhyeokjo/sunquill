@@ -17,6 +17,7 @@ public class ArticleDetailService {
 	private final ArticleRepository articleRepository;
 	private final AuthorRepository authorRepository;
 
+	//TODO Read Only = True 설정
 	@Transactional
 	public ArticleDetailDto getArticleDetail(Long articleId) {
 		Article article = articleRepository.findById(articleId).orElseThrow();
@@ -30,5 +31,12 @@ public class ArticleDetailService {
 			article.getTitleList(),
 			article.getContentsList(),
 			author);
+	}
+
+	public String getArticleTitle(Long articleId) {
+		Article article = articleRepository.findById(articleId).orElseThrow();
+
+		return article.getTitle();
+
 	}
 }
