@@ -1,4 +1,4 @@
-package com.snuquill.paperdx.admin.auth.ui.dto;
+package com.snuquill.paperdx.biz.auth.ui.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

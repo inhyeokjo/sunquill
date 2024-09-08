@@ -1,4 +1,4 @@
-package com.snuquill.paperdx.admin.auth.service;
+package com.snuquill.paperdx.biz.auth.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

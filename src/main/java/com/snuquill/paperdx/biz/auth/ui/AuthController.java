@@ -1,4 +1,4 @@
-package com.snuquill.paperdx.admin.auth.ui;
+package com.snuquill.paperdx.biz.auth.ui;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.validation.annotation.Validated;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.snuquill.paperdx.admin.auth.domain.vo.AuthTokenHttpHeaders;
-import com.snuquill.paperdx.admin.auth.domain.vo.AuthTokenPair;
-import com.snuquill.paperdx.admin.auth.service.AuthService;
-import com.snuquill.paperdx.admin.auth.service.PasswordService;
-import com.snuquill.paperdx.admin.auth.ui.dto.LoginRequestDto;
+import com.snuquill.paperdx.biz.auth.domain.vo.AuthTokenHttpHeaders;
+import com.snuquill.paperdx.biz.auth.domain.vo.AuthTokenPair;
+import com.snuquill.paperdx.biz.auth.service.AuthService;
+import com.snuquill.paperdx.biz.auth.service.PasswordService;
+import com.snuquill.paperdx.biz.auth.ui.dto.LoginRequestDto;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

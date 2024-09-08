@@ -1,4 +1,4 @@
-package com.snuquill.paperdx.admin.auth.domain;
+package com.snuquill.paperdx.biz.auth.domain;
 
 import java.util.Set;
 import java.util.stream.Collectors;

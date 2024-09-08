@@ -1,9 +1,9 @@
-package com.snuquill.paperdx.admin.auth.service.dto;
+package com.snuquill.paperdx.biz.auth.service.dto;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.snuquill.paperdx.admin.auth.domain.AdminUser;
+import com.snuquill.paperdx.biz.auth.domain.AdminUser;
 
 import lombok.AccessLevel;
 import lombok.Builder;

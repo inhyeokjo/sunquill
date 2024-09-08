@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.snuquill.paperdx.admin.auth.service.AdminUserService;
-import com.snuquill.paperdx.admin.auth.service.dto.AdminUserDto;
+import com.snuquill.paperdx.biz.auth.service.AdminUserService;
+import com.snuquill.paperdx.biz.auth.service.dto.AdminUserDto;
 import com.snuquill.paperdx.security.domain.User;
 import com.snuquill.paperdx.security.domain.UserRepository;
 import com.snuquill.paperdx.security.domain.vo.RoleKind;

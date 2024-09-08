@@ -1,4 +1,4 @@
-package com.snuquill.paperdx.admin.auth.domain.vo;
+package com.snuquill.paperdx.biz.auth.domain.vo;
 
 import com.snuquill.paperdx.utils.MD5Utils;
 

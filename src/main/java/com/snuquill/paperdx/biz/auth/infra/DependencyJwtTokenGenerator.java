@@ -1,12 +1,12 @@
-package com.snuquill.paperdx.admin.auth.infra;
+package com.snuquill.paperdx.biz.auth.infra;
 
 import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
-import com.snuquill.paperdx.admin.auth.domain.AdminUser;
-import com.snuquill.paperdx.admin.auth.domain.JwtTokenGenerator;
-import com.snuquill.paperdx.admin.auth.domain.vo.AuthTokenPair;
+import com.snuquill.paperdx.biz.auth.domain.AdminUser;
+import com.snuquill.paperdx.biz.auth.domain.JwtTokenGenerator;
+import com.snuquill.paperdx.biz.auth.domain.vo.AuthTokenPair;
 import com.snuquill.paperdx.security.domain.vo.AuthTokenType;
 import com.snuquill.paperdx.security.service.JwtTokenProvider;
 
