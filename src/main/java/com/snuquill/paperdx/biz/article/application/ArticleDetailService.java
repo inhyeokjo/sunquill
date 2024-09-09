@@ -17,8 +17,7 @@ public class ArticleDetailService {
 	private final ArticleRepository articleRepository;
 	private final AuthorRepository authorRepository;
 
-	//TODO Read Only = True 설정
-	@Transactional
+	@Transactional(readOnly = true)
 	public ArticleDetailDto getArticleDetail(Long articleId) {
 		Article article = articleRepository.findById(articleId).orElseThrow();
 		article.upViewCount();
