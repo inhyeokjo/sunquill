@@ -12,9 +12,8 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-//TODO AuthorRepositoryImpl -> DependencyAuthorRepository 이름 변경 필요
 //TODO MemberRepository를 의존하지 말고, Member Service를 의존하자.
-public class AuthorRepositoryImpl implements AuthorRepository {
+public class DependenctyAuthorRepository implements AuthorRepository {
 
 	private final MemberRepository memberRepository;
 	private final AuthorConverter authorConverter;
