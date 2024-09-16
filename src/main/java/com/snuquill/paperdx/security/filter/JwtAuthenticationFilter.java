@@ -4,6 +4,7 @@ import java.nio.file.AccessDeniedException;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -23,9 +24,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 	private final AuthenticationService authenticationService;
 
+	private final AntPathRequestMatcher requestMatcher = new AntPathRequestMatcher("/api/admin/auth/**");
+
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) {
 		try {
+			if (requestMatcher.matches(request)) {
+				filterChain.doFilter(request, response);
+				return;
+			}
+
 			String jwt = JwtUtils.extractJwtTokenFromRequest(request);
 			if (!StringUtils.isBlank(jwt)) {
 				authenticationService.setAuthenticationToSecurityContextHolder(jwt);
