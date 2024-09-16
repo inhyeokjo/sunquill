@@ -3,17 +3,18 @@ package com.snuquill.paperdx.biz.article.infra;
 import org.springframework.stereotype.Component;
 
 import com.snuquill.paperdx.biz.article.domain.Author;
-import com.snuquill.paperdx.biz.member.domain.Member;
+import com.snuquill.paperdx.biz.member.application.MemberDto;
 
 @Component
 public class AuthorConverter {
 
-	public Author createAuthor(Member member) {
+	public Author createAuthor(MemberDto memberDto) {
 		return new Author(
-			member.getId(),
-			member.getName(),
-			member.getEmail(),
-			member.getRole(),
-			member.getProfilePicture().getUrl());
+			memberDto.getId(),
+			memberDto.getName(),
+			memberDto.getEmail(),
+			memberDto.getRole(),
+			memberDto.getMemberPictureUrl()
+		);
 	}
 }

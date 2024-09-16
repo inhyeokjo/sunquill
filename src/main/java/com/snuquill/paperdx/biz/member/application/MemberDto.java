@@ -11,6 +11,7 @@ import lombok.Data;
 @Builder(access = AccessLevel.PRIVATE)
 @Data
 public class MemberDto {
+	private Long id;
 	private String memberPictureUrl;
 	private String name;
 	private String role;
@@ -18,6 +19,7 @@ public class MemberDto {
 
 	public static MemberDto of(Member member) {
 		return MemberDto.builder()
+			.id(member.getId())
 			.memberPictureUrl(member.getProfilePicture().getUrl())
 			.name(member.getName())
 			.role(member.getRole())

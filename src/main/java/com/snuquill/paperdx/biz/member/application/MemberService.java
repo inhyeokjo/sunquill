@@ -26,4 +26,12 @@ public class MemberService {
 		}
 		return organizationChart;
 	}
+
+	public MemberDto getMemberDtoById(Long id) {
+		return memberRepository.findById(id).map(MemberDto::of).orElseThrow();
+	}
+
+	public List<MemberDto> getAllMemberDtoByIdList(List<Long> idList) {
+		return memberRepository.findAllById(idList).stream().map(MemberDto::of).toList();
+	}
 }
