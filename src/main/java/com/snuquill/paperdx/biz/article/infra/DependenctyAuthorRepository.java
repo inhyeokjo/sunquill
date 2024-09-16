@@ -6,30 +6,27 @@ import org.springframework.stereotype.Service;
 
 import com.snuquill.paperdx.biz.article.domain.Author;
 import com.snuquill.paperdx.biz.article.domain.AuthorRepository;
-import com.snuquill.paperdx.biz.member.domain.MemberRepository;
+import com.snuquill.paperdx.biz.member.application.MemberDto;
+import com.snuquill.paperdx.biz.member.application.MemberService;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class AuthorRepositoryImpl implements AuthorRepository {
+public class DependenctyAuthorRepository implements AuthorRepository {
 
-	private final MemberRepository memberRepository;
+	private final MemberService memberService;
 	private final AuthorConverter authorConverter;
 
 	@Override
 	public Author getAuthor(Long id) {
-		return memberRepository.findById(id)
-			.map(authorConverter::createAuthor)
-			.orElseGet(Author::getAnonimousAuthor);
+		MemberDto memberDto = memberService.getMemberDtoById(id);
+		return authorConverter.createAuthor(memberDto);
 	}
 
 	@Override
 	public List<Author> getAllAuthor(List<Long> idList) {
-		return memberRepository.findAllById(idList)
-			.stream()
-			.map(authorConverter::createAuthor)
-			.toList();
+		return memberService.getAllMemberDtoByIdList(idList).stream().map(authorConverter::createAuthor).toList();
 	}
 
 }

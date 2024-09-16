@@ -17,7 +17,7 @@ public class ArticleDetailService {
 	private final ArticleRepository articleRepository;
 	private final AuthorRepository authorRepository;
 
-	@Transactional
+	@Transactional(readOnly = true)
 	public ArticleDetailDto getArticleDetail(Long articleId) {
 		Article article = articleRepository.findById(articleId).orElseThrow();
 		article.upViewCount();
@@ -30,5 +30,12 @@ public class ArticleDetailService {
 			article.getTitleList(),
 			article.getContentsList(),
 			author);
+	}
+
+	public String getArticleTitle(Long articleId) {
+		Article article = articleRepository.findById(articleId).orElseThrow();
+
+		return article.getTitle();
+
 	}
 }

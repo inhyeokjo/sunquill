@@ -1,5 +1,7 @@
 package com.snuquill.paperdx.biz.editorpick.domain;
 
+import java.lang.constant.ConstantDesc;
+
 import com.snuquill.paperdx.biz.article.domain.BaseEntity;
 
 import jakarta.persistence.Column;
@@ -27,4 +29,9 @@ public class EditorPick extends BaseEntity {
 	private Long articleId;
 	@Enumerated(EnumType.STRING)
 	private Category category;
+
+	public void changeArticle(Long articleId, String title) {
+		this.articleId = articleId;
+		this.title = title;
+	}
 }
