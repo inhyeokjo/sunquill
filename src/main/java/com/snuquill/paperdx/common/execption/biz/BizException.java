@@ -12,4 +12,10 @@ public class BizException extends RuntimeException{
 	public BizException(Throwable cause) {
 		super(cause);
 	}
+
+
+
+	public String getErrorCode() {
+		return "-9999";
+	}
 }

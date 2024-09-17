@@ -12,4 +12,9 @@ public class DataNotFoundException extends BizException{
 	public DataNotFoundException(Throwable cause) {
 		super(cause);
 	}
+
+	@Override
+	public String getErrorCode() {
+		return "2001";
+	}
 }

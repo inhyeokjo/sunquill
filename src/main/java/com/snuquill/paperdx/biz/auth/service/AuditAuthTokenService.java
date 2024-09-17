@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.snuquill.paperdx.biz.auth.domain.AuditAuthToken;
 import com.snuquill.paperdx.biz.auth.domain.AuditAuthTokenRepository;
 import com.snuquill.paperdx.biz.auth.domain.vo.AuthTokenPair;
-import com.snuquill.paperdx.common.execption.DataNotFoundException;
+import com.snuquill.paperdx.common.execption.biz.DataNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 

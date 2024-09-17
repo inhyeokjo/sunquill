@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.stereotype.Component;
 
+import com.snuquill.paperdx.common.execption.unauthorized.TokenTypeException;
+import com.snuquill.paperdx.common.execption.unauthorized.UnauthorizedException;
 import com.snuquill.paperdx.security.domain.vo.AuthTokenType;
 import com.snuquill.paperdx.utils.JwtUtils;
 
@@ -65,7 +67,7 @@ public class JwtTokenProvider {
 		String typeString = claims.get("type", String.class);
 		AuthTokenType type = AuthTokenType.valueOf(typeString);
 		if (type != authTokenType) {
-			throw new AuthorizationServiceException("Token Type is not " + authTokenType.name());
+			throw new TokenTypeException("Token Type is not " + authTokenType.name());
 		}
 		return claims.get("id", Long.class);
 	}
