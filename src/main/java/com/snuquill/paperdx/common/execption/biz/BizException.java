@@ -1,4 +1,4 @@
-package com.snuquill.paperdx.common.execption;
+package com.snuquill.paperdx.common.execption.biz;
 
 public class BizException extends RuntimeException{
 	public BizException(String message) {
