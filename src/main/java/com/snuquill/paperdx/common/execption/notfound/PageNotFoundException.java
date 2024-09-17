@@ -1,17 +1,19 @@
 package com.snuquill.paperdx.common.execption.notfound;
 
-public abstract class PageNotFoundException extends RuntimeException {
-	protected PageNotFoundException(String message) {
+public class PageNotFoundException extends RuntimeException {
+	public PageNotFoundException(String message) {
 		super(message);
 	}
 
-	protected PageNotFoundException(String message, Throwable cause) {
+	public PageNotFoundException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	protected PageNotFoundException(Throwable cause) {
+	public PageNotFoundException(Throwable cause) {
 		super(cause);
 	}
 
-	abstract String getErrorCode();
+	public String getErrorCode() {
+		return "-3100";
+	}
 }
