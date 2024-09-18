@@ -8,11 +8,9 @@ import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.access.AuthorizationServiceException;
 import org.springframework.stereotype.Component;
 
 import com.snuquill.paperdx.common.execption.unauthorized.TokenTypeException;
-import com.snuquill.paperdx.common.execption.unauthorized.UnauthorizedException;
 import com.snuquill.paperdx.security.domain.vo.AuthTokenType;
 import com.snuquill.paperdx.utils.JwtUtils;
 

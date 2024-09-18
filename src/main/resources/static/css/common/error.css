@@ -81,10 +81,12 @@
     letter-spacing: 1px;
     text-align: center;
 }
+
 .home-page-button {
     background: var(--Main-Color, #FB4E26);
     margin-right: 23px;
 }
+
 .home-page-button > p {
     color: var(--Sub-Color);
 }
@@ -92,6 +94,7 @@
 .contact-us-button {
     background: var(--Line-Color);
 }
+
 .contact-us-button > p {
     color: var(--Text-Color, #666);
 }

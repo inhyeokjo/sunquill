@@ -1,6 +1,11 @@
 package com.snuquill.paperdx.common.execption.unauthorized;
 
-public class WrongPasswordException extends UnauthorizedException{
+import java.io.Serial;
+
+public class WrongPasswordException extends UnauthorizedException {
+	@Serial
+	private static final long serialVersionUID = -8820660023315179020L;
+
 	public WrongPasswordException(String message) {
 		super(message);
 	}

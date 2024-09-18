@@ -112,7 +112,7 @@ public class HttpServletUtils {
 		boolean visible = VISIBLE_TYPES.stream().anyMatch(visibleType -> visibleType.includes(mediaType));
 		if (visible) {
 			return new String(content, StandardCharsets.UTF_8);
-		} else{
+		} else {
 			return String.format("[%d bytes content]", content.length);
 		}
 	}

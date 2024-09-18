@@ -21,7 +21,7 @@ public enum Category {
 	public String getCategoryDescription() {
 		// 카테코리값별로 다른 멘트 추가
 
-        return switch (name()) {
+		return switch (name()) {
 			case "FEATURES" -> "Deals with general affairs, from domestic to international news.";
 			case "SNU_SOCIETY" -> "Deals with news on campus.";
 			case "ARTS_CULTURE" -> "Deals with the current creative trends.";

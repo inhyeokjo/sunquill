@@ -1,7 +1,5 @@
 package com.snuquill.paperdx.biz.editorpick.ui;
 
-import java.util.Optional;
-
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.snuquill.paperdx.biz.editorpick.application.EditorPickService;
 import com.snuquill.paperdx.biz.editorpick.domain.Category;
 import com.snuquill.paperdx.common.execption.badrequest.PathVariableException;
-import com.snuquill.paperdx.common.execption.biz.DataNotFoundException;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

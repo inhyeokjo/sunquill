@@ -1,6 +1,12 @@
 package com.snuquill.paperdx.common.execption.biz;
 
-public class DataNotFoundException extends BizException{
+import java.io.Serial;
+
+public class
+DataNotFoundException extends BizException {
+	@Serial
+	private static final long serialVersionUID = -5326324482464971535L;
+
 	public DataNotFoundException(String message) {
 		super(message);
 	}

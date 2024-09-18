@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.snuquill.paperdx.biz.article.domain.Article;
 import com.snuquill.paperdx.biz.article.domain.ArticleRepository;
 import com.snuquill.paperdx.common.execption.badrequest.PaginationException;
-import com.snuquill.paperdx.common.execption.notfound.PageNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

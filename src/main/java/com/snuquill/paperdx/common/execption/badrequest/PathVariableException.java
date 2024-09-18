@@ -1,6 +1,11 @@
 package com.snuquill.paperdx.common.execption.badrequest;
 
-public class PathVariableException extends BadRequestException{
+import java.io.Serial;
+
+public class PathVariableException extends BadRequestException {
+	@Serial
+	private static final long serialVersionUID = 2803871861899442676L;
+
 	public PathVariableException() {
 	}
 

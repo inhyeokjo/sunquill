@@ -9,5 +9,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ApiAccessLogging {
 	ApiAccessLogLevel successLogLevel() default ApiAccessLogLevel.SHORT;
+
 	ApiAccessLogLevel failLogLevel() default ApiAccessLogLevel.DETAIL;
 }

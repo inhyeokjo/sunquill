@@ -6,7 +6,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 
 import com.snuquill.paperdx.common.execption.unauthorized.JwtTokenParsingException;
-import com.snuquill.paperdx.common.execption.unauthorized.UnauthorizedException;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;

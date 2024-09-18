@@ -1,6 +1,11 @@
 package com.snuquill.paperdx.common.execption.badrequest;
 
-public class  PaginationException extends BadRequestException {
+import java.io.Serial;
+
+public class PaginationException extends BadRequestException {
+	@Serial
+	private static final long serialVersionUID = 6742416589928630935L;
+
 	public PaginationException() {
 	}
 

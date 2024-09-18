@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.snuquill.paperdx.biz.magazine.domain.MagazineRepository;
 import com.snuquill.paperdx.common.execption.badrequest.PaginationException;
-import com.snuquill.paperdx.common.execption.notfound.PageNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

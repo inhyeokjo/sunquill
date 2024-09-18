@@ -1,6 +1,11 @@
 package com.snuquill.paperdx.common.execption.unauthorized;
 
-public class EmailNotFoundException extends  UnauthorizedException {
+import java.io.Serial;
+
+public class EmailNotFoundException extends UnauthorizedException {
+	@Serial
+	private static final long serialVersionUID = 4811336711022639461L;
+
 	public EmailNotFoundException(String message) {
 		super(message);
 	}

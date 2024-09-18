@@ -1,6 +1,11 @@
 package com.snuquill.paperdx.common.execption.badrequest;
 
-public class QueryParameterException extends BadRequestException{
+import java.io.Serial;
+
+public class QueryParameterException extends BadRequestException {
+	@Serial
+	private static final long serialVersionUID = -8126968889534689643L;
+
 	public QueryParameterException() {
 	}
 

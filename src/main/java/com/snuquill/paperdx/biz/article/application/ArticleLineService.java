@@ -18,7 +18,6 @@ import com.snuquill.paperdx.biz.article.domain.AuthorRepository;
 import com.snuquill.paperdx.biz.article.domain.Category;
 import com.snuquill.paperdx.common.execption.badrequest.PaginationException;
 import com.snuquill.paperdx.common.execption.badrequest.PathVariableException;
-import com.snuquill.paperdx.common.execption.notfound.PageNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -58,7 +57,7 @@ public class ArticleLineService {
 
 		Category category = Category.valueOf(categoryName.toUpperCase());
 
-		PageRequest countRequest = PageRequest.of(page-1, pageSize, Sort.by("publishDate").descending());
+		PageRequest countRequest = PageRequest.of(page - 1, pageSize, Sort.by("publishDate").descending());
 		List<Article> articleList = articleRepository.findByCategoryVisible(category, countRequest);
 		long categoryArticleCount = articleRepository.countAllByCategoryAndInvisible(category, false);
 		Map<Long, Author> authorMap = getAuthorMap(articleList);

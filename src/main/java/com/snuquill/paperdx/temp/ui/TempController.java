@@ -1,18 +1,19 @@
 package com.snuquill.paperdx.temp.ui;
 
-import com.snuquill.paperdx.biz.article.application.ArticleDetailDto;
-import com.snuquill.paperdx.biz.article.application.ArticleDetailService;
-import com.snuquill.paperdx.biz.photojournal.application.PhotoJournalService;
-import com.snuquill.paperdx.biz.photojournal.application.PhotoJournalWithMemberDto;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import lombok.RequiredArgsConstructor;
+import com.snuquill.paperdx.biz.article.application.ArticleDetailDto;
+import com.snuquill.paperdx.biz.article.application.ArticleDetailService;
+import com.snuquill.paperdx.biz.photojournal.application.PhotoJournalService;
+import com.snuquill.paperdx.biz.photojournal.application.PhotoJournalWithMemberDto;
 
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequestMapping("/temp")
@@ -33,7 +34,9 @@ public class TempController {
 	}
 
 	@GetMapping("/features")
-	public String getArticles() { return "features";}
+	public String getArticles() {
+		return "features";
+	}
 
 	@GetMapping("/shortArticle")
 	public String getShortArticle(Model model) {
@@ -44,7 +47,7 @@ public class TempController {
 	}
 
 	@GetMapping("/photojournal")
-	public String getPhotojournal(Model model){
+	public String getPhotojournal(Model model) {
 		List<PhotoJournalWithMemberDto> photoJournalWithMemberDtoList = photoJournalService.getLatestVolumePhotoJournalWithMember();
 		model.addAttribute(photoJournalWithMemberDtoList);
 		return "photojournal";

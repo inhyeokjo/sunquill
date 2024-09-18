@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.snuquill.paperdx.biz.article.application.ArticleDetailService;
 import com.snuquill.paperdx.biz.article.application.ArticleDetailDto;
+import com.snuquill.paperdx.biz.article.application.ArticleDetailService;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;

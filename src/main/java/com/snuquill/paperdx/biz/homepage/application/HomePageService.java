@@ -8,11 +8,11 @@ import com.snuquill.paperdx.biz.article.application.ArticleLineDto;
 import com.snuquill.paperdx.biz.article.application.ArticleLineService;
 import com.snuquill.paperdx.biz.editorpick.application.EditorPickDto;
 import com.snuquill.paperdx.biz.editorpick.application.EditorPickService;
+import com.snuquill.paperdx.biz.homepage.application.dto.HomePageDto;
 import com.snuquill.paperdx.biz.magazine.application.MagazineDto;
 import com.snuquill.paperdx.biz.magazine.application.MagazineService;
 import com.snuquill.paperdx.biz.photojournal.application.PhotoJournalDto;
 import com.snuquill.paperdx.biz.photojournal.application.PhotoJournalService;
-import com.snuquill.paperdx.biz.homepage.application.dto.HomePageDto;
 import com.snuquill.paperdx.biz.toparticle.application.TopArticleDto;
 import com.snuquill.paperdx.biz.toparticle.application.TopArticleService;
 import com.snuquill.paperdx.biz.video.application.VideoInfoDto;
@@ -29,6 +29,7 @@ public class HomePageService {
 	private final MagazineService magazineService;
 	private final VideoInfoService videoInfoService;
 	private final PhotoJournalService photoJournalService;
+
 	public HomePageDto getHomePage() {
 		List<ArticleLineDto> recentArticleList = articleLineService.getRecentArticleList(3);
 		TopArticleDto topArticle = topArticleService.getTopArticle();

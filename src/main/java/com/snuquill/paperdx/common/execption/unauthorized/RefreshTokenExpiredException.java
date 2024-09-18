@@ -1,6 +1,11 @@
 package com.snuquill.paperdx.common.execption.unauthorized;
 
-public class RefreshTokenExpiredException extends UnauthorizedException{
+import java.io.Serial;
+
+public class RefreshTokenExpiredException extends UnauthorizedException {
+	@Serial
+	private static final long serialVersionUID = -407944075665647934L;
+
 	public RefreshTokenExpiredException(String message) {
 		super(message);
 	}

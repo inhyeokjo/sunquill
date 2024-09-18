@@ -13,6 +13,7 @@ public class MagazineDto {
 	private LocalDate publishDate;
 	private String volumeCoverLink;
 	private String fileLink;
+
 	public MagazineDto(Magazine magazine) {
 		volumeNumber = magazine.getVolumeNumber();
 		publishDate = magazine.getPublishDate();
