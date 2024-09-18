@@ -1,6 +1,8 @@
 package com.snuquill.paperdx.common.execption.biz;
 
-public class BizException extends RuntimeException{
+import com.snuquill.paperdx.common.execption.CustomException;
+
+public class BizException extends CustomException {
 	public BizException(String message) {
 		super(message);
 	}
@@ -12,8 +14,6 @@ public class BizException extends RuntimeException{
 	public BizException(Throwable cause) {
 		super(cause);
 	}
-
-
 
 	public String getErrorCode() {
 		return "-9999";

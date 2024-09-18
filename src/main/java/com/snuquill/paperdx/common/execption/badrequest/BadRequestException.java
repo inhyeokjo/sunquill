@@ -1,6 +1,8 @@
 package com.snuquill.paperdx.common.execption.badrequest;
 
-public abstract class BadRequestException extends RuntimeException{
+import com.snuquill.paperdx.common.execption.CustomException;
+
+public abstract class BadRequestException extends CustomException {
 	protected BadRequestException() {
 	}
 
@@ -15,6 +17,4 @@ public abstract class BadRequestException extends RuntimeException{
 	protected BadRequestException(Throwable cause) {
 		super(cause);
 	}
-
-	abstract String getErrorCode();
 }

@@ -67,7 +67,7 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
 		try {
 			handler = requestMappingHandlerMapping.getHandler(request).getHandler();
 		} catch (Exception e) {
-			log.warn("Cannot Find Handler Method of request. request method : {}, request uri : {}", request.getMethod(), request.getRequestURI(), e);
+			log.warn("Cannot Find Handler Method of request. request method : {}, request uri : {}", request.getMethod(), request.getRequestURI());
 			return null;
 		}
 		return handler;

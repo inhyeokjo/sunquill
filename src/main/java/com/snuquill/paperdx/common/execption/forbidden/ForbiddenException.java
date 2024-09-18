@@ -1,6 +1,8 @@
 package com.snuquill.paperdx.common.execption.forbidden;
 
-public class ForbiddenException extends RuntimeException{
+import com.snuquill.paperdx.common.execption.CustomException;
+
+public abstract class ForbiddenException extends CustomException {
 	public ForbiddenException() {
 	}
 

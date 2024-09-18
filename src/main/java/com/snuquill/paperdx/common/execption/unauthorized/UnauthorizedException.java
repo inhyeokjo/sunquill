@@ -2,14 +2,21 @@ package com.snuquill.paperdx.common.execption.unauthorized;
 
 import org.springframework.security.core.AuthenticationException;
 
-public abstract class UnauthorizedException extends AuthenticationException {
-	protected UnauthorizedException(String message) {
+import com.snuquill.paperdx.common.execption.CustomException;
+
+public abstract class UnauthorizedException extends CustomException {
+	public UnauthorizedException() {
+	}
+
+	public UnauthorizedException(String message) {
 		super(message);
 	}
 
-	protected UnauthorizedException(String message, Throwable cause) {
+	public UnauthorizedException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	abstract String getErrorCode();
+	public UnauthorizedException(Throwable cause) {
+		super(cause);
+	}
 }

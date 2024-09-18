@@ -17,7 +17,7 @@ public class PathVariableException extends BadRequestException{
 	}
 
 	@Override
-	String getErrorCode() {
+	public String getErrorCode() {
 		return "-3002";
 	}
 }

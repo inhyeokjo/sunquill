@@ -10,7 +10,7 @@ public class AuthTokenExpiredException extends UnauthorizedException{
 	}
 
 	@Override
-	String getErrorCode() {
+	public String getErrorCode() {
 		return "-1001";
 	}
 }

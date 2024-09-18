@@ -21,7 +21,7 @@ public class ArticleDetailService {
 	@Transactional(readOnly = true)
 	public ArticleDetailDto getArticleDetail(Long articleId) {
 		Article article = articleRepository.findById(articleId)
-			.orElseThrow();
+			.orElseThrow(() -> new DataNotFoundException("Article이 존재하지 않습니다. ID: " + articleId));
 		article.upViewCount();
 		Long authorId = article.getAuthorId();
 		Author author = authorRepository.getAuthor(authorId);

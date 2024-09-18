@@ -2,7 +2,6 @@ package com.snuquill.paperdx.temp.ui;
 
 import com.snuquill.paperdx.biz.article.application.ArticleDetailDto;
 import com.snuquill.paperdx.biz.article.application.ArticleDetailService;
-import com.snuquill.paperdx.biz.photojournal.application.PhotoJournalDto;
 import com.snuquill.paperdx.biz.photojournal.application.PhotoJournalService;
 import com.snuquill.paperdx.biz.photojournal.application.PhotoJournalWithMemberDto;
 import org.springframework.stereotype.Controller;
@@ -30,7 +29,7 @@ public class TempController {
 
 	@GetMapping("/404")
 	public String get404() {
-		return "404";
+		return "error";
 	}
 
 	@GetMapping("/features")

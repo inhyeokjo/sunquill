@@ -1,6 +1,8 @@
 package com.snuquill.paperdx.common.execption.notfound;
 
-public class PageNotFoundException extends RuntimeException {
+import com.snuquill.paperdx.common.execption.CustomException;
+
+public class PageNotFoundException extends CustomException {
 	public PageNotFoundException(String message) {
 		super(message);
 	}

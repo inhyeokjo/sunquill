@@ -1,7 +1,7 @@
 ### GET request to example server
-POST {{host}}/api/admin/editorPick/features
+POST {{host}}/api/admin/editorPick/featuredd
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hbWUiOiLsobDsnbjtmIEiLCJpYXQiOjE3MjM5ODcxMzUsImV4cCI6MTgxMDM4NzEzNX0.soLIl8vA7GOEQo7qjvo5Qclbv1-21YVfGxYqyYKtdUQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hbWUiOiLsobDsnbjtmIEiLCJyb2xlIjpbIlNVUEVSX0FETUlOIl0sImlhdCI6MTcyNjY1MTQyOCwiZXhwIjoxNzI2NzM3ODI4fQ.v8ybmzxoFRt0sNO9hbpiglWf0TvReyUd4eC9Poz_GgI
 
 {
   "id": 93

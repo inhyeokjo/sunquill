@@ -10,7 +10,7 @@ public class WrongPasswordException extends UnauthorizedException{
 	}
 
 	@Override
-	String getErrorCode() {
+	public String getErrorCode() {
 		return "-3003";
 	}
 }

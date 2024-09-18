@@ -1,6 +1,6 @@
 package com.snuquill.paperdx.common.execption.unauthorized;
 
-public class AuthTokenNotFoundException extends UnauthorizedException{
+public class AuthTokenNotFoundException extends UnauthorizedException {
 	public AuthTokenNotFoundException(String message) {
 		super(message);
 	}
@@ -10,7 +10,7 @@ public class AuthTokenNotFoundException extends UnauthorizedException{
 	}
 
 	@Override
-	String getErrorCode() {
+	public String getErrorCode() {
 		return "";
 	}
 }
