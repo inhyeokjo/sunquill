@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.snuquill.paperdx.common.execption.biz.BizException;
 import com.snuquill.paperdx.manage.accesslog.domain.ApiAccessLogLevel;
 
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,8 @@ public class ApiAccessLogServiceFactory {
 		return apiAccessLogServices.stream()
 			.filter(apiAccessLogService -> apiAccessLogService.isAdapted(apiAccessLogLevel))
 			.findAny()
-			.orElseThrow(() -> new RuntimeException(apiAccessLogLevel.name() + " : has no matching Service"));
+			.orElseThrow(() -> new BizException(apiAccessLogLevel.name() + " : has no matching Service") {
+			});
 	}
 
 }

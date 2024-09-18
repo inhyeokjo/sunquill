@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.snuquill.paperdx.biz.magazine.domain.MagazineRepository;
-import com.snuquill.paperdx.common.execption.PageNotFoundException;
+import com.snuquill.paperdx.common.execption.badrequest.PaginationException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +46,7 @@ public class MagazineService {
 		if (page <= 0) {
 			log.warn("user tried to access non-existing page: /archive/" + "/" + page);
 			log.warn("archives page must be greater than 0");
-			throw new PageNotFoundException("존재하지 않는 페이지입니다.");
+			throw new PaginationException("페이지는 1페이지 이상이어야 합니다.");
 		}
 		PageRequest countRequest = PageRequest.of(page - 1, pageSize, Sort.by("publishDate").descending());
 		List<MagazineDto> magazineDtoList = magazineRepository.findAll(countRequest).stream().map(MagazineDto::new).toList();

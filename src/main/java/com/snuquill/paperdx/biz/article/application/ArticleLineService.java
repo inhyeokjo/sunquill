@@ -16,7 +16,8 @@ import com.snuquill.paperdx.biz.article.domain.ArticleRepository;
 import com.snuquill.paperdx.biz.article.domain.Author;
 import com.snuquill.paperdx.biz.article.domain.AuthorRepository;
 import com.snuquill.paperdx.biz.article.domain.Category;
-import com.snuquill.paperdx.common.execption.PageNotFoundException;
+import com.snuquill.paperdx.common.execption.badrequest.PaginationException;
+import com.snuquill.paperdx.common.execption.badrequest.PathVariableException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -46,17 +47,17 @@ public class ArticleLineService {
 		if (page <= 0) {
 			log.warn("user tried to access non-existing page: /article/" + categoryName + "/" + page);
 			log.warn("article line page must be greater than 0");
-			throw new PageNotFoundException("존재하지 않는 페이지입니다.");
+			throw new PaginationException("페이지는 1페이지 이상이어야 합니다.");
 		}
 
 		if (!Category.isCategory(categoryName)) {
 			log.warn("user tried to access non-existing page: /article/" + categoryName + "/" + page);
-			throw new PageNotFoundException("존재하지 않는 페이지입니다.");
+			throw new PathVariableException("존재하지 않는 카테고리 페이지 입니다. category: " + categoryName);
 		}
 
 		Category category = Category.valueOf(categoryName.toUpperCase());
 
-		PageRequest countRequest = PageRequest.of(page-1, pageSize, Sort.by("publishDate").descending());
+		PageRequest countRequest = PageRequest.of(page - 1, pageSize, Sort.by("publishDate").descending());
 		List<Article> articleList = articleRepository.findByCategoryVisible(category, countRequest);
 		long categoryArticleCount = articleRepository.countAllByCategoryAndInvisible(category, false);
 		Map<Long, Author> authorMap = getAuthorMap(articleList);

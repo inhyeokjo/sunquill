@@ -1,7 +1,5 @@
 package com.snuquill.paperdx.biz.editorpick.domain;
 
-import java.lang.constant.ConstantDesc;
-
 import com.snuquill.paperdx.biz.article.domain.BaseEntity;
 
 import jakarta.persistence.Column;

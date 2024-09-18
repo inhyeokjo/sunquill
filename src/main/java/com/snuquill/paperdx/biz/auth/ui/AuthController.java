@@ -14,6 +14,7 @@ import com.snuquill.paperdx.biz.auth.domain.vo.AuthTokenPair;
 import com.snuquill.paperdx.biz.auth.service.AuthService;
 import com.snuquill.paperdx.biz.auth.service.PasswordService;
 import com.snuquill.paperdx.biz.auth.ui.dto.LoginRequestDto;
+import com.snuquill.paperdx.common.execption.unauthorized.RefreshTokenNotFoundException;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -52,7 +53,7 @@ public class AuthController {
 
 		if (StringUtils.isBlank(refreshToken)) {
 			log.warn("Refresh Token is blank.");
-			throw new IllegalArgumentException();
+			throw new RefreshTokenNotFoundException("Header에 RefreshToken을 찾을 수 없습니다. ");
 		}
 
 		AuthTokenPair authTokenPair = authService.renewToken(refreshToken);

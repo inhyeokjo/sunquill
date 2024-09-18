@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.snuquill.paperdx.biz.introduction.domain.GroupIntro;
 import com.snuquill.paperdx.biz.introduction.domain.GroupIntroRepository;
-import com.snuquill.paperdx.common.execption.DataNotFoundException;
+import com.snuquill.paperdx.common.execption.biz.DataNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

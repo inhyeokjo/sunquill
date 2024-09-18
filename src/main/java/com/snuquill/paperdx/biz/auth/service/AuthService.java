@@ -1,6 +1,5 @@
 package com.snuquill.paperdx.biz.auth.service;
 
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +9,8 @@ import com.snuquill.paperdx.biz.auth.domain.AuditAuthToken;
 import com.snuquill.paperdx.biz.auth.domain.JwtTokenGenerator;
 import com.snuquill.paperdx.biz.auth.domain.vo.AuthTokenPair;
 import com.snuquill.paperdx.biz.auth.ui.dto.LoginRequestDto;
+import com.snuquill.paperdx.common.execption.unauthorized.RefreshTokenExpiredException;
+import com.snuquill.paperdx.common.execption.unauthorized.WrongPasswordException;
 import com.snuquill.paperdx.utils.MD5Utils;
 
 import lombok.RequiredArgsConstructor;
@@ -30,7 +31,7 @@ public class AuthService {
 		AdminUser adminUser = adminUserService.getAdminUserByMail(email);
 
 		if (!passwordEncoder.matches(password, adminUser.getPassword())) {
-			throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");
+			throw new WrongPasswordException("비밀번호가 일치하지 않습니다.");
 		}
 
 		AuthTokenPair authTokenPair = jwtTokenGenerator.createAuthTokenPair(adminUser);
@@ -48,7 +49,7 @@ public class AuthService {
 		AuditAuthToken auditAuthToken = auditAuthTokenService.getAuditAuthTokenByUserId(userId);
 		String refreshTokenHash = auditAuthToken.getRefreshTokenHash();
 		if (!MD5Utils.hash(refreshToken).equals(refreshTokenHash)) {
-			throw new BadCredentialsException("최신 Refresh Token이 아닙니다. 가장 최근에 발급받은 Refresh Token을 사용해주세요. userId=" + userId + ", refreshToken=" + refreshToken);
+			throw new RefreshTokenExpiredException("최신 Refresh Token이 아닙니다. 가장 최근에 발급받은 Refresh Token을 사용해주세요. userId=" + userId + ", refreshToken=" + refreshToken);
 		}
 
 		AdminUser adminUser = adminUserService.getAdminUser(userId);

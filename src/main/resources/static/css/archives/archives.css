@@ -6,13 +6,15 @@
     justify-content: center;
     flex-direction: column;
 }
+
 .archives-name {
     height: 31px;
     flex-shrink: 0;
 }
+
 .archives-name > h3 {
     color: var(--Main-Color);
-    margin:0;
+    margin: 0;
     /* Heading 3 */
     font-size: 25px;
     font-style: normal;
@@ -38,7 +40,7 @@
     flex: 1;
 }
 
-.magazine-cover-img-container>img{
+.magazine-cover-img-container > img {
     width: 240px;
     height: 350px;
 }

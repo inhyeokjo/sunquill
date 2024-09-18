@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.snuquill.paperdx.biz.article.domain.Article;
 import com.snuquill.paperdx.biz.article.domain.ArticleRepository;
-import com.snuquill.paperdx.common.execption.PageNotFoundException;
+import com.snuquill.paperdx.common.execption.badrequest.PaginationException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ public class ArticleSearchService {
 		if (page <= 0) {
 			log.warn("user tried to access non-existing searchText={}, page={}", searchText, page);
 			log.warn("article line page must be greater than 0");
-			throw new PageNotFoundException("존재하지 않는 페이지입니다.");
+			throw new PaginationException("페이지는 1페이지 이상이어야 합니다.");
 		}
 
 		PageRequest pageable = PageRequest.of(page - 1, pageSize, Sort.by("publishDate").descending());

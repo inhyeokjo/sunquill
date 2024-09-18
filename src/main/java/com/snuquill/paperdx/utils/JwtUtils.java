@@ -5,6 +5,8 @@ import java.security.Key;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;
 
+import com.snuquill.paperdx.common.execption.unauthorized.JwtTokenParsingException;
+
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
@@ -21,13 +23,13 @@ public class JwtUtils {
 		try {
 			Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
 		} catch (io.jsonwebtoken.security.SecurityException | MalformedJwtException e) {
-			log.info("Invalid JWT Token", e);
+			throw new JwtTokenParsingException("Invalid JWT Token", e);
 		} catch (ExpiredJwtException e) {
-			log.info("Expired JWT Token", e);
+			throw new JwtTokenParsingException("Expired JWT Token", e);
 		} catch (UnsupportedJwtException e) {
-			log.info("Unsupported JWT Token", e);
+			throw new JwtTokenParsingException("Unsupported JWT Token", e);
 		} catch (IllegalArgumentException e) {
-			log.info("JWT claims string is empty.", e);
+			throw new JwtTokenParsingException("JWT claims string is empty.", e);
 		}
 	}
 

@@ -97,8 +97,8 @@
                 <div class="magazine-archive-slide hover-pointer"
                      th:each="recentMagazine : ${recentMagazineList}"
                      th:object="${recentMagazine}"
-                     th:data-filelink ="${recentMagazine.fileLink}"
-                     onclick="window.open(this.getAttribute('data-filelink'))" >
+                     th:data-filelink="${recentMagazine.fileLink}"
+                     onclick="window.open(this.getAttribute('data-filelink'))">
                     <img th:src="${recentMagazine.volumeCoverLink}">
                 </div>
                 <div class="more-archive-slide hover-pointer"

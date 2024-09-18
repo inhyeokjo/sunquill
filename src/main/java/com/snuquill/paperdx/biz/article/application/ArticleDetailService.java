@@ -7,6 +7,7 @@ import com.snuquill.paperdx.biz.article.domain.Article;
 import com.snuquill.paperdx.biz.article.domain.ArticleRepository;
 import com.snuquill.paperdx.biz.article.domain.Author;
 import com.snuquill.paperdx.biz.article.domain.AuthorRepository;
+import com.snuquill.paperdx.common.execption.biz.DataNotFoundException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -19,7 +20,8 @@ public class ArticleDetailService {
 
 	@Transactional(readOnly = true)
 	public ArticleDetailDto getArticleDetail(Long articleId) {
-		Article article = articleRepository.findById(articleId).orElseThrow();
+		Article article = articleRepository.findById(articleId)
+			.orElseThrow(() -> new DataNotFoundException("Article이 존재하지 않습니다. ID: " + articleId));
 		article.upViewCount();
 		Long authorId = article.getAuthorId();
 		Author author = authorRepository.getAuthor(authorId);
@@ -33,7 +35,8 @@ public class ArticleDetailService {
 	}
 
 	public String getArticleTitle(Long articleId) {
-		Article article = articleRepository.findById(articleId).orElseThrow();
+		Article article = articleRepository.findById(articleId)
+			.orElseThrow(() -> new DataNotFoundException("Article이 존재하지 않습니다. ID: " + articleId));
 
 		return article.getTitle();
 

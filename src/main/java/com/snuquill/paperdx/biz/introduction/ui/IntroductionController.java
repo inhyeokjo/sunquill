@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class IntroductionController {
 	private final GroupIntroService groupIntroService;
+
 	@GetMapping("/introduction")
 	public String getIntroductionPage(Model model) {
 		GroupIntroDto introduction = groupIntroService.getIntroduction();

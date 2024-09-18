@@ -34,7 +34,7 @@
 }
 
 .contents-body-container {
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 1000px;
