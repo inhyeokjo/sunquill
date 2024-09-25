@@ -9,9 +9,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class GroupIntroDto {
 	private String introduction;
-	private String groupImgLink;
 
 	public static GroupIntroDto of(GroupIntro groupIntro) {
-		return new GroupIntroDto(groupIntro.getIntroduction(), groupIntro.getGroupImgLink());
+		return new GroupIntroDto(groupIntro.getIntroduction());
 	}
 }

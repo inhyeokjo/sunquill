@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class MemberQueryController {
+public class MemberController {
 	private final MemberService memberService;
 
 	@GetMapping("/members")

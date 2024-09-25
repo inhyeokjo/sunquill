@@ -1,5 +1,5 @@
-### GET request to example server
-POST {{host}}/api/admin/editorPick/featuredd
+### Post EditorPick
+POST {{host}}/api/admin/editorPick/feature
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hbWUiOiLsobDsnbjtmIEiLCJyb2xlIjpbIlNVUEVSX0FETUlOIl0sImlhdCI6MTcyNjY1MTQyOCwiZXhwIjoxNzI2NzM3ODI4fQ.v8ybmzxoFRt0sNO9hbpiglWf0TvReyUd4eC9Poz_GgI
 

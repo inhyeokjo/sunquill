@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/api/admin/")
+@RequestMapping("/api/admin/editorPick")
 @RequiredArgsConstructor
 @Slf4j
 public class EditorPickRestController {
@@ -24,7 +24,7 @@ public class EditorPickRestController {
 	private final EditorPickService editorPickService;
 
 	@PreAuthorize("hasRole('ROLE_EDITOR')")
-	@PostMapping("editorPick/{category}")
+	@PostMapping("/{category}")
 	public void setEditorPick(
 		@PathVariable("category") String categoryString,
 		@Valid @RequestBody EditorPickRequestDto.SettingRequest editorPickSettingRequest

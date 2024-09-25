@@ -23,4 +23,8 @@ public class GroupIntro extends BaseEntity {
 	@Column(columnDefinition = "text")
 	private String introduction;
 	private String groupImgLink;
+
+	public void setIntro(String introduction) {
+		this.introduction = introduction;
+	}
 }

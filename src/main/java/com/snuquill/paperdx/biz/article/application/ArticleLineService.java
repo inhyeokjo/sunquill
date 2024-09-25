@@ -42,8 +42,7 @@ public class ArticleLineService {
 	}
 
 	@Transactional(readOnly = true)
-	public Page<ArticleLineDto> getCategoryArticlePage(String categoryName, int page) {
-		int pageSize = 10;
+	public Page<ArticleLineDto> getCategoryArticlePage(String categoryName, int page, int pageSize) {
 		if (page <= 0) {
 			log.warn("user tried to access non-existing page: /article/" + categoryName + "/" + page);
 			log.warn("article line page must be greater than 0");
