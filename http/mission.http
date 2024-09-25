@@ -1,0 +1,14 @@
+### Get Mission
+GET {{host}}/api/admin/mission
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hbWUiOiLsobDsnbjtmIEiLCJyb2xlIjpbIlNVUEVSX0FETUlOIl0sImlhdCI6MTcyNzMwNDIwOCwiZXhwIjoxNzI3MzkwNjA4fQ.OkOKdEPN2WKv7cxSgig8MrxNs8r22zcUqTpB93-xAvc
+
+
+### Post Mission Text
+POST {{host}}/api/admin/mission
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hbWUiOiLsobDsnbjtmIEiLCJyb2xlIjpbIlNVUEVSX0FETUlOIl0sImlhdCI6MTcyNzMwNDIwOCwiZXhwIjoxNzI3MzkwNjA4fQ.OkOKdEPN2WKv7cxSgig8MrxNs8r22zcUqTpB93-xAvc
+
+{
+  "mission": "As an independent press organization at Seoul National University, The SNU Quill's mission is to enhance SNU's campus experience by providing quality journalism from a fresh, yet critical, student perspective."
+}

@@ -22,4 +22,8 @@ public class Mission extends BaseEntity {
 	private Long id;
 	@Column(columnDefinition = "text")
 	private String missionText;
+
+	public void setMission(String mission) {
+		this.missionText = mission;
+	}
 }
