@@ -32,10 +32,4 @@ public class IntroductionRestController {
 		String introduction = postIntroductionRequestDto.getIntroduction();
 		groupIntroService.setIntroduction(introduction);
 	}
-
-	//TODO 소개페이지 이미지 업로드 기능
-	// @PostMapping
-	// public void postIntroductionImage() {
-	// 	return;
-	// }
 }
