@@ -36,7 +36,7 @@ class TopArticleServiceTest extends BaseMockitoTest {
 		@DisplayName("정상적으로 조회 된 경우")
 		void 정상_케이스() {
 			TopArticle topArticle = new TopArticle(1L, "fileApi", "title", "summary", 1L);
-			TopArticleDto topArticleDto = new TopArticleDto("fileApi", "title", "summary");
+			TopArticleDto topArticleDto = TopArticleDto.of(topArticle);
 			when(articleRepository.findTop1ByOrderByModifiedDateDesc()).thenReturn(Optional.of(topArticle));
 
 			TopArticleDto findTopArticleDto = topArticleService.getTopArticle();
@@ -48,7 +48,7 @@ class TopArticleServiceTest extends BaseMockitoTest {
 		@DisplayName("TopArticle이 존재하지 않는 경우")
 		void 조희_결과가_0인_케이스() {
 			TopArticle dummy = TopArticle.dummy();
-			TopArticleDto dummyDto = new TopArticleDto(dummy.getFileApi(), dummy.getTitle(), dummy.getSummary());
+			TopArticleDto dummyDto = TopArticleDto.of(dummy);
 			when(articleRepository.findTop1ByOrderByModifiedDateDesc()).thenReturn(Optional.empty());
 
 			TopArticleDto findTopArticleDto = topArticleService.getTopArticle();

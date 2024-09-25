@@ -32,9 +32,11 @@ public class ArticleLineController {
 
 	@GetMapping("/{feature}/{page}")
 	public String getFeatureArticleList(@PathVariable("feature") String categoryName, @PathVariable("page") int page, Model model) {
+		int pageSize = 10;
+
 		model.addAttribute("isSearch", false);
 
-		Page<ArticleLineDto> categoryArticlePage = articleLineService.getCategoryArticlePage(categoryName, page);
+		Page<ArticleLineDto> categoryArticlePage = articleLineService.getCategoryArticlePage(categoryName, page, pageSize);
 		model.addAttribute("articleLinePage", categoryArticlePage);
 		model.addAttribute("pageMetaData", PageMetaData.of(categoryArticlePage));
 		model.addAttribute("category", Category.valueOf(categoryName.toUpperCase()));
