@@ -1,10 +1,10 @@
 ### GET Article Line Page
-GET {{host}}/api/article/FEATURES/2?pageSize=10
+GET {{host}}/api/admin/article/FEATURES/2?pageSize=10
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbIlNVUEVSX0FETUlOIl0sIm5hbWUiOiLsobDsnbjtmIEiLCJpZCI6MSwidHlwZSI6IkFDQ0VTUyIsImlhdCI6MTcyNzMwMjg1NywiZXhwIjoxNzI3Mzg5MjU3fQ.rZj1n87ScYy2UYwZq65rspdh1_iTaR7eRfCkvJKS8G8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hbWUiOiLsobDsnbjtmIEiLCJyb2xlIjpbIlNVUEVSX0FETUlOIl0sImlhdCI6MTcyNzMwNDIwOCwiZXhwIjoxNzI3MzkwNjA4fQ.OkOKdEPN2WKv7cxSgig8MrxNs8r22zcUqTpB93-xAvc
 
 
 ### GET Article Detail
-GET {{host}}/api/article/113
+GET {{host}}/api/admin/article/113
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbIlNVUEVSX0FETUlOIl0sIm5hbWUiOiLsobDsnbjtmIEiLCJpZCI6MSwidHlwZSI6IkFDQ0VTUyIsImlhdCI6MTcyNzMwMjg1NywiZXhwIjoxNzI3Mzg5MjU3fQ.rZj1n87ScYy2UYwZq65rspdh1_iTaR7eRfCkvJKS8G8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hbWUiOiLsobDsnbjtmIEiLCJyb2xlIjpbIlNVUEVSX0FETUlOIl0sImlhdCI6MTcyNzMwNDIwOCwiZXhwIjoxNzI3MzkwNjA4fQ.OkOKdEPN2WKv7cxSgig8MrxNs8r22zcUqTpB93-xAvc

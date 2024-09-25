@@ -13,7 +13,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/article")
+@RequestMapping("/api/admin/article")
 @RequiredArgsConstructor
 @Validated
 public class ArticleDetailRestController {
