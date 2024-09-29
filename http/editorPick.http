@@ -6,3 +6,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hb
 {
   "id": 93
 }
+
+
+### Get EditorPick
+GET {{host}}/api/admin/editorPick
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IuyhsOyduO2YgSIsInJvbGUiOlsiU1VQRVJfQURNSU4iXSwidHlwZSI6IkFDQ0VTUyIsImlhdCI6MTcyNzYxNzQ5MiwiZXhwIjoxNzI3NzAzODkyfQ.WEPykhx-kNTF4SNd6dub7Ek8tSPoWYrDPEOZZWtod-s

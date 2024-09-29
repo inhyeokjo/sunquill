@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.snuquill.paperdx.biz.introduction.application.GroupIntroDto;
 import com.snuquill.paperdx.biz.introduction.application.GroupIntroService;
-import com.snuquill.paperdx.biz.introduction.ui.dto.PostIntroductionRequestDto;
+import com.snuquill.paperdx.biz.introduction.ui.dto.IntroductionRequestDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,9 +27,9 @@ public class IntroductionRestController {
 
 	@PostMapping
 	public void postIntroduction(
-		@RequestBody PostIntroductionRequestDto postIntroductionRequestDto
+		@RequestBody IntroductionRequestDto.SettingRequest introductionSettingRequestDto
 	) {
-		String introduction = postIntroductionRequestDto.getIntroduction();
+		String introduction = introductionSettingRequestDto.introduction();
 		groupIntroService.setIntroduction(introduction);
 	}
 }

@@ -3,7 +3,7 @@ package com.snuquill.paperdx.biz.homepage.application.dto;
 import java.util.List;
 
 import com.snuquill.paperdx.biz.article.application.ArticleLineDto;
-import com.snuquill.paperdx.biz.editorpick.application.EditorPickDto;
+import com.snuquill.paperdx.biz.editorpick.application.dto.EditorPickDto;
 import com.snuquill.paperdx.biz.magazine.application.MagazineDto;
 import com.snuquill.paperdx.biz.photojournal.application.PhotoJournalDto;
 import com.snuquill.paperdx.biz.toparticle.application.TopArticleDto;

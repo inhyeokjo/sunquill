@@ -1,4 +1,4 @@
-package com.snuquill.paperdx.biz.editorpick.ui;
+package com.snuquill.paperdx.biz.editorpick.ui.dto;
 
 import jakarta.validation.constraints.NotNull;
 
