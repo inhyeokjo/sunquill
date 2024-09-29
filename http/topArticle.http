@@ -1,0 +1,15 @@
+### Get TopArticle Text
+GET {{host}}/api/admin/topArticle
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IuyhsOyduO2YgSIsInJvbGUiOlsiU1VQRVJfQURNSU4iXSwidHlwZSI6IkFDQ0VTUyIsImlhdCI6MTcyNzYxNzQ5MiwiZXhwIjoxNzI3NzAzODkyfQ.WEPykhx-kNTF4SNd6dub7Ek8tSPoWYrDPEOZZWtod-s
+
+
+### Post TopArticle Text
+POST {{host}}/api/admin/topArticle
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IuyhsOyduO2YgSIsInJvbGUiOlsiU1VQRVJfQURNSU4iXSwidHlwZSI6IkFDQ0VTUyIsImlhdCI6MTcyNzYxNzQ5MiwiZXhwIjoxNzI3NzAzODkyfQ.WEPykhx-kNTF4SNd6dub7Ek8tSPoWYrDPEOZZWtod-s
+
+{
+  "id" : 90,
+  "summary": "test"
+}

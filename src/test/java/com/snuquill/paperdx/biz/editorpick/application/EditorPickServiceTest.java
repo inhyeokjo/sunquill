@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import com.snuquill.paperdx.biz.editorpick.application.dto.EditorPickDto;
 import com.snuquill.paperdx.biz.editorpick.domain.Category;
 import com.snuquill.paperdx.biz.editorpick.domain.EditorPick;
 import com.snuquill.paperdx.biz.editorpick.domain.EditorPickRepository;

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.snuquill.paperdx.biz.mission.application.MissionDto;
 import com.snuquill.paperdx.biz.mission.application.MissionService;
-import com.snuquill.paperdx.biz.mission.ui.dto.PostMissionRequestDto;
+import com.snuquill.paperdx.biz.mission.ui.dto.MissionRequestDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,9 +25,9 @@ public class MissionRestController {
 
 	@PostMapping
 	public void postMission(
-		@RequestBody PostMissionRequestDto postMissionRequestDto
+		@RequestBody MissionRequestDto.SettingRequest missionRequestSettingDto
 	) {
-		String mission = postMissionRequestDto.getMission();
+		String mission = missionRequestSettingDto.mission();
 		missionService.setMission(mission);
 	}
 }

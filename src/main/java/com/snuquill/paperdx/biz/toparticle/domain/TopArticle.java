@@ -1,5 +1,6 @@
 package com.snuquill.paperdx.biz.toparticle.domain;
 
+import com.snuquill.paperdx.biz.article.application.ArticleDetailDto;
 import com.snuquill.paperdx.biz.article.domain.BaseEntity;
 
 import jakarta.persistence.Column;
@@ -29,5 +30,22 @@ public class TopArticle extends BaseEntity {
 
 	public static TopArticle dummy() {
 		return new TopArticle(null, "https://picsum.photos/740/420", "Dummy Title", "Dummy Summary", null);
+	}
+
+	public static TopArticle of(Long articleId, String summary, ArticleDetailDto articleDetailDto) {
+		return new TopArticle(
+			null,
+			articleDetailDto.pictureUrl(),
+			articleDetailDto.getTitleString(),
+			summary,
+			articleId
+		);
+	}
+
+	public void apply(Long articleId, String summary, ArticleDetailDto articleDetailDto) {
+		this.pictureUrl = articleDetailDto.pictureUrl();
+		this.title = articleDetailDto.getTitleString();
+		this.summary = summary;
+		this.articleId = articleId;
 	}
 }
