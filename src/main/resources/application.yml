@@ -20,3 +20,17 @@ jwt:
   refresh-token:
     expiration-time: 1209600 #14일
   secret: MWY3ZWMxYTA2ZTU3MDQyZWNhMTc3ZmFlZGY0ZjA0ZmMxZGI3ZjE4ZjVmYWM5ODczNWYxYjRkM2IwYjYzODk2ZA==
+
+
+aws:
+  s3:
+    bucket: snuquill-public-s3
+    magazine:
+      path: magazine
+    photo:
+      article:
+        path: photo/article
+      magazine:
+        path: photo/magazine
+      staff-profile:
+        path: photo/staff-profile

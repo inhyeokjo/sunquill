@@ -66,6 +66,10 @@ public class CurrentUser implements UserDetails {
 		return roleKindSet != null;
 	}
 
+	public long getUserId() {
+		return id;
+	}
+
 	public static CurrentUser from(User user) {
 		return CurrentUser.builder()
 			.id(user.getId())
