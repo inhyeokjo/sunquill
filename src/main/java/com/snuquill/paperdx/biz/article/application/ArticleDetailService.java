@@ -7,6 +7,7 @@ import com.snuquill.paperdx.biz.article.domain.Article;
 import com.snuquill.paperdx.biz.article.domain.ArticleRepository;
 import com.snuquill.paperdx.biz.article.domain.Author;
 import com.snuquill.paperdx.biz.article.domain.AuthorRepository;
+import com.snuquill.paperdx.biz.article.ui.dto.ArticleRequestDto;
 import com.snuquill.paperdx.common.execption.biz.DataNotFoundException;
 
 import lombok.RequiredArgsConstructor;
@@ -20,8 +21,7 @@ public class ArticleDetailService {
 
 	@Transactional(readOnly = true)
 	public ArticleDetailDto getArticleDetail(Long articleId) {
-		Article article = articleRepository.findById(articleId)
-			.orElseThrow(() -> new DataNotFoundException("Article이 존재하지 않습니다. ID: " + articleId));
+		Article article = findArticleById(articleId);
 		article.upViewCount();
 		Long authorId = article.getAuthorId();
 		Author author = authorRepository.getAuthor(authorId);
@@ -35,10 +35,33 @@ public class ArticleDetailService {
 	}
 
 	public String getArticleTitle(Long articleId) {
-		Article article = articleRepository.findById(articleId)
-			.orElseThrow(() -> new DataNotFoundException("Article이 존재하지 않습니다. ID: " + articleId));
+		Article article = findArticleById(articleId);
 
 		return article.getTitle();
 
+	}
+
+	@Transactional
+	public void modifyArticle(Long articleId, ArticleRequestDto.UploadRequest uploadRequest) {
+		Article article = findArticleById(articleId);
+
+		Author author = authorRepository.getAuthor(uploadRequest.authorId());
+		Article newArticle = uploadRequest.mapToDomain(author.getName());
+
+		article.apply(newArticle);
+		articleRepository.save(article);
+	}
+
+	@Transactional
+	public void uploadArticle(ArticleRequestDto.UploadRequest uploadRequest) {
+		Author author = authorRepository.getAuthor(uploadRequest.authorId());
+		Article article = uploadRequest.mapToDomain(author.getName());
+
+		articleRepository.save(article);
+	}
+
+	private Article findArticleById(Long articleId) {
+		return articleRepository.findById(articleId)
+			.orElseThrow(() -> new DataNotFoundException("Article이 존재하지 않습니다. ID: " + articleId));
 	}
 }

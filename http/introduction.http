@@ -1,13 +1,13 @@
 ### Get Introduction
 GET {{host}}/api/admin/introduction
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hbWUiOiLsobDsnbjtmIEiLCJyb2xlIjpbIlNVUEVSX0FETUlOIl0sImlhdCI6MTcyNzMwNDIwOCwiZXhwIjoxNzI3MzkwNjA4fQ.OkOKdEPN2WKv7cxSgig8MrxNs8r22zcUqTpB93-xAvc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IuyhsOyduO2YgSIsInJvbGUiOlsiU1VQRVJfQURNSU4iXSwidHlwZSI6IkFDQ0VTUyIsImlhdCI6MTcyODQ2MzM4NSwiZXhwIjoxODE0ODYzMzg1fQ.3lNPx8Ww4eUWEFcQfVWfpDACYGAxWWi0EFcyY8RrkdY
 
 
 ### Post Introduction Text
 POST {{host}}/api/admin/introduction
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hbWUiOiLsobDsnbjtmIEiLCJyb2xlIjpbIlNVUEVSX0FETUlOIl0sImlhdCI6MTcyNzMwNDIwOCwiZXhwIjoxNzI3MzkwNjA4fQ.OkOKdEPN2WKv7cxSgig8MrxNs8r22zcUqTpB93-xAvc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IuyhsOyduO2YgSIsInJvbGUiOlsiU1VQRVJfQURNSU4iXSwidHlwZSI6IkFDQ0VTUyIsImlhdCI6MTcyODQ2MzM4NSwiZXhwIjoxODE0ODYzMzg1fQ.3lNPx8Ww4eUWEFcQfVWfpDACYGAxWWi0EFcyY8RrkdY
 
 {
   "introduction": "Founded in 2005, The SNU Quill is the first and only English press in Seoul National University. As an independent undergraduate association, The SNU Quill has been providing thought-provoking, insightful content that spans over multiple issues for the ever growing international students and staff of Seoul National University. The SNU Quill publishes once every semester and distributes around 1000 copies all over Gwanak Campus as well as on-line. We are committed to informing and challenging the students and staffs with works that are both creative and resourceful."

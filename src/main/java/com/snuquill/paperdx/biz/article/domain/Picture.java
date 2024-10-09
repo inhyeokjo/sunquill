@@ -8,8 +8,12 @@ import lombok.NoArgsConstructor;
 
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 public class Picture {
 	private String url;
+
+	public static Picture of(String url) {
+		return new Picture(url);
+	}
 }
