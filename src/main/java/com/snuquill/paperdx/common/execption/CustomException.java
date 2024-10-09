@@ -1,6 +1,11 @@
 package com.snuquill.paperdx.common.execption;
 
+import java.io.Serial;
+
 public abstract class CustomException extends RuntimeException {
+	@Serial
+	private static final long serialVersionUID = -3521370284408668179L;
+
 	protected CustomException() {
 	}
 

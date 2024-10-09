@@ -1,0 +1,10 @@
+POST http://localhost:8080/api/admin/file/upload?fileType=ARTICLE
+Content-Type: multipart/form-data; boundary=boundary
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwicm9sZSI6WyJTVVBFUl9BRE1JTiJdLCJuYW1lIjoi7KGw7J247ZiBIiwiaWQiOjEsImlhdCI6MTcyODQ1ODk0NCwiZXhwIjoxNzI4NTQ1MzQ0fQ.ns6garirnxObvdo_77yXKsdOtjoe01dxdmm_OrJVFKw
+
+--boundary
+Content-Disposition: form-data; name="file"; filename='test_file.png'
+Content-Type: image/png
+
+< ./resource/test_file.png
+--boundary--
