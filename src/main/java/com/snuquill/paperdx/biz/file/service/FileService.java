@@ -44,7 +44,6 @@ public class FileService {
 		return endPoint;
 	}
 
-
 	private String getFileExtension(String fileName) {
 		int lastIndex = fileName.lastIndexOf('.');
 		if (lastIndex == -1 || lastIndex == fileName.length() - 1) {

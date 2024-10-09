@@ -33,6 +33,7 @@ public class ArticleDetailRestController {
 	) {
 		articleDetailService.modifyArticle(articleId, uploadRequest);
 	}
+
 	@PostMapping
 	public void uploadArticleDetail(
 		@RequestBody ArticleRequestDto.UploadRequest uploadRequest
