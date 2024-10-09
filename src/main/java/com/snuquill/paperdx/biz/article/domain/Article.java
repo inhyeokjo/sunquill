@@ -16,10 +16,12 @@ import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
+@Setter
 public class Article extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,18 +40,19 @@ public class Article extends BaseEntity {
 	private LocalDateTime publishDate;
 	private Long viewCount;
 
-	public Article(String title, String contents, Category category, Picture mainPicture, Long authorId, String authorName) {
+	public Article(String title, String contents, Category category, String mainPictureUrl, Long authorId, String authorName) {
 		this.title = title;
 		this.contents = contents;
 		this.category = category;
-		this.mainPicture = mainPicture;
+		this.mainPicture = Picture.of(mainPictureUrl);
 		this.authorId = authorId;
 		this.publishDate = LocalDateTime.now();
 		this.authorName = authorName;
+		this.viewCount = 0L;
 	}
 
 	public static Article testDummy(int number, Category category) {
-		return new Article("title" + number, "contents" + number, category, new Picture("url"), 1L, "testMember");
+		return new Article("title" + number, "contents" + number, category, "url", 1L, "testMember");
 	}
 
 	public void changeTitle(String title) {
@@ -61,7 +64,7 @@ public class Article extends BaseEntity {
 	}
 
 	public void changeImage(String pictureUrl) {
-		this.mainPicture = new Picture(pictureUrl);
+		this.mainPicture = Picture.of(pictureUrl);
 	}
 
 	public void hide() {
@@ -87,5 +90,17 @@ public class Article extends BaseEntity {
 	public Long upViewCount() {
 		viewCount += 1;
 		return viewCount;
+	}
+
+	public Article apply(Article newArticle) {
+		this.setTitle(newArticle.getTitle());
+		this.setContents(newArticle.getContents());
+		this.setCategory(newArticle.getCategory());
+		this.setMainPicture(newArticle.getMainPicture());
+		this.setInvisible(newArticle.isInvisible());
+		this.setAuthorId(newArticle.getAuthorId());
+		this.setAuthorName(newArticle.getAuthorName());
+		this.setPublishDate(newArticle.getPublishDate());
+		return this;
 	}
 }

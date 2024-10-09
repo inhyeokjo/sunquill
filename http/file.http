@@ -1,6 +1,6 @@
-POST http://localhost:8080/api/admin/file/upload?fileType=ARTICLE
+POST {{host}}/api/admin/file/upload?fileType=ARTICLE
 Content-Type: multipart/form-data; boundary=boundary
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwicm9sZSI6WyJTVVBFUl9BRE1JTiJdLCJuYW1lIjoi7KGw7J247ZiBIiwiaWQiOjEsImlhdCI6MTcyODQ1ODk0NCwiZXhwIjoxNzI4NTQ1MzQ0fQ.ns6garirnxObvdo_77yXKsdOtjoe01dxdmm_OrJVFKw
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IuyhsOyduO2YgSIsInJvbGUiOlsiU1VQRVJfQURNSU4iXSwidHlwZSI6IkFDQ0VTUyIsImlhdCI6MTcyODQ2MzM4NSwiZXhwIjoxODE0ODYzMzg1fQ.3lNPx8Ww4eUWEFcQfVWfpDACYGAxWWi0EFcyY8RrkdY
 
 --boundary
 Content-Disposition: form-data; name="file"; filename='test_file.png'

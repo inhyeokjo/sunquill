@@ -1,6 +1,6 @@
 ### GET Members
 GET {{host}}/api/admin/member
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOjEsIm5hbWUiOiLsobDsnbjtmIEiLCJyb2xlIjpbIlNVUEVSX0FETUlOIl0sImlhdCI6MTcyNzMwNDIwOCwiZXhwIjoxNzI3MzkwNjA4fQ.OkOKdEPN2WKv7cxSgig8MrxNs8r22zcUqTpB93-xAvc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IuyhsOyduO2YgSIsInJvbGUiOlsiU1VQRVJfQURNSU4iXSwidHlwZSI6IkFDQ0VTUyIsImlhdCI6MTcyODQ2MzM4NSwiZXhwIjoxODE0ODYzMzg1fQ.3lNPx8Ww4eUWEFcQfVWfpDACYGAxWWi0EFcyY8RrkdY
 
 ###

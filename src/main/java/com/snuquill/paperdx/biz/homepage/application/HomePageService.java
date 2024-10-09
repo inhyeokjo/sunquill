@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.snuquill.paperdx.biz.article.application.ArticleLineDto;
 import com.snuquill.paperdx.biz.article.application.ArticleLineService;
-import com.snuquill.paperdx.biz.editorpick.application.dto.EditorPickDto;
 import com.snuquill.paperdx.biz.editorpick.application.EditorPickService;
+import com.snuquill.paperdx.biz.editorpick.application.dto.EditorPickDto;
 import com.snuquill.paperdx.biz.homepage.application.dto.HomePageDto;
 import com.snuquill.paperdx.biz.magazine.application.MagazineDto;
 import com.snuquill.paperdx.biz.magazine.application.MagazineService;

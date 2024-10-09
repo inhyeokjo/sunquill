@@ -19,7 +19,6 @@ public class TopArticleService {
 	private final TopArticleRepository topArticleRepository;
 	private final ArticleDetailService articleDetailService;
 
-
 	@Transactional(readOnly = true)
 	public TopArticleDto getTopArticle() {
 		TopArticle topArticle = topArticleRepository.findTop1ByOrderByModifiedDateDesc()
