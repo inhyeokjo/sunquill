@@ -51,10 +51,12 @@ public class ArticleQueryDslImpl extends QuerydslRepositorySupport implements Ar
 		List<Article> content = queryFactory
 			.selectFrom(article)
 			.where(
-				article.invisible.eq(Boolean.TRUE)
-					.or(article.title.containsIgnoreCase(keyword))
-					.or(article.contents.containsIgnoreCase(keyword))
-					.or(article.authorName.containsIgnoreCase(keyword))
+				article.invisible.eq(Boolean.FALSE)
+					.and(
+						article.title.containsIgnoreCase(keyword)
+							.or(article.contents.containsIgnoreCase(keyword))
+							.or(article.authorName.containsIgnoreCase(keyword))
+					)
 			)
 			.orderBy(
 				getSortList(pageable).toArray(OrderSpecifier[]::new)
@@ -67,10 +69,12 @@ public class ArticleQueryDslImpl extends QuerydslRepositorySupport implements Ar
 			.select(article.count())
 			.from(article)
 			.where(
-				article.invisible.eq(Boolean.TRUE)
-					.or(article.title.containsIgnoreCase(keyword))
-					.or(article.contents.containsIgnoreCase(keyword))
-					.or(article.authorName.containsIgnoreCase(keyword))
+				article.invisible.eq(Boolean.FALSE)
+					.and(
+						article.title.containsIgnoreCase(keyword)
+							.or(article.contents.containsIgnoreCase(keyword))
+							.or(article.authorName.containsIgnoreCase(keyword))
+					)
 			)
 			.fetchOne();
 
