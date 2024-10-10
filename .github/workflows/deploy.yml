@@ -34,7 +34,6 @@ jobs:
       run: |
         cd ./src/main/resources
         touch ./application-prod.yml
-        echo "${{ secrets.APPLICATION_PROD }}"
         echo "${{ secrets.APPLICATION_PROD }}" | base64 --decode > ./application-prod.yml
       
     ## gradle build
