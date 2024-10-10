@@ -40,7 +40,7 @@ public class Article extends BaseEntity {
 	private LocalDateTime publishDate;
 	private Long viewCount;
 
-	public Article(String title, String contents, Category category, String mainPictureUrl, Long authorId, String authorName) {
+	public Article(String title, String contents, Category category, String mainPictureUrl, Long authorId, String authorName, boolean invisible) {
 		this.title = title;
 		this.contents = contents;
 		this.category = category;
@@ -49,10 +49,11 @@ public class Article extends BaseEntity {
 		this.publishDate = LocalDateTime.now();
 		this.authorName = authorName;
 		this.viewCount = 0L;
+		this.invisible = invisible;
 	}
 
 	public static Article testDummy(int number, Category category) {
-		return new Article("title" + number, "contents" + number, category, "url", 1L, "testMember");
+		return new Article("title" + number, "contents" + number, category, "url", 1L, "testMember", false);
 	}
 
 	public void changeTitle(String title) {
@@ -68,11 +69,11 @@ public class Article extends BaseEntity {
 	}
 
 	public void hide() {
-		this.invisible = false;
+		this.invisible = true;
 	}
 
 	public void show() {
-		this.invisible = true;
+		this.invisible = false;
 	}
 
 	public List<String> getTitleList() {
