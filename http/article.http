@@ -1,5 +1,5 @@
 ### GET Article Line Page
-GET {{host}}/api/admin/article/FEATURES/2?pageSize=10
+GET {{host}}/api/admin/article/FEATURES/2?pageSize=10&containInvisible=true
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IuyhsOyduO2YgSIsInJvbGUiOlsiU1VQRVJfQURNSU4iXSwidHlwZSI6IkFDQ0VTUyIsImlhdCI6MTcyODQ2MzM4NSwiZXhwIjoxODE0ODYzMzg1fQ.3lNPx8Ww4eUWEFcQfVWfpDACYGAxWWi0EFcyY8RrkdY
 

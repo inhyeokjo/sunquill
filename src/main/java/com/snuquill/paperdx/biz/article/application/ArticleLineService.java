@@ -42,7 +42,7 @@ public class ArticleLineService {
 	}
 
 	@Transactional(readOnly = true)
-	public Page<ArticleLineDto> getCategoryArticlePage(String categoryName, int page, int pageSize) {
+	public Page<ArticleLineDto> getCategoryArticlePage(String categoryName, int page, int pageSize, boolean containInvisible) {
 		if (page <= 0) {
 			log.warn("user tried to access non-existing page: /article/" + categoryName + "/" + page);
 			log.warn("article line page must be greater than 0");
@@ -57,7 +57,7 @@ public class ArticleLineService {
 		Category category = Category.valueOf(categoryName.toUpperCase());
 
 		PageRequest countRequest = PageRequest.of(page - 1, pageSize, Sort.by("publishDate").descending());
-		List<Article> articleList = articleRepository.findByCategoryVisible(category, countRequest);
+		List<Article> articleList = articleRepository.findByCategoryVisible(category, countRequest, containInvisible);
 		long categoryArticleCount = articleRepository.countAllByCategoryAndInvisible(category, false);
 		Map<Long, Author> authorMap = getAuthorMap(articleList);
 

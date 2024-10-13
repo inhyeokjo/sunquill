@@ -10,7 +10,7 @@ import com.snuquill.paperdx.biz.article.domain.Category;
 
 public interface ArticleQueryDsl {
 
-	List<Article> findByCategoryVisible(Category category, Pageable pageable);
+	List<Article> findByCategoryVisible(Category category, Pageable pageable, boolean containInvisible);
 
 	Page<Article> searchArticle(String keyword, Pageable pageable);
 }

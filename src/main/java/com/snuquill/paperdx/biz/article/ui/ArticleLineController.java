@@ -36,7 +36,7 @@ public class ArticleLineController {
 
 		model.addAttribute("isSearch", false);
 
-		Page<ArticleLineDto> categoryArticlePage = articleLineService.getCategoryArticlePage(categoryName, page, pageSize);
+		Page<ArticleLineDto> categoryArticlePage = articleLineService.getCategoryArticlePage(categoryName, page, pageSize, false);
 		model.addAttribute("articleLinePage", categoryArticlePage);
 		model.addAttribute("pageMetaData", PageMetaData.of(categoryArticlePage));
 		model.addAttribute("category", Category.valueOf(categoryName.toUpperCase()));
