@@ -42,11 +42,10 @@ public class ArticleDetailService {
 	}
 
 	@Transactional
-	public void modifyArticle(Long articleId, ArticleRequestDto.UploadRequest uploadRequest) {
+	public void modifyArticle(Long articleId, ArticleRequestDto.ModifyRequest modifyRequest) {
 		Article article = findArticleById(articleId);
 
-		Author author = authorRepository.getAuthor(uploadRequest.authorId());
-		Article newArticle = uploadRequest.mapToDomain(author.getName());
+		Article newArticle = modifyRequest.mapToDomain(article.getAuthorId(), article.getAuthorName());
 
 		article.apply(newArticle);
 		articleRepository.save(article);

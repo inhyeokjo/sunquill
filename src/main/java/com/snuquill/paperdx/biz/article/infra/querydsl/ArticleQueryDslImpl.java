@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.PathBuilder;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -31,10 +32,14 @@ public class ArticleQueryDslImpl extends QuerydslRepositorySupport implements Ar
 	}
 
 	@Override
-	public List<Article> findByCategoryVisible(Category category, Pageable pageable) {
+	public List<Article> findByCategoryVisible(Category category, Pageable pageable, boolean containInvisible) {
+		BooleanExpression whereCondition = article.category.eq(category);
+		if (!containInvisible) {
+			whereCondition = whereCondition.and(article.invisible.isFalse());
+		}
+
 		JPAQuery<Article> query = queryFactory.selectFrom(article)
-			.where(article.category.eq(category)
-				.and(article.invisible.isFalse()))
+			.where(whereCondition)
 			.limit(pageable.getPageSize())
 			.offset(pageable.getOffset());
 

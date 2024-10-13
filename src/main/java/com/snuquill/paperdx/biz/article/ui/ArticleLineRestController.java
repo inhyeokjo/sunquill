@@ -24,8 +24,9 @@ public class ArticleLineRestController {
 	public Page<ArticleLineDto> getArticleLinePage(
 		@PathVariable("feature") String categoryName,
 		@PathVariable("page") int page,
+		@RequestParam(value = "containInvisible", defaultValue = "false") boolean containInvisible,
 		@RequestParam(value = "pageSize", defaultValue = "10") int pageSize
 	) {
-		return articleLineService.getCategoryArticlePage(categoryName, page, pageSize);
+		return articleLineService.getCategoryArticlePage(categoryName, page, pageSize, containInvisible);
 	}
 }
