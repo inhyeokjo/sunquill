@@ -29,9 +29,9 @@ public class ArticleDetailRestController {
 
 	@PostMapping("/{articleId}")
 	public void modifyArticleDetail(@NotNull @PathVariable Long articleId,
-		@RequestBody ArticleRequestDto.UploadRequest uploadRequest
+		@RequestBody ArticleRequestDto.ModifyRequest modifyRequest
 	) {
-		articleDetailService.modifyArticle(articleId, uploadRequest);
+		articleDetailService.modifyArticle(articleId, modifyRequest);
 	}
 
 	@PostMapping
