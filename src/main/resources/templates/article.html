@@ -21,11 +21,11 @@
         category
     </div>
     <div class="headline">
-        <p th:each="titleLine : ${articleDetailDto.title()}" th:text="${titleLine}">
+        <p th:text="${articleDetailDto.title()}">
         </p>
     </div>
     <div class="article-content">
-        <p th:each="contentsLine : ${articleDetailDto.contents()}" th:text="${contentsLine}"></p>
+        <div th:utext="${articleDetailDto.contents()}"></div>
         <p></p>
         <p></p>
         <p></p>

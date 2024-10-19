@@ -29,8 +29,8 @@ public class ArticleDetailService {
 		return new ArticleDetailDto(
 			article.getMainPicture().getUrl(),
 			article.getCategory(),
-			article.getTitleList(),
-			article.getContentsList(),
+			article.getTitle(),
+			article.getContents(),
 			author);
 	}
 
