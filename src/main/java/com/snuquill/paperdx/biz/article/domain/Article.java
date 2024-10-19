@@ -76,14 +76,6 @@ public class Article extends BaseEntity {
 		this.invisible = false;
 	}
 
-	public List<String> getTitleList() {
-		return this.makeList(this.title);
-	}
-
-	public List<String> getContentsList() {
-		return this.makeList(this.contents);
-	}
-
 	public List<String> makeList(String text) {
 		return Arrays.asList(text.replace("\r\n", "\n").split("\n"));
 	}

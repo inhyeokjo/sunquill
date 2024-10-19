@@ -36,6 +36,7 @@
     font-size: 32px;
     font-style: normal;
     font-weight: 500;
+    align-items: center;
     line-height: normal;
     letter-spacing: 0;
     margin: 0;
@@ -46,6 +47,7 @@
 .headline > p {
     margin: 0;
     padding: 0;
+    max-width: 1080px;
     min-height: 32px;
 }
 
