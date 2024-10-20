@@ -59,6 +59,16 @@ public class ArticleDetailService {
 		articleRepository.save(article);
 	}
 
+	public void changeVisibility(Long articleId, boolean invisible) {
+		Article article = findArticleById(articleId);
+		if (invisible) {
+			article.hide();
+		} else{
+			article.show();
+		}
+		articleRepository.save(article);
+	}
+
 	private Article findArticleById(Long articleId) {
 		return articleRepository.findById(articleId)
 			.orElseThrow(() -> new DataNotFoundException("Article이 존재하지 않습니다. ID: " + articleId));

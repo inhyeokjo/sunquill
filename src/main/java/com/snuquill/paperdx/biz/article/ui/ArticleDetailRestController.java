@@ -40,4 +40,12 @@ public class ArticleDetailRestController {
 	) {
 		articleDetailService.uploadArticle(uploadRequest);
 	}
+
+	@PostMapping("/{articleId}/visibility")
+	public void changeVisibility(
+		@PathVariable Long articleId,
+		@RequestBody ArticleRequestDto.ChangeVisibilityRequest changeVisibilityRequest
+	) {
+		articleDetailService.changeVisibility(articleId, changeVisibilityRequest.invisible());
+	}
 }

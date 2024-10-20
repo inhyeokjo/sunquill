@@ -14,4 +14,7 @@ public class ArticleRequestDto {
 			return new Article(title, contents, category, pictureUrl, authorId, authorName, invisible);
 		}
 	}
+
+	public record ChangeVisibilityRequest (boolean invisible) {
+	}
 }
