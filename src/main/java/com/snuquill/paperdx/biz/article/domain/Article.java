@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
+import com.snuquill.paperdx.utils.StringUtils;
+
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -87,7 +89,7 @@ public class Article extends BaseEntity {
 
 	public Article apply(Article newArticle) {
 		this.setTitle(newArticle.getTitle());
-		this.setContents(newArticle.getContents());
+		this.setContents(newArticle.getHtmlContents());
 		this.setCategory(newArticle.getCategory());
 		this.setMainPicture(newArticle.getMainPicture());
 		this.setInvisible(newArticle.isInvisible());
@@ -96,4 +98,14 @@ public class Article extends BaseEntity {
 		this.setPublishDate(newArticle.getPublishDate());
 		return this;
 	}
+
+	public String getStringContents() {
+		return StringUtils.extractStringFromHtml(contents);
+	}
+
+	public String getHtmlContents() {
+		return contents;
+	}
+
+	private void getContents() { /* do not use getter of content */ }
 }

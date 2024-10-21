@@ -26,12 +26,7 @@ public class ArticleDetailService {
 		Long authorId = article.getAuthorId();
 		Author author = authorRepository.getAuthor(authorId);
 		articleRepository.save(article);
-		return new ArticleDetailDto(
-			article.getMainPicture().getUrl(),
-			article.getCategory(),
-			article.getTitle(),
-			article.getContents(),
-			author);
+		return ArticleDetailDto.from(article, author);
 	}
 
 	public String getArticleTitle(Long articleId) {
@@ -63,7 +58,7 @@ public class ArticleDetailService {
 		Article article = findArticleById(articleId);
 		if (invisible) {
 			article.hide();
-		} else{
+		} else {
 			article.show();
 		}
 		articleRepository.save(article);
