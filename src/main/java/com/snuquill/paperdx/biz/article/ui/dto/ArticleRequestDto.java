@@ -9,8 +9,8 @@ public class ArticleRequestDto {
 			return new Article(title, contents, category, pictureUrl, authorId, authorName, invisible);
 		}
 	}
-	public record ModifyRequest(String title, String pictureUrl, Category category, String contents, boolean invisible) {
-		public Article mapToDomain(Long authorId, String authorName) {
+	public record ModifyRequest(String title, String pictureUrl, Category category, String contents, Long authorId, boolean invisible) {
+		public Article mapToDomain(String authorName) {
 			return new Article(title, contents, category, pictureUrl, authorId, authorName, invisible);
 		}
 	}
