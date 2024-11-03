@@ -40,6 +40,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IuyhsOyduO2YgSIsI
   "pictureUrl": "https://snuquill-public-s3.s3.ap-northeast-2.amazonaws.com/photo/article/3104c9df-1ac9-4b6b-b41c-9f68a7850bad.png",
   "category": "FEATURES",
   "contents": "테스트입니다.2",
+  "authorId": 15,
   "invisible": false
 }
 
