@@ -125,3 +125,14 @@ div.author-box {
     line-height: normal;
     letter-spacing: 0.16px;
 }
+
+figure.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+figure.image > figcaption {
+    color: #767678;
+    font-size: 16px;
+}
