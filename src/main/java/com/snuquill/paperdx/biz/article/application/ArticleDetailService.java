@@ -38,11 +38,12 @@ public class ArticleDetailService {
 
 	@Transactional
 	public void modifyArticle(Long articleId, ArticleRequestDto.ModifyRequest modifyRequest) {
+		Author author = authorRepository.getAuthor(modifyRequest.authorId());
+		Article newArticle = modifyRequest.mapToDomain(author.getName());
+
 		Article article = findArticleById(articleId);
-
-		Article newArticle = modifyRequest.mapToDomain(article.getAuthorId(), article.getAuthorName());
-
 		article.apply(newArticle);
+
 		articleRepository.save(article);
 	}
 
