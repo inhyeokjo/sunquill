@@ -39,13 +39,13 @@
                     <img th:src="${articleLine.articlePictureUrl}">
                 </div>
                 <div class="article-preview-container">
-                    <div class="article-preview-title" th:text="${articleLine.articleTitle}">
+                    <div class="article-preview-title" th:utext="${articleLine.articleTitle}">
                         To Leave or Not To Leave
                     </div>
                     <div class="article-preview-author" th:text="${articleLine.authorName}">
                         Ji-Woo Lee
                     </div>
-                    <div class="article-preview-content" th:text="${articleLine.articleSummary}">
+                    <div class="article-preview-content" th:utext="${articleLine.articleSummary}">
                         Early morning, on 24 Feb. 2022, I woke up in my dorm room in the main building of Moscow State University to unbelievable news: Russia had invaded Ukraine, and my host-country
                         was now at war. [...]
                     </div>

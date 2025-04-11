@@ -19,6 +19,12 @@ public class ArticleLineDto {
 	private String authorName;
 	private boolean invisible;
 
+	public static ArticleLineDto withHighlight(Article article,String searchText) {
+		String highlightedTitle = highlightSearchText(article.getTitle(), searchText);
+		String highlightedStringContents = highlightSearchText(article.getStringContents(), searchText);
+		return new ArticleLineDto(article.getId(), highlightedTitle, highlightedStringContents, article.getMainPicture().getUrl(), article.getAuthorName(), article.isInvisible());
+	}
+
 	public static ArticleLineDto of(Article article, String authorName) {
 		return new ArticleLineDto(article.getId(), article.getTitle(), article.getStringContents(), article.getMainPicture().getUrl(), authorName, article.isInvisible());
 	}
@@ -30,5 +36,16 @@ public class ArticleLineDto {
 
 	public static ArticleLineDto of(Article article) {
 		return new ArticleLineDto(article.getId(), article.getTitle(), article.getStringContents(), article.getMainPicture().getUrl(), article.getAuthorName(), article.isInvisible());
+	}
+
+
+
+	private static String highlightSearchText(String text, String searchText) {
+		if (searchText == null || searchText.isEmpty() || text == null) {
+			return text;
+		}
+		return text.replaceAll(
+			"(?i)(" + searchText + ")",
+			"<span class=\"highlight\">$1</span>");
 	}
 }
