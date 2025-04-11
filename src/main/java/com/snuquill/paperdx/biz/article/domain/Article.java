@@ -95,7 +95,6 @@ public class Article extends BaseEntity {
 		this.setInvisible(newArticle.isInvisible());
 		this.setAuthorId(newArticle.getAuthorId());
 		this.setAuthorName(newArticle.getAuthorName());
-		this.setPublishDate(newArticle.getPublishDate());
 		return this;
 	}
 
