@@ -16,5 +16,5 @@ Refresh-Token: eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiUkVGUkVTSCIsImlkIjoxLCJpYXQiOjE3
 
 
 ### 암호화 된 비밀번호 확인
-GET  {{host}}/api/admin/auth/encode-password?pw=98dlsgur
+GET  {{host}}/api/admin/auth/encode-password?pw=abcde1234
 Content-Type: application/json

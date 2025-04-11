@@ -29,6 +29,6 @@ public class ArticleSearchService {
 
 		PageRequest pageable = PageRequest.of(page - 1, pageSize, Sort.by("publishDate").descending());
 		Page<Article> articles = articleRepository.searchArticle(searchText, pageable);
-		return articles.map(ArticleLineDto::of);
+		return articles.map(article -> ArticleLineDto.withHighlight(article, searchText));
 	}
 }
